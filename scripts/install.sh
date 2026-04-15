@@ -195,6 +195,70 @@ install_niri() {
         install_package "$pkg"
     done
     ok "Niri done."
+
+    # Wacom setup is part of any Wayland DE install
+    setup_wacom
+}
+
+setup_wacom() {
+    log "Setting up Wacom Cintiq Pro 24..."
+
+    # Install libwacom — provides device profiles for the kernel driver
+    if ! is_installed "libwacom"; then
+        install_package "libwacom"
+    else
+        ok "Already installed: libwacom"
+    fi
+
+    # Write udev rule — grants hidraw access to the tablet
+    # Required because product IDs 037c/037f/0380/0381/0331 are missing
+    # from OTD's bundled rules as of version 0.6.6.2
+    local udev_rule="/etc/udev/rules.d/99-wacom-cintiq-pro24.rules"
+    if [[ -f "$udev_rule" ]]; then
+        ok "Udev rule already exists: $udev_rule"
+    else
+        log "Writing udev rule: $udev_rule"
+        sudo tee "$udev_rule" > /dev/null << 'UDEV'
+# Wacom Cintiq Pro 24 - missing from OTD 0.6.6.2 rules
+KERNEL=="hidraw*", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="037c", TAG+="uaccess", TAG+="udev-acl"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="037c", TAG+="uaccess", TAG+="udev-acl"
+KERNEL=="hidraw*", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="037f", TAG+="uaccess", TAG+="udev-acl"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="037f", TAG+="uaccess", TAG+="udev-acl"
+KERNEL=="hidraw*", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0380", TAG+="uaccess", TAG+="udev-acl"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0380", TAG+="uaccess", TAG+="udev-acl"
+KERNEL=="hidraw*", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0381", TAG+="uaccess", TAG+="udev-acl"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0381", TAG+="uaccess", TAG+="udev-acl"
+KERNEL=="hidraw*", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0331", TAG+="uaccess", TAG+="udev-acl"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0331", TAG+="uaccess", TAG+="udev-acl"
+UDEV
+        ok "Udev rule written."
+    fi
+
+    # Write modules-load.d entry — loads wacom kernel module on boot
+    local modules_conf="/etc/modules-load.d/wacom.conf"
+    if [[ -f "$modules_conf" ]]; then
+        ok "Module config already exists: $modules_conf"
+    else
+        log "Writing module config: $modules_conf"
+        echo "wacom" | sudo tee "$modules_conf" > /dev/null
+        ok "Module config written."
+    fi
+
+    # Reload udev rules — applies immediately without reboot
+    log "Reloading udev rules..."
+    sudo udevadm control --reload-rules
+    sudo udevadm trigger --action=add --attr-match=idVendor=056a
+    ok "Udev rules reloaded."
+
+    # Load wacom module for current session
+    if ! lsmod | grep -q "^wacom"; then
+        log "Loading wacom kernel module..."
+        sudo modprobe wacom && ok "Wacom module loaded." || warn "Failed to load wacom module — reboot may be required."
+    else
+        ok "Wacom module already loaded."
+    fi
+
+    ok "Wacom setup done."
 }
 
 install_noctalia() {
@@ -338,7 +402,10 @@ usage() {
     printf "    -repos        GitHub repos (Momoisay)\n"
     printf "\n"
     printf "  DE flags:\n"
-    printf "    -niri         Niri compositor packages\n"
+    printf "    -niri         Niri compositor packages + Wacom setup\n"
+    printf "\n"
+    printf "  Hardware flags:\n"
+    printf "    -wacom        Wacom Cintiq Pro 24 udev rules + kernel module\n"
     printf "\n"
     printf "  Shell flags:\n"
     printf "    -noctalia     Noctalia shell (includes noctalia-qs check)\n"
@@ -388,14 +455,15 @@ if [[ $# -eq 0 ]]; then
     read -r answer
     [[ "$answer" =~ ^[Yy]$ ]] && install_repos
 
+    printf "\n  Set up Wacom Cintiq Pro 24? [y/N] "
+    read -r answer
+    [[ "$answer" =~ ^[Yy]$ ]] && setup_wacom
+
     prompt_restore
     exit 0
 fi
 
 # Flag mode
-de_selected=0
-shell_selected=0
-
 for arg in "$@"; do
     case "$arg" in
         -all)
@@ -417,6 +485,7 @@ for arg in "$@"; do
         -ai)         install_ai ;;
         -repos)      install_repos ;;
         -niri)       install_niri ;;
+        -wacom)      setup_wacom ;;
         -noctalia)   install_noctalia ;;
         -caelestia)  install_caelestia ;;
         -list)       show_list ;;
