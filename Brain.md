@@ -1,4 +1,4 @@
-# Brain.md — Tyler's Arch/CachyOS Setup Record
+# Brain.md — Arch/CachyOS Setup Record
 
 ## System Overview
 
@@ -7,7 +7,6 @@
 - **Shell:** Noctalia (Quickshell-based), noctalia-qs + noctalia-shell
 - **Terminal:** Kitty (primary), Alacritty (secondary)
 - **Machine hostname:** Arona
-- **User:** tyler
 - **GPU:** AMD (ROCm, radeon driver)
 - **Tablet:** Wacom Cintiq Pro 24 (DTK-2420), product ID 056a:037c
 
@@ -27,7 +26,7 @@
 - Module persisted: `/etc/modules-load.d/wacom.conf`
 - Custom udev rule: `/etc/udev/rules.d/99-wacom-cintiq-pro24.rules`
   - Required because product IDs 037c/037f/0380/0381/0331 are missing from OTD 0.6.6.2
-- Tablet mapped to DP-2 in niri config: `tablet { map-to-output "DP-2" }`
+- Tablet mapped to DP-2 in `input.kdl`: `tablet { map-to-output "DP-2" }`
 - `libwacom 2.18.0-2` installed
 
 ---
@@ -44,6 +43,8 @@
 - **Deliberate snapshots** — `dotback` is run manually when configs are in a known-good state
 - **One backup** — `restore` keeps one prior state in `~/.dotfiles/backups/`, overwritten each run
 - **No fish_variables** — excluded from backup, runtime-generated and machine-specific
+- **Hardware values never hardcoded by scripts** — output names, IPs, device paths come from
+  the user's terminal only
 
 ### Scripts
 | Script | Location | Purpose |
@@ -54,6 +55,7 @@
 | `install.sh` | `~/.dotfiles/scripts/` | Fresh install package bootstrapper |
 | `clean_cache.sh` | `~/.dotfiles/scripts/` | Clean pacman/paru caches |
 | `launcher-toggle.sh` | `~/.dotfiles/scripts/` | Toggle active shell launcher (shell-agnostic) |
+| `niri-update.sh` | `~/.dotfiles/scripts/update/` | Niri config update pipeline (planned) |
 
 ### Fish Functions
 | Command | Purpose |
@@ -68,6 +70,7 @@
 | `install -flag` | Install one category |
 | `clean-cache` | Clean pacman/paru caches |
 | `dothelp` | Show all custom commands |
+| `niri-update` | Run niri-update.sh (planned) |
 
 ### App Inventory
 | App | Config path | Package(s) |
@@ -112,28 +115,145 @@
 
 ## Niri Configuration
 
-### Key Settings
-- `focus-follows-mouse max-scroll-amount="0%"` — focus on hover, no scroll
-- `tablet { map-to-output "DP-2" }` — pen maps to Cintiq display
-- `spawn-at-startup "xsettingsd"` — GTK icon theme support (replaces dead waybar line)
-- `spawn-at-startup "xwayland-satellite"` — X11 app support
+### File Structure
+```
+~/.config/niri/
+├── config.kdl      ← upstream default + include lines only, never edited, replaced on updates
+├── custom.kdl      ← binds, window-rules, spawns, prefer-no-csd, screenshot-path
+├── outputs.kdl     ← monitor output blocks
+├── input.kdl       ← full input{} block
+└── layout.kdl      ← full layout{} block
+```
 
-### Key Bindings (custom)
+### config.kdl include block (appended to upstream default)
+```kdl
+// ── Personal Configuration ─────────────────────────────────────────────────
+// Files managed by dotfiles. Uncomment includes as you migrate blocks out.
+// See ~/.dotfiles/scripts/update/niri-changes.md after running niri-update.
+
+// Safe to include immediately — does not conflict with defaults:
+include "custom.kdl"
+include "outputs.kdl"
+
+// Remove layout{} from config.kdl above, then uncomment:
+// include "layout.kdl"
+
+// Remove input{} from config.kdl above, then uncomment:
+// include "input.kdl"
+```
+
+### What gets committed to dotfiles
+| File | Committed | Reason |
+|------|-----------|--------|
+| `custom.kdl` | ✓ | Personal binds and rules |
+| `outputs.kdl` | ✓ | Monitor config (may need updating on new hardware) |
+| `layout.kdl` | ✓ | Personal layout preferences |
+| `input.kdl` | ✓ | Personal input preferences |
+| `config.kdl` | ✗ | Regenerated on each update, not personal |
+| `*.bak` | ✗ | Gitignored, temporary reference only |
+| `reference.kdl` | ✗ | Gitignored, machine state |
+
+### Key Settings
+- `focus-follows-mouse max-scroll-amount="0%"` — in `input.kdl`
+- `tablet { map-to-output "DP-2" }` — in `input.kdl`
+- `spawn-at-startup "xsettingsd"` — in `custom.kdl`
+- `spawn-at-startup "xwayland-satellite"` — in `custom.kdl`
+- `spawn-sh-at-startup "qs -c noctalia-shell -d"` — in `custom.kdl`
+
+### Key Bindings (custom, in custom.kdl)
 | Bind | Action |
 |------|--------|
 | `Mod+Space` | Toggle Noctalia launcher via `launcher-toggle.sh` |
 | `Mod+T` | Kitty terminal |
-| `Mod+D` | Fuzzel launcher |
 | `Mod+W` | Waterfox |
 | `Mod+E` | Dolphin |
+| `Mod+C` | Close window (overrides default center-column) |
+| `Mod+M` | Maximize to edges |
+| `Mod+O` | Toggle overview |
+| `Mod+Tab` | Toggle overview |
+| `Mod+Shift+W` | Toggle tabbed display |
 | `Super+Alt+L` | Swaylock |
 
-### Launcher Toggle Script
+### Launcher Toggle
 ```bash
 # Shell-agnostic — tries noctalia first, falls back to caelestia, then fuzzel
 ~/.dotfiles/scripts/launcher-toggle.sh
+# Uses spawn-sh for $HOME expansion
 # Calls: qs ipc -c noctalia-shell call launcher toggle
 ```
+
+---
+
+## Config Update Strategy
+
+### The Problem
+When apps ship new default configs, restoring old snapshots means missing new
+options. The include-based separation solves this cleanly.
+
+### Include-based separation (implemented for niri)
+
+**Philosophy:**
+- `config.kdl` — upstream default, disposable, replaced freely on updates
+- `custom.kdl` — binds, rules, spawns — things that layer safely on top
+- `outputs.kdl` — monitor config, owned entirely
+- `layout.kdl` — layout block, owned entirely
+- `input.kdl` — input block, owned entirely
+
+**On niri update (manual process):**
+1. Run `niri-update --update` (planned script)
+2. Review `~/.dotfiles/scripts/update/niri-changes.md`
+3. Move `layout{}` block from new `config.kdl` to `layout.kdl`
+4. Use LLM or manual diff to merge `layout.kdl.bak` values into `layout.kdl`
+5. Same for `input.kdl`
+6. Run `niri-update --apply` to validate and confirm
+
+**Key insight — Phase 2 (LLM-assisted merging):**
+Paste `layout.kdl.bak` and the new upstream `layout{}` block into an LLM conversation.
+Ask it to merge your old values into the new block. Review, paste into `layout.kdl`,
+validate. This is the right tool for the judgment work.
+
+### niri-update.sh (planned)
+```
+~/.dotfiles/scripts/update/niri-update.sh
+
+--fresh   (called by install.sh)
+  Download default → config.kdl
+  Append include lines (safe ones active, owned blocks commented)
+  Restore custom.kdl, outputs.kdl from dotfiles repo
+  Treat layout.kdl, input.kdl from repo as .bak immediately
+  Create blank layout.kdl, input.kdl
+  niri validate
+  Print instructions for next steps
+
+--update  (called by niri-update Fish function)
+  Download new default
+  Diff new default vs reference.kdl → write niri-changes.md
+  Rename layout.kdl → layout.kdl.bak, input.kdl → input.kdl.bak
+  Create blank layout.kdl, input.kdl
+  Replace config.kdl with new default + include lines
+  Print: review niri-changes.md, move blocks, then run --apply
+
+--apply   (called after user has updated .kdl files)
+  Check no managed .kdl files are blank → abort if any are
+  niri validate
+  If valid: save new default as reference.kdl, done
+  If invalid: abort, print error, .bak files are safety net
+```
+
+### Apps supporting include separation
+| App | Include syntax | Status |
+|-----|---------------|--------|
+| Niri | `include "custom.kdl"` etc. | ✓ Implemented |
+| Kitty | `include custom.conf` | Planned |
+| Alacritty | `import: [custom.toml]` | Planned |
+| Fish | functions are already separate files | ✓ Done by design |
+| Nvim | `:source custom.vim` | Planned |
+
+### Apps without include support
+| App | Strategy |
+|-----|---------|
+| Noctalia | Watch changelogs — JSON format has no include support |
+| Krita | Watch changelogs — rc files are stable, low risk |
 
 ---
 
@@ -143,99 +263,60 @@
 - Tray icons (Steam, Discord, Telegram) use StatusNotifierItem protocol
 - Left click opens tray menu — cannot be overridden to focus window
 - Middle click calls `secondaryActivate()` — app-defined, inconsistent
-- This is an upstream limitation, not configurable from niri or noctalia config
-- Suggested upstream feature request: configurable middle click to focus window by app-id
+- Upstream limitation — suggested feature request: configurable middle click
+  to focus window by app-id
 
-### Niri Blur (pending)
+### Niri Blur (pending next release)
 - Blur merged into niri `main` on April 15, 2026 (PR #3483 by YaLTeR)
-- **Not yet in a release** — currently on niri 25.11, blur requires next release
-- Config syntax when available:
+- Not yet in a release — currently on niri 25.11
+- When available, add to `custom.kdl`:
   ```kdl
   window-rule {
-      background-effect {
-          blur true
-      }
+      background-effect { blur true }
   }
   layer-rule {
-      background-effect {
-          blur true
-      }
+      background-effect { blur true }
   }
   ```
-- Xray (blur wallpaper only) is the default — most efficient
-- Non-xray (blur everything below) is experimental, has animation glitches
-- Kitty and Quickshell have PRs in progress for `ext-background-effect` protocol support
+- Xray (blur wallpaper only) is default — most efficient
+- Also set `background_opacity` in kitty/alacritty for blur to show through
 
 ### Starship
-- Currently installed manually to `/usr/local/bin/starship` (not via pacman)
-- Available in `extra/` repo as `starship 1.24.2-2`
-- On next fresh install: `paru -S starship`
-- `dotback -list` will show `✗` for starship until reinstalled via paru
+- Installed manually to `/usr/local/bin/starship` — not via pacman
+- Available as `paru -S starship` on next fresh install
+- `dotback -list` shows `✗` until reinstalled via paru
 
 ### OPNSense / Samba
-- Samba share mounts require ports 445/TCP (modern), 137-139 (legacy NetBIOS)
+- Samba ports: 445/TCP (required), 137-139 (legacy, optional)
 - `cifs-utils` required on Arch client
-- Credentials stored in `/etc/samba/credentials` (chmod 600)
-- fstab uses `_netdev` flag for network mounts
-- Current issue: error 115 (ETIMEDOUT) after OPNSense rule update — diagnosed as
-  possible stale state table or rule ordering issue
-
----
-
-## Config File Update Strategy (planned)
-
-### The Problem
-Dotfile backups are snapshots. When apps ship new default configs, restoring old
-snapshots means missing new options or potentially conflicting with new formats.
-
-### Solution: Include-based separation (Option 5)
-
-Split configs into two files per app:
-1. **Upstream default** — never edited, never backed up, replaced freely on updates
-2. **Personal override** — only your intentional changes, small, backed up in dotfiles
-
-Apps that support this:
-| App | Include syntax | Personal file |
-|-----|---------------|---------------|
-| Niri | `include "tyler.kdl"` in config.kdl | `tyler.kdl` |
-| Kitty | `include tyler.conf` in kitty.conf | `tyler.conf` |
-| Alacritty | `import: [tyler.toml]` in alacritty.toml | `tyler.toml` |
-| Fish | already done — functions are separate files | no change needed |
-| Nvim | `:source tyler.vim` in init.vim | `tyler.vim` |
-
-Apps without include support:
-| App | Strategy |
-|-----|---------|
-| Noctalia | Option 1 — watch changelogs on updates |
-| Krita | Option 1 — rc files are stable, low risk |
-
-### How niri include works
-```
-niri reads config.kdl (upstream defaults, never touched)
-    └── include "tyler.kdl" at the bottom
-            └── tyler.kdl contains ONLY your personal settings
-```
-
-For sections that cannot be repeated (output, input, layout etc.) — move your
-entire version to tyler.kdl and remove it from config.kdl entirely.
-
-For sections that can be repeated (window-rule, binds etc.) — yours in tyler.kdl
-simply add to or override what config.kdl sets.
-
-`tyler.kdl` becomes a clear, readable record of every intentional decision you've made.
-`config.kdl` is disposable — replace it with upstream on every update, your settings survive.
+- Credentials: `/etc/samba/credentials` (chmod 600)
+- fstab flag: `_netdev`
+- Error 115 (ETIMEDOUT) after OPNSense rule update — check state table and rule order
 
 ---
 
 ## What's Next
 
-- [ ] Implement include split for niri (`tyler.kdl`)
-- [ ] Implement include split for kitty (`tyler.conf`)
-- [ ] Implement include split for alacritty (`tyler.toml`)
-- [ ] Update dotfiles sync to back up personal files only
-- [ ] Update dotback -list to reflect new file structure
-- [ ] Enable blur once niri next release lands on CachyOS
-- [ ] Set background_opacity in kitty/alacritty for blur to show
-- [ ] Private setup script (USB only): fstab, samba, UFW
-- [ ] Future: switch to git-based dotback workflow (commit on each backup)
-- [ ] Future: switch to GNU Stow if symlink approach preferred later
+### Immediate
+- [ ] Write `niri-update.sh` (--fresh, --update, --apply)
+- [ ] Write `niri-update` Fish function
+- [ ] Update `restore -niri` to call `niri-update.sh --fresh`
+- [ ] Update `install.sh -niri` to call `niri-update.sh --fresh`
+- [ ] Add `niri-update` to `dothelp`
+
+### Config separation for other apps
+- [ ] Kitty — extract `custom.conf`, implement include
+- [ ] Alacritty — extract `custom.toml`, implement import
+- [ ] Nvim — extract `custom.vim`, implement source
+
+### When niri blur lands
+- [ ] Set `background_opacity 0.85` in kitty config
+- [ ] Add blur window-rule and layer-rule to `custom.kdl`
+- [ ] `dotback -niri`
+
+### Private setup (USB only)
+- [ ] Write `private-setup.sh` for fstab, samba, UFW
+
+### Future
+- [ ] git-based dotback workflow (commit on each backup)
+- [ ] Consider GNU Stow when setup is stable
