@@ -24,7 +24,7 @@ function dothelp
     echo ""
     echo "  ── Apps ──────────────────────────────────────────────────"
     echo ""
-    echo "  niri kitty alacritty fastfetch noctalia"
-    echo "  fish starship nvim krita"
+    echo "  niri hyprland kitty alacritty fastfetch noctalia"
+    echo "  fish starship nvim krita ckb-next"
     echo ""
 end
