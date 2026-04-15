@@ -1,0 +1,173 @@
+// custom.kdl — personal niri configuration
+// Included from config.kdl via: include "custom.kdl"
+//
+// This file contains ONLY intentional personal changes from niri defaults.
+// Default config lives at ~/.config/niri/config.kdl and should not be edited.
+// On niri updates: diff old-default vs new-default, cherry-pick new options here.
+
+// ── Monitor Outputs ───────────────────────────────────────────────────────────
+
+output "DP-3" {
+    mode "2560x1440@143.999"
+    scale 1.0
+    position x=0 y=0
+    focus-at-startup
+}
+
+output "HDMI-A-1" {
+    mode "1920x1080@60.000"
+    position x=-1920 y=0
+}
+
+output "DP-2" {
+    mode "3840x2160@59.997"
+    position x=0 y=1440
+}
+
+// ── Input ─────────────────────────────────────────────────────────────────────
+// Full input block owned here. Default input block must be removed from config.kdl.
+// On niri updates: check changelog for new input options and add desired ones below.
+
+input {
+    keyboard {
+        xkb {
+        }
+        numlock
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+    }
+
+    mouse {
+    }
+
+    trackpoint {
+    }
+
+    tablet {
+        map-to-output "DP-2"
+    }
+
+    focus-follows-mouse max-scroll-amount="0%"
+}
+
+// ── Layout ────────────────────────────────────────────────────────────────────
+// Full layout block owned here. Default layout block must be removed from config.kdl.
+// On niri updates: check changelog for new layout options and add desired ones below.
+
+layout {
+    gaps 12
+
+    center-focused-column "never"
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    default-column-width {}
+
+    focus-ring {
+        width 3
+        active-gradient from="#d188b9" to="#be88c8" angle=90
+    }
+
+    border {
+        off
+        width 4
+        active-color "#ffc87f"
+        inactive-color "#505050"
+        urgent-color "#9b0000"
+    }
+
+    shadow {
+        softness 30
+        spread 5
+        offset x=0 y=5
+        color "#0007"
+    }
+
+    struts {
+    }
+}
+
+// ── Startup ───────────────────────────────────────────────────────────────────
+
+// Shell settings daemon — provides icon theme and GTK settings to apps
+spawn-at-startup "xsettingsd"
+spawn-at-startup "xwayland-satellite"
+
+// Noctalia shell
+spawn-sh-at-startup "qs -c noctalia-shell -d"
+
+// ── Preferences ───────────────────────────────────────────────────────────────
+
+prefer-no-csd
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+// ── Window Rules ──────────────────────────────────────────────────────────────
+
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+// ── Key Bindings ──────────────────────────────────────────────────────────────
+// Only binds that differ from niri defaults are listed here.
+// Default binds remain active from config.kdl.
+
+binds {
+    // Terminal — kitty instead of default alacritty
+    Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+
+    // Additional app launchers
+    Mod+W hotkey-overlay-title="Run an Application: waterfox" { spawn "waterfox"; }
+    Mod+E hotkey-overlay-title="Run an Application: dolphin" { spawn "dolphin"; }
+
+    // Close window — Mod+C instead of default Mod+Q
+    Mod+C repeat=false { close-window; }
+
+    // Overview
+    Mod+O repeat=false { toggle-overview; }
+    Mod+Tab { toggle-overview; }
+
+    // Maximize to edges
+    Mod+M { maximize-window-to-edges; }
+
+    // Launcher — shell-agnostic toggle script
+    // spawn-sh used instead of spawn to allow $HOME expansion
+    Mod+Space { spawn-sh "bash $HOME/.dotfiles/scripts/launcher-toggle.sh"; }
+
+    // Tabbed display — Mod+Shift+W instead of default Mod+W
+    Mod+Shift+W { toggle-column-tabbed-display; }
+
+    // Center column — commented out, Mod+C repurposed for close-window above
+    //Mod+C { center-column; }
+
+    // Monitor focus — corrected from default
+    Mod+Shift+Left  { focus-monitor-right; }
+    Mod+Shift+Ctrl+Left { focus-monitor-left; }
+
+    // Scroll wheel — remapped from workspace to column navigation
+    Mod+WheelScrollDown      cooldown-ms=150  { focus-column-right; }
+    Mod+WheelScrollUp        cooldown-ms=150  { focus-column-left; }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150  { move-column-left; }
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=150  { move-column-right; }
+
+    // Shift+Wheel — workspace navigation
+    Mod+Shift+WheelScrollDown { move-column-to-workspace-down; }
+    Mod+Shift+WheelScrollUp   { move-column-to-workspace-up; }
+
+    // Alt+Wheel — workspace focus
+    Mod+Alt+WheelScrollDown { focus-workspace-down; }
+    Mod+Alt+WheelScrollUp   { focus-workspace-up; }
+}
