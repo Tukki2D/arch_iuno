@@ -415,4 +415,10 @@ binds {
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
 }
+
+//Custom Additions
 include "custom.kdl"
+include "outputs.kdl"
+include "input.kdl"
+include "layout.kdl"
+

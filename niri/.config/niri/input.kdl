@@ -1,0 +1,38 @@
+// input.kdl — input device configuration
+// Included from config.kdl via: include "input.kdl"
+//
+// This file owns the full input{} block.
+// config.kdl must not contain an input{} block.
+//
+// On niri updates: check changelog for new input options and add desired ones below.
+// Reference: https://niri-wm.github.io/niri/Configuration:-Input
+
+
+// ── Input ─────────────────────────────────────────────────────────────────────
+// Full input block owned here. Default input block must be removed from config.kdl.
+// On niri updates: check changelog for new input options and add desired ones below.
+
+input {
+    keyboard {
+        xkb {
+        }
+        numlock
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+    }
+
+    mouse {
+    }
+
+    trackpoint {
+    }
+
+    tablet {
+        map-to-output "DP-2"
+    }
+
+    focus-follows-mouse max-scroll-amount="0%"
+}
