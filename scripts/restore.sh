@@ -108,6 +108,12 @@ restore_niri() {
     restore_dir "$DOTFILES/niri/.config/niri" "$HOME/.config/niri"
 }
 
+restore_hypr() {
+    log "Restoring hypr..."
+    ensure_packages hypr
+    restore_dir "$DOTFILES/hypr/.config/hypr" "$HOME/.config/hypr"
+}
+
 restore_kitty() {
     log "Restoring kitty..."
     ensure_packages kitty
@@ -220,6 +226,12 @@ restore_krita() {
     ok "krita done."
 }
 
+restore_ckbnext() {
+    log "Restoring ckb-next..."
+    ensure_packages ckb-next
+    restore_dir "$DOTFILES/ckb-next/.config/ckb-next" "$HOME/.config/ckb-next"
+}
+
 # ── Usage ─────────────────────────────────────────────────────────────────────
 
 usage() {
@@ -229,6 +241,7 @@ usage() {
     printf "  Flags:\n"
     printf "    -all          Restore all configs\n"
     printf "    -niri         Niri compositor\n"
+    printf "    -hypr         Hyprland compositor\n"
     printf "    -kitty        Kitty terminal\n"
     printf "    -alacritty    Alacritty terminal\n"
     printf "    -fastfetch    Fastfetch\n"
@@ -237,6 +250,7 @@ usage() {
     printf "    -starship     Starship prompt\n"
     printf "    -nvim         Neovim\n"
     printf "    -krita        Krita configs and user data\n"
+    printf "    -ckb-next     CKB-Next keyboard profiles\n"
     printf "    -list         Show backup and package status\n"
     printf "\n"
     printf "  Existing configs are backed up to: %s\n" "$BACKUPS"
@@ -255,6 +269,7 @@ for arg in "$@"; do
     case "$arg" in
         -all)
             restore_niri
+            restore_hypr
             restore_kitty
             restore_alacritty
             restore_fastfetch
@@ -263,17 +278,20 @@ for arg in "$@"; do
             restore_starship
             restore_nvim
             restore_krita
+            restore_ckbnext
             ;;
-        -niri)       restore_niri ;;
-        -kitty)      restore_kitty ;;
-        -alacritty)  restore_alacritty ;;
-        -fastfetch)  restore_fastfetch ;;
-        -noctalia)   restore_noctalia ;;
-        -fish)       restore_fish ;;
-        -starship)   restore_starship ;;
-        -nvim)       restore_nvim ;;
-        -krita)      restore_krita ;;
-        -list)       show_list ;;
+        -niri)      restore_niri ;;
+        -hypr)      restore_hypr ;;
+        -kitty)     restore_kitty ;;
+        -alacritty) restore_alacritty ;;
+        -fastfetch) restore_fastfetch ;;
+        -noctalia)  restore_noctalia ;;
+        -fish)      restore_fish ;;
+        -starship)  restore_starship ;;
+        -nvim)      restore_nvim ;;
+        -krita)     restore_krita ;;
+        -ckb-next)  restore_ckbnext ;;
+        -list)      show_list ;;
         *)
             err "Unknown flag: $arg"
             usage

@@ -66,6 +66,7 @@ install_package() {
 
 APP_NAMES=(
     niri
+    hypr
     kitty
     alacritty
     fastfetch
@@ -74,10 +75,12 @@ APP_NAMES=(
     starship
     nvim
     krita
+    ckb-next
 )
 
 declare -A APP_CONFIG_CHECK
 APP_CONFIG_CHECK[niri]="niri/.config/niri"
+APP_CONFIG_CHECK[hypr]="hypr/.config/hypr"
 APP_CONFIG_CHECK[kitty]="kitty/.config/kitty"
 APP_CONFIG_CHECK[alacritty]="alacritty/.config/alacritty"
 APP_CONFIG_CHECK[fastfetch]="fastfetch/.config/fastfetch"
@@ -86,9 +89,11 @@ APP_CONFIG_CHECK[fish]="fish/.config/fish"
 APP_CONFIG_CHECK[starship]="starship/.config/starship.toml"
 APP_CONFIG_CHECK[nvim]="nvim/.config/nvim"
 APP_CONFIG_CHECK[krita]="krita/.config/kritarc"
+APP_CONFIG_CHECK[ckb-next]="ckb-next/.config/ckb-next"
 
 declare -A APP_PACKAGES
 APP_PACKAGES[niri]="niri"
+APP_PACKAGES[hypr]="hyprland"
 APP_PACKAGES[kitty]="kitty"
 APP_PACKAGES[alacritty]="alacritty"
 APP_PACKAGES[fastfetch]="fastfetch"
@@ -97,6 +102,7 @@ APP_PACKAGES[fish]="fish"
 APP_PACKAGES[starship]="starship"
 APP_PACKAGES[nvim]="neovim"
 APP_PACKAGES[krita]="krita"
+APP_PACKAGES[ckb-next]="ckb-next-git"
 
 # ── Status helpers ────────────────────────────────────────────────────────────
 

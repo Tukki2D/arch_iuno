@@ -58,6 +58,11 @@ backup_niri() {
     copy_dir "$HOME/.config/niri" "$DOTFILES/niri/.config/niri"
 }
 
+backup_hypr() {
+    log "Backing up hypr..."
+    copy_dir "$HOME/.config/hypr" "$DOTFILES/hypr/.config/hypr"
+}
+
 backup_kitty() {
     log "Backing up kitty..."
     copy_dir "$HOME/.config/kitty" "$DOTFILES/kitty/.config/kitty"
@@ -149,6 +154,11 @@ backup_krita() {
     ok "krita done."
 }
 
+backup_ckbnext() {
+    log "Backing up ckb-next..."
+    copy_dir "$HOME/.config/ckb-next" "$DOTFILES/ckb-next/.config/ckb-next"
+}
+
 # ── Usage ─────────────────────────────────────────────────────────────────────
 
 usage() {
@@ -158,6 +168,7 @@ usage() {
     printf "  Flags:\n"
     printf "    -all          Back up all configs\n"
     printf "    -niri         Niri compositor\n"
+    printf "    -hypr         Hyprland compositor\n"
     printf "    -kitty        Kitty terminal\n"
     printf "    -alacritty    Alacritty terminal\n"
     printf "    -fastfetch    Fastfetch\n"
@@ -166,6 +177,7 @@ usage() {
     printf "    -starship     Starship prompt\n"
     printf "    -nvim         Neovim\n"
     printf "    -krita        Krita configs and user data\n"
+    printf "    -ckb-next     CKB-Next keyboard profiles\n"
     printf "    -list         Show backup and package status\n"
     printf "\n"
     printf "  Dotfiles: %s\n" "$DOTFILES"
@@ -183,6 +195,7 @@ for arg in "$@"; do
     case "$arg" in
         -all)
             backup_niri
+            backup_hypr
             backup_kitty
             backup_alacritty
             backup_fastfetch
@@ -191,17 +204,20 @@ for arg in "$@"; do
             backup_starship
             backup_nvim
             backup_krita
+            backup_ckbnext
             ;;
-        -niri)       backup_niri ;;
-        -kitty)      backup_kitty ;;
-        -alacritty)  backup_alacritty ;;
-        -fastfetch)  backup_fastfetch ;;
-        -noctalia)   backup_noctalia ;;
-        -fish)       backup_fish ;;
-        -starship)   backup_starship ;;
-        -nvim)       backup_nvim ;;
-        -krita)      backup_krita ;;
-        -list)       show_list ;;
+        -niri)      backup_niri ;;
+        -hypr)      backup_hypr ;;
+        -kitty)     backup_kitty ;;
+        -alacritty) backup_alacritty ;;
+        -fastfetch) backup_fastfetch ;;
+        -noctalia)  backup_noctalia ;;
+        -fish)      backup_fish ;;
+        -starship)  backup_starship ;;
+        -nvim)      backup_nvim ;;
+        -krita)     backup_krita ;;
+        -ckb-next)  backup_ckbnext ;;
+        -list)      show_list ;;
         *)
             err "Unknown flag: $arg"
             usage
