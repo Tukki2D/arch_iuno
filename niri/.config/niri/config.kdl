@@ -295,7 +295,7 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
-// This line starts waybar, a commonly used bar for Wayland compositors.
+// Shell settings daemon — provides icon theme and GTK settings to apps
 spawn-at-startup "xsettingsd"
 spawn-at-startup "xwayland-satellite"
 
