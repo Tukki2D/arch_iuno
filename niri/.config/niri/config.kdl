@@ -611,6 +611,9 @@ binds {
     // Center all fully visible columns on screen.
     Mod+Ctrl+C { center-visible-columns; }
 
+    //Open the Launcher being selected by the dotfiles.
+    Mod+Space { spawn "bash" "/home/tyler/.dotfiles/scripts/launcher-toggle.sh"; }
+
     // Finer width adjustments.
     // This command can also:
     // * set width in pixels: "1000"
