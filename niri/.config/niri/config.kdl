@@ -296,7 +296,7 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "waybar"
+spawn-at-startup "xsettingsd"
 spawn-at-startup "xwayland-satellite"
 
 //spawn-at-startup "caelestia" "shell"
@@ -521,8 +521,8 @@ binds {
    
     Mod+WheelScrollDown      cooldown-ms=150  { focus-column-right; }
     Mod+WheelScrollUp        cooldown-ms=150  { focus-column-left;  } 
-    Mod+Ctrl+WheelScrollDown cooldown-ms=150  { focus-workspace-down; }   
-    Mod+Ctrl+WheelScrollUp   cooldown-ms=150  { focus-workspace-up; } 
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150  { move-column-left; } 
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=150  { move-column-right; } 
 
     Mod+WheelScrollRight      { focus-column-right; }
     Mod+WheelScrollLeft       { focus-column-left; }
@@ -536,8 +536,9 @@ binds {
     //Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
     //Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 
-    Mod+Alt+WheelScrollDown { move-column-right; }
-    Mod+Alt+WheelScrollUp   { move-column-left; }
+    Mod+Alt+WheelScrollDown { focus-workspace-down; }   
+    Mod+Alt+WheelScrollUp   { focus-workspace-up; }   
+
 
  
     // Similarly, you can bind touchpad scroll "ticks".
