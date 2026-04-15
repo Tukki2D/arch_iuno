@@ -1,0 +1,18 @@
+[Shortcuts]
+KisToolCrop=none
+KisToolSelectOutline=M
+KisToolSelectRectangular=none
+KritaFill/KisToolFill=G
+KritaFill/KisToolGradient=;\s
+KritaShape/KisToolBrush=B; Q
+KritaShape/KisToolMultiBrush=none
+activate_preset_9=;\s
+decrease_brush_size=A
+deselect=Ctrl+D
+erase_action=C
+eraser_preset_action=E
+increase_brush_size=S
+mirror_canvas=1
+mirror_canvas_around_cursor=none
+reset_fg_bg=;\s
+zoom_to_100pct=none
