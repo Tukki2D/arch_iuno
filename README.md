@@ -44,23 +44,23 @@ iuno --restore      # restore configs → ~/.config/
 
 ### iuno
 ```
-iuno --install  [-flag]   install packages
-iuno --backup   [-app]    back up configs to ~/iuno/
-iuno --restore  [-app]    restore configs from ~/iuno/ to ~/.config/
-iuno --clean              clean pacman and paru caches
-iuno --detect             show installed apps and available tools
-iuno --help               show all commands and available tools
+-i, --install  [-flag]   install packages
+-b, --backup   [-app]    back up configs to ~/iuno/
+-r, --restore  [-app]    restore configs from ~/iuno/ to ~/.config/
+-c, --clean              clean pacman and paru caches
+-d, --detect             show installed apps and available tools
+-h, --help               show all commands and available tools
 ```
 
 ### niri-tool
 ```
-niri-tool --backup    back up all live niri config files to .bak
-niri-tool --build     scaffold staging at /tmp/dotniri/
-niri-tool --diff      show differences between staging and live (optional)
-niri-tool --validate  check staging, promote to live
-niri-tool --rollback  restore all live files from .bak (all or nothing)
-niri-tool --push      save to ~/iuno and push to GitHub
-niri-tool --help      show usage
+-b, --bak       back up all live niri config files to .bak
+-s, --stage     scaffold staging at /tmp/iuno/niri/
+-d, --diff      show differences between staging and live (optional)
+-f, --finalize  check staging, promote to live
+-r, --rollback  restore all live files from .bak (all or nothing)
+-p, --push      save to ~/iuno and push to GitHub
+-h, --help      show usage
 ```
 
 ---

@@ -110,12 +110,12 @@ points to it. Set up with:
 
 | Command | Routes to | Purpose |
 |---------|-----------|---------|
-| `iuno --install` | `scripts/install.sh` | Install packages |
-| `iuno --backup` | `scripts/sync.sh` | Back up configs to ~/iuno |
-| `iuno --restore` | `scripts/restore.sh` | Restore configs from ~/iuno |
-| `iuno --clean` | `scripts/clean_cache.sh` | Clean package manager caches |
-| `iuno --detect` | reads common.sh registry | Show installed apps + available tools |
-| `iuno --help` | inline | Show all commands, tool list, README link |
+| `-i, --install` | `scripts/install.sh` | Install packages |
+| `-b, --backup` | `scripts/sync.sh` | Back up configs to ~/iuno |
+| `-r, --restore` | `scripts/restore.sh` | Restore configs from ~/iuno |
+| `-c, --clean` | `scripts/clean_cache.sh` | Clean package manager caches |
+| `-d, --detect` | reads common.sh registry | Show installed apps + available tools |
+| `-h, --help` | inline | Show all commands, tool list, README link |
 
 ### Shell alias bootstrap
 The README instructs the user to run this before anything else:
@@ -255,30 +255,30 @@ Fish function: `~/.config/fish/functions/niri-tool.fish`
 ### Commands
 | Command | Purpose |
 |---------|---------|
-| `niri-tool --backup` | Back up all live niri config files to .bak |
-| `niri-tool --build` | Scaffold staging at /tmp/dotniri/, copy live files in |
-| `niri-tool --diff` | Show differences between staging and live (optional) |
-| `niri-tool --validate` | Check staging integrity, promote to live |
-| `niri-tool --rollback` | Restore all live files from .bak (all or nothing) |
-| `niri-tool --push` | Save to ~/iuno and push to GitHub |
-| `niri-tool --help` | Show usage |
+| `-b, --bak` | Back up all live niri config files to .bak |
+| `-s, --stage` | Scaffold staging at /tmp/iuno/niri/, copy live files in |
+| `-d, --diff` | Show differences between staging and live (optional) |
+| `-f, --finalize` | Check staging integrity, promote to live |
+| `-r, --rollback` | Restore all live files from .bak (all or nothing) |
+| `-p, --push` | Save to ~/iuno and push to GitHub |
+| `-h, --help` | Show usage |
 
 ### Typical update flow
 ```
-1. niri-tool --build
-2. Edit files in /tmp/dotniri/
+1. niri-tool --stage
+2. Edit files in /tmp/iuno/niri/
    - Move layout{} from config.kdl → layout.kdl
    - Move input{} from config.kdl → input.kdl
    - Use .bak files as reference, LLM for complex merges
 3. niri-tool --diff        (optional)
-4. niri-tool --validate
+4. niri-tool --finalize
 5. niri-tool --rollback    (if something breaks)
 6. niri-tool --push
 ```
 
 ### Staging directory
 ```
-/tmp/dotniri/
+/tmp/iuno/niri/
 ├── config.kdl      ← new upstream default + include block
 ├── custom.kdl      ← copied from live
 ├── outputs.kdl     ← copied from live (or blank template if missing)
@@ -288,11 +288,11 @@ Fish function: `~/.config/fish/functions/niri-tool.fish`
 ```
 
 ### Safety model
-- Live config never touched until `--validate` promotes
-- `--validate` backs up ALL live files to `.bak` before promoting
+- Live config never touched until `--finalize` promotes
+- `--finalize` backs up ALL live files to `.bak` before promoting
 - Promotion is all or nothing — any failure triggers automatic full rollback
 - `--rollback` requires ALL `.bak` files to exist — aborts entirely if any are missing
-- `.bak` files overwritten on next `--backup` or `--validate` run
+- `.bak` files overwritten on next `--bak` or `--finalize` run
 
 ### Managed files (MANAGED array in niri-tool.sh)
 ```bash
