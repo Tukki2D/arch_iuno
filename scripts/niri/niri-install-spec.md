@@ -4,7 +4,7 @@
 
 `niri-install.sh` handles everything needed to get niri running on a fresh system.
 It installs packages, sets up hardware, calls `iuno --detect` so the user sees what
-is installed and what tools are available, then offers to run `niri-tool --build`.
+is installed and what tools are available, then offers to run `niri-tool --stage`.
 It never touches `~/.config/`. Config decisions are made separately by the user.
 
 ---
@@ -14,7 +14,7 @@ It never touches `~/.config/`. Config decisions are made separately by the user.
 - **Packages only.** Never touches `~/.config/` or any user config.
 - **Sources install.sh.** Reuses existing functions — no duplication.
 - **Calls `iuno --detect`.** Never hardcodes a summary. Detect is always current.
-- **Offers `niri-tool --build`.** User decides when to set up the config pipeline.
+- **Offers `niri-tool --stage`.** User decides when to set up the config pipeline.
 - **No assumptions about hardware.** Never writes output connector names or device paths.
 
 ---
@@ -75,9 +75,9 @@ sourced by `niri-install.sh`.
        shows installed apps and available tools
        if iuno.sh not yet built: falls back to dotback -list with a notice
 
-6. Offer niri-tool --build
-       "Run niri-tool --build now to set up your config pipeline? [y/N]"
-       on y: calls niri-tool --build
+6. Offer niri-tool --stage
+       "Run niri-tool --stage now to set up your config pipeline? [y/N]"
+       on y: calls niri-tool --stage
        on n: prints reminder
 
 7. Print next steps
@@ -94,7 +94,7 @@ sourced by `niri-install.sh`.
      niri-session
 
   2. Set up your config pipeline (if you skipped it above)
-     niri-tool --build
+     niri-tool --stage
 
   3. Restore your backed-up configs (if migrating from another machine)
      iuno --restore -niri

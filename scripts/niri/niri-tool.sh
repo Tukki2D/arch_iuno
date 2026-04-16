@@ -3,10 +3,10 @@
 # Lives at: ~/iuno/scripts/niri/niri-tool.sh
 #
 # Commands:
-#   --backup    Back up all live config files to .bak (safe to fidget with live)
-#   --build     Scaffold staging environment, copy live files in, user works in staging
+#   --bak       Back up all live config files to .bak (safe to fidget with live)
+#   --stage     Scaffold staging environment, copy live files in, user works in staging
 #   --diff      Show differences between staging and live files (optional)
-#   --validate  Check staging integrity, back up live, promote staging to live
+#   --finalize  Check staging integrity, back up live, promote staging to live
 #   --rollback  Restore all live files from .bak (all or nothing)
 #   --push      Save to dotfiles repo and push to GitHub
 #   --help      Show usage
@@ -167,7 +167,7 @@ EOF
     esac
 }
 
-# ── --backup ──────────────────────────────────────────────────────────────────
+# ── --bak ──────────────────────────────────────────────────────────────────
 
 cmd_bak() {
     log "Backing up live config files..."
@@ -197,7 +197,7 @@ cmd_bak() {
     printf "\n"
 }
 
-# ── --build ───────────────────────────────────────────────────────────────────
+# ── --stage ───────────────────────────────────────────────────────────────────
 
 cmd_stage() {
     log "Building staging environment..."
@@ -294,7 +294,7 @@ cmd_diff() {
     cat "$report"
 }
 
-# ── --validate ────────────────────────────────────────────────────────────────
+# ── --finalize ────────────────────────────────────────────────────────────────
 
 cmd_finalize() {
     [[ -d "$STAGING" ]] || die "No staging directory found. Run niri-tool --stage first."
