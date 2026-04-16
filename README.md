@@ -72,12 +72,12 @@ iuno --restore      # restore configs → ~/.config/
 | niri | `~/.config/niri/` | `niri` | `niri-tool` |
 | hypr | `~/.config/hypr/` | `hyprland` | none yet |
 | kitty | `~/.config/kitty/` | `kitty` | ✓ include split |
-| alacritty | `~/.config/alacritty/` | `alacritty` | none yet |
+| alacritty | `~/.config/alacritty/` | `alacritty` | ✓ single file |
 | fastfetch | `~/.config/fastfetch/` | `fastfetch` | — |
 | noctalia | `~/.config/noctalia/` | `noctalia-qs noctalia-shell` | — |
 | fish | `~/.config/fish/` (no fish_variables) | `fish` | — |
 | starship | `~/.config/starship.toml` | `starship` (extra/ repo) | — |
-| nvim | `~/.config/nvim/` | `neovim` | none yet |
+| nvim | `~/.config/nvim/` | `neovim` | ✓ single file |
 | krita | `~/.config/krita* + .local/share/` | `krita` | — |
 | ckb-next | `~/.config/ckb-next/` | `ckb-next-git` | — |
 
@@ -102,8 +102,12 @@ iuno --restore      # restore configs → ~/.config/
 │   ├── niri/
 │   │   ├── niri-tool.sh               niri config update pipeline
 │   │   └── niri-install.sh            niri fresh install
-│   └── kitty/
-│       └── kitty-install.sh           kitty fresh install
+│   ├── kitty/
+│   │   └── kitty-install.sh           kitty fresh install
+│   ├── alacritty/
+│   │   └── alacritty-install.sh       alacritty fresh install
+│   └── nvim/
+│       └── nvim-install.sh            neovim fresh install
 ├── fish/.config/fish/functions/
 ├── niri/.config/niri/
 ├── kitty/.config/kitty/

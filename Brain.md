@@ -86,8 +86,12 @@ Convention for dotfile repos is hidden, but this has outgrown that pattern.
 │   ├── niri/
 │   │   ├── niri-tool.sh               ← niri config update pipeline
 │   │   └── niri-install.sh            ← niri fresh install
-│   └── kitty/
-│       └── kitty-install.sh           ← kitty fresh install
+│   ├── kitty/
+│   │   └── kitty-install.sh           ← kitty fresh install
+│   ├── alacritty/
+│   │   └── alacritty-install.sh       ← alacritty fresh install
+│   └── nvim/
+│       └── nvim-install.sh            ← neovim fresh install
 ├── fish/.config/fish/functions/       ← fish function wrappers
 ├── niri/.config/niri/                 ← backed up niri configs
 ├── kitty/.config/kitty/
@@ -461,3 +465,6 @@ include window.conf
 - [x] ~/.dotfiles/ retired — ~/iuno/ is the only source of truth
 - [x] Kitty — include separation implemented (custom.conf, window.conf, font.conf)
 - [x] kitty-install.sh — fresh kitty install built and live
+- [x] alacritty-install.sh — fresh alacritty install built and live
+- [x] nvim-install.sh — fresh neovim install built and live
+- [x] install.sh — clean rewrite, consistent indentation, all app flags wired
