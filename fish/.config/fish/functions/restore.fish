@@ -1,4 +1,4 @@
-# restore — restore configs from ~/.dotfiles to ~/.config
+# restore — restore configs from ~/iuno to ~/.config
 # File: ~/.config/fish/functions/restore.fish
 #
 # Usage:
@@ -8,5 +8,5 @@
 #   restore -list
 
 function restore
-    bash ~/.dotfiles/scripts/restore.sh $argv
+    bash ~/iuno/scripts/restore.sh $argv
 end

@@ -1,6 +1,6 @@
 #!/bin/bash
-# restore.sh — check packages and restore configs from ~/.dotfiles to ~/.config
-# Lives at: ~/.dotfiles/scripts/restore.sh
+# restore.sh — check packages and restore configs from ~/iuno to ~/.config
+# Lives at: ~/iuno/scripts/restore.sh
 #
 # Usage:
 #   restore.sh -all
@@ -10,13 +10,13 @@
 #
 # Behavior:
 #   - Checks if required packages are installed, offers to install if not
-#   - If a config already exists at the target, backs it up to ~/.dotfiles/backups/
+#   - If a config already exists at the target, backs it up to ~/iuno/backups/
 #     before restoring. Only one backup is kept — it is overwritten each run.
 #   - If no config exists at target, restores directly with no backup created.
 #   - If no config exists in the dotfiles repo, warns and skips.
 
-DOTFILES="$HOME/.dotfiles"
-BACKUPS="$HOME/.dotfiles/backups"
+DOTFILES="$HOME/iuno"
+BACKUPS="$HOME/iuno/backups"
 SCRIPTS_DIR="$(dirname "$0")"
 source "$SCRIPTS_DIR/common.sh"
 

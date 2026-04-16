@@ -8,5 +8,5 @@
 #   install -niri -noctalia
 
 function install
-    bash ~/.dotfiles/scripts/install.sh $argv
+    bash ~/iuno/scripts/install.sh $argv
 end

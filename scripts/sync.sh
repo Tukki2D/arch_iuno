@@ -1,6 +1,6 @@
 #!/bin/bash
-# sync.sh — back up configs from ~/.config into ~/.dotfiles
-# Lives at: ~/.dotfiles/scripts/sync.sh
+# sync.sh — back up configs from ~/.config into ~/iuno
+# Lives at: ~/iuno/scripts/sync.sh
 #
 # Usage:
 #   sync.sh -all
@@ -11,7 +11,7 @@
 # Run deliberately when your config is in a known-good state.
 # Copies — does not symlink. Your live configs are never moved or touched.
 
-DOTFILES="$HOME/.dotfiles"
+DOTFILES="$HOME/iuno"
 SCRIPTS_DIR="$(dirname "$0")"
 source "$SCRIPTS_DIR/common.sh"
 

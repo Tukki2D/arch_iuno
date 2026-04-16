@@ -1,4 +1,4 @@
-# dotback — back up configs to ~/.dotfiles
+# dotback — back up configs to ~/iuno
 # File: ~/.config/fish/functions/dotback.fish
 #
 # Usage:
@@ -8,5 +8,5 @@
 #   dotback -list
 
 function dotback
-    bash ~/.dotfiles/scripts/sync.sh $argv
+    bash ~/iuno/scripts/sync.sh $argv
 end

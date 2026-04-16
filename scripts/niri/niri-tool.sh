@@ -1,6 +1,6 @@
 #!/bin/bash
 # niri-tool.sh — niri configuration update tool
-# Lives at: ~/.dotfiles/scripts/update/niri-tool.sh
+# Lives at: ~/iuno/scripts/niri/niri-tool.sh
 #
 # Commands:
 #   --backup    Back up all live config files to .bak (safe to fidget with live)
@@ -13,7 +13,7 @@
 
 STAGING="/tmp/dotniri"
 LIVE="$HOME/.config/niri"
-DOTFILES_NIRI="$HOME/.dotfiles/niri/.config/niri"
+DOTFILES_NIRI="$HOME/iuno/niri/.config/niri"
 UPSTREAM_URL="https://raw.githubusercontent.com/niri-wm/niri/main/resources/default-config.kdl"
 
 # ── Managed files ─────────────────────────────────────────────────────────────
@@ -91,7 +91,7 @@ append_include_block() {
     {
         printf "\n"
         printf "// ── Personal Configuration ──────────────────────────────────────────────\n"
-        printf "// Managed by niri-tool. See ~/.dotfiles/scripts/update/niri-tool.sh\n"
+        printf "// Managed by niri-tool. See ~/iuno/scripts/niri/niri-tool.sh\n"
         printf "\n"
         printf "// Always safe — does not conflict with upstream defaults:\n"
         for f in "${STATIC_INCLUDES[@]}"; do
@@ -476,16 +476,16 @@ cmd_push() {
     }
 
     if ask "Save to dotfiles repo? (dotback -niri)"; then
-        bash "$HOME/.dotfiles/scripts/sync.sh" -niri
+        bash "$HOME/iuno/scripts/sync.sh" -niri
     fi
 
     if ask "Push to GitHub?"; then
-        cd "$HOME/.dotfiles" || die "Could not cd to dotfiles directory."
+        cd "$HOME/iuno" || die "Could not cd to dotfiles directory."
         git add .
         git commit -m "niri: update config" || warn "Nothing new to commit."
         if ! git push; then
             err "Git push failed. Dotfiles are saved locally."
-            err "Run manually: cd ~/.dotfiles && git push"
+            err "Run manually: cd ~/iuno && git push"
             exit 1
         fi
         ok "Pushed to GitHub."

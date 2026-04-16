@@ -5,5 +5,5 @@
 #   clean-cache
 
 function clean-cache
-    bash ~/.dotfiles/scripts/clean_cache.sh
+    bash ~/iuno/scripts/clean_cache.sh
 end

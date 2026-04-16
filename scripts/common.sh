@@ -13,7 +13,7 @@
 #              install at /usr/local/bin/starship. On next fresh install
 #              use: paru -S starship
 
-DOTFILES="$HOME/.dotfiles"
+DOTFILES="$HOME/iuno"
 
 # ── Logging ───────────────────────────────────────────────────────────────────
 

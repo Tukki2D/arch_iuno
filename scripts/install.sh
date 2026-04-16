@@ -1,6 +1,6 @@
 #!/bin/bash
 # install.sh — fresh install package bootstrapper
-# Lives at: ~/.dotfiles/scripts/install.sh
+# Lives at: ~/iuno/scripts/install.sh
 #
 # Usage:
 #   install.sh -all
@@ -9,10 +9,10 @@
 #   install.sh              (interactive mode)
 #
 # On a fresh install:
-#   git clone git@github.com:Tukki2D/arch_dotfiles.git ~/.dotfiles
-#   bash ~/.dotfiles/scripts/install.sh
+#   git clone git@github.com:Tukki2D/arch_iuno.git ~/iuno
+#   bash ~/iuno/scripts/install.sh
 
-DOTFILES="$HOME/.dotfiles"
+DOTFILES="$HOME/iuno"
 SCRIPTS_DIR="$(dirname "$0")"
 source "$SCRIPTS_DIR/common.sh"
 
@@ -377,7 +377,7 @@ prompt_restore() {
         else
             warn "restore.sh not found at $SCRIPTS_DIR/restore.sh"
             warn "Clone the dotfiles repo first:"
-            warn "  git clone git@github.com:Tukki2D/arch_dotfiles.git ~/.dotfiles"
+            warn "  git clone git@github.com:Tukki2D/arch_iuno.git ~/iuno"
         fi
     else
         log "Skipping config restore."
