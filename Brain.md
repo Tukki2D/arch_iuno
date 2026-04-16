@@ -83,9 +83,11 @@ Convention for dotfile repos is hidden, but this has outgrown that pattern.
 │   ├── iuno.sh                        ← top-level router
 │   ├── bootstrap-alias.sh             ← shell alias installer
 │   ├── check-aur.sh                   ← verify AUR helper, install paru if needed
-│   └── niri/
-│       ├── niri-tool.sh               ← niri config update pipeline
-│       └── niri-install.sh            ← niri fresh install
+│   ├── niri/
+│   │   ├── niri-tool.sh               ← niri config update pipeline
+│   │   └── niri-install.sh            ← niri fresh install
+│   └── kitty/
+│       └── kitty-install.sh           ← kitty fresh install
 ├── fish/.config/fish/functions/       ← fish function wrappers
 ├── niri/.config/niri/                 ← backed up niri configs
 ├── kitty/.config/kitty/
@@ -458,3 +460,4 @@ include window.conf
 - [x] Transitional fish functions removed — iuno is the single entry point
 - [x] ~/.dotfiles/ retired — ~/iuno/ is the only source of truth
 - [x] Kitty — include separation implemented (custom.conf, window.conf, font.conf)
+- [x] kitty-install.sh — fresh kitty install built and live

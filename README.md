@@ -99,9 +99,11 @@ iuno --restore      # restore configs → ~/.config/
 │   ├── iuno.sh                        top-level router
 │   ├── bootstrap-alias.sh             shell alias installer
 │   ├── check-aur.sh                   verify AUR helper, install paru if needed
-│   └── niri/
-│       ├── niri-tool.sh               niri config update pipeline
-│       └── niri-install.sh            niri fresh install
+│   ├── niri/
+│   │   ├── niri-tool.sh               niri config update pipeline
+│   │   └── niri-install.sh            niri fresh install
+│   └── kitty/
+│       └── kitty-install.sh           kitty fresh install
 ├── fish/.config/fish/functions/
 ├── niri/.config/niri/
 ├── kitty/.config/kitty/
