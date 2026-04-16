@@ -63,7 +63,7 @@ cmd_help() {
     printf "    -i, --install  [-flag]   Install packages\n"
     printf "    -b, --backup   [-app]    Back up configs to ~/iuno/\n"
     printf "    -r, --restore  [-app]    Restore configs from ~/iuno/ to ~/.config/\n"
-    printf "    -c, --clean              Clean pacman and paru caches\n"
+    printf "    -c, --clean              Clean staging and .bak files\n"
     printf "    -d, --detect             Show installed apps and available tools\n"
     printf "    -h, --help               Show this help\n"
     printf "\n"
@@ -87,7 +87,7 @@ case "${1:-}" in
     --install|-i)  bash "$SCRIPTS/install.sh"     "${@:2}" ;;
     --backup|-b)   bash "$SCRIPTS/sync.sh"        "${@:2}" ;;
     --restore|-r)  bash "$SCRIPTS/restore.sh"     "${@:2}" ;;
-    --clean|-c)    bash "$SCRIPTS/clean_cache.sh" "${@:2}" ;;
+    --clean|-c)    bash "$SCRIPTS/clean.sh" "${@:2}" ;;
     --detect|-d)   cmd_detect ;;
     --help|-h)     cmd_help ;;
     *)

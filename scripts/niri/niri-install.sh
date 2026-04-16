@@ -42,14 +42,14 @@ printf "\n"
 log "Installed apps and available tools:"
 bash "$SCRIPTS_DIR/iuno.sh" --detect
 
-# 5. Offer niri-tool --build
+# 5. Offer niri-tool --stage
 printf "\n"
-printf "  Run niri-tool --build now to set up your config pipeline? [y/N] "
+printf "  Run niri-tool --stage now to set up your config pipeline? [y/N] "
 read -r answer
 if [[ "$answer" =~ ^[Yy]$ ]]; then
-    bash "$SCRIPTS_DIR/niri/niri-tool.sh" --build
+    bash "$SCRIPTS_DIR/niri/niri-tool.sh" --stage
 else
-    log "Skipping. Run: niri-tool --build when ready."
+    log "Skipping. Run: niri-tool --stage when ready."
 fi
 
 # 6. Next steps
@@ -60,7 +60,7 @@ printf "  1. Log into niri\n"
 printf "     niri-session\n"
 printf "\n"
 printf "  2. Set up your config pipeline (if you skipped it above)\n"
-printf "     niri-tool --build\n"
+printf "     niri-tool --stage\n"
 printf "\n"
 printf "  3. Restore your backed-up configs (if migrating from another machine)\n"
 printf "     iuno --restore -niri\n"
