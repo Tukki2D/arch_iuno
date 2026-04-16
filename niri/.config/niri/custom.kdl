@@ -57,7 +57,7 @@ binds {
 
     // Launcher — shell-agnostic toggle script
     // spawn-sh used instead of spawn to allow $HOME expansion
-    Mod+Space { spawn-sh "bash $HOME/.dotfiles/scripts/launcher-toggle.sh"; }
+    Mod+Space { spawn-sh "bash $HOME/iuno/scripts/launcher-toggle.sh"; }
 
     // Tabbed display — Mod+Shift+W instead of default Mod+W
     Mod+Shift+W { toggle-column-tabbed-display; }
