@@ -393,82 +393,87 @@ usage() {
 }
 
 # ── Dispatch ──────────────────────────────────────────────────────────────────
+# Guard prevents dispatch from running when install.sh is sourced by other scripts
 
-# Always bootstrap paru first
-bootstrap_paru
+if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
 
-# Interactive mode if no flags given
-if [[ $# -eq 0 ]]; then
-    printf "\n"
-    printf "  No flags provided — entering interactive mode.\n"
-    install_core
-    select_de
-    select_shell
+    # Verify AUR helper is available before any installs
+    bash "$SCRIPTS_DIR/check-aur.sh" || exit 1
 
-    printf "\n  Install browsers and communication? [y/N] "
-    read -r answer
-    [[ "$answer" =~ ^[Yy]$ ]] && install_browsers
+    # Interactive mode if no flags given
+    if [[ $# -eq 0 ]]; then
+        printf "\n"
+        printf "  No flags provided — entering interactive mode.\n"
+        install_core
+        select_de
+        select_shell
 
-    printf "\n  Install media and gaming? [y/N] "
-    read -r answer
-    [[ "$answer" =~ ^[Yy]$ ]] && install_media
+        printf "\n  Install browsers and communication? [y/N] "
+        read -r answer
+        [[ "$answer" =~ ^[Yy]$ ]] && install_browsers
 
-    printf "\n  Install creative tools (Krita, LibreOffice)? [y/N] "
-    read -r answer
-    [[ "$answer" =~ ^[Yy]$ ]] && install_creative
+        printf "\n  Install media and gaming? [y/N] "
+        read -r answer
+        [[ "$answer" =~ ^[Yy]$ ]] && install_media
 
-    printf "\n  Install hardware tools (CKB-Next, OpenRGB)? [y/N] "
-    read -r answer
-    [[ "$answer" =~ ^[Yy]$ ]] && install_hardware
+        printf "\n  Install creative tools (Krita, LibreOffice)? [y/N] "
+        read -r answer
+        [[ "$answer" =~ ^[Yy]$ ]] && install_creative
 
-    printf "\n  Install AI tools (Ollama)? [y/N] "
-    read -r answer
-    [[ "$answer" =~ ^[Yy]$ ]] && install_ai
+        printf "\n  Install hardware tools (CKB-Next, OpenRGB)? [y/N] "
+        read -r answer
+        [[ "$answer" =~ ^[Yy]$ ]] && install_hardware
 
-    printf "\n  Install GitHub repos (Momoisay)? [y/N] "
-    read -r answer
-    [[ "$answer" =~ ^[Yy]$ ]] && install_repos
+        printf "\n  Install AI tools (Ollama)? [y/N] "
+        read -r answer
+        [[ "$answer" =~ ^[Yy]$ ]] && install_ai
 
-    printf "\n  Set up Wacom Cintiq Pro 24? [y/N] "
-    read -r answer
-    [[ "$answer" =~ ^[Yy]$ ]] && setup_wacom
+        printf "\n  Install GitHub repos (Momoisay)? [y/N] "
+        read -r answer
+        [[ "$answer" =~ ^[Yy]$ ]] && install_repos
+
+        printf "\n  Set up Wacom Cintiq Pro 24? [y/N] "
+        read -r answer
+        [[ "$answer" =~ ^[Yy]$ ]] && setup_wacom
+
+        log "Done."
+        exit 0
+    fi
+
+    # Flag mode
+    for arg in "$@"; do
+        case "$arg" in
+            -all)
+                install_core
+                install_browsers
+                install_media
+                install_creative
+                install_hardware
+                install_ai
+                install_repos
+                select_de
+                select_shell
+                ;;
+            -core)       install_core ;;
+            -browsers)   install_browsers ;;
+            -media)      install_media ;;
+            -creative)   install_creative ;;
+            -hardware)   install_hardware ;;
+            -ai)         install_ai ;;
+            -repos)      install_repos ;;
+            -niri)       bash "$SCRIPTS_DIR/niri/niri-install.sh" ;;
+            -wacom)      setup_wacom ;;
+            -noctalia)   install_noctalia ;;
+            -caelestia)  install_caelestia ;;
+            -list)       show_list ;;
+            *)
+                err "Unknown flag: $arg"
+                usage
+                exit 1
+                ;;
+        esac
+    done
 
     log "Done."
-    exit 0
+
 fi
-
-# Flag mode
-for arg in "$@"; do
-    case "$arg" in
-        -all)
-            install_core
-            install_browsers
-            install_media
-            install_creative
-            install_hardware
-            install_ai
-            install_repos
-            select_de
-            select_shell
-            ;;
-        -core)       install_core ;;
-        -browsers)   install_browsers ;;
-        -media)      install_media ;;
-        -creative)   install_creative ;;
-        -hardware)   install_hardware ;;
-        -ai)         install_ai ;;
-        -repos)      install_repos ;;
-        -niri)       bash "$SCRIPTS_DIR/niri/niri-install.sh" ;;
-        -wacom)      setup_wacom ;;
-        -noctalia)   install_noctalia ;;
-        -caelestia)  install_caelestia ;;
-        -list)       show_list ;;
-        *)
-            err "Unknown flag: $arg"
-            usage
-            exit 1
-            ;;
-    esac
-done
-
-log "Done."
