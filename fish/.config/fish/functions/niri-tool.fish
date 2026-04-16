@@ -11,5 +11,5 @@
 #   niri-tool --help        Show usage
 
 function niri-tool
-   bash ~/iuno/scripts/niri/niri-tool.sh 
+    bash ~/iuno/scripts/niri/niri-tool.sh $argv
 end

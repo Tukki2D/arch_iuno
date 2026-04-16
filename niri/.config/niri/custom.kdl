@@ -72,8 +72,8 @@ binds {
     // Scroll wheel — remapped from workspace to column navigation
     Mod+WheelScrollDown      cooldown-ms=150  { focus-column-right; }
     Mod+WheelScrollUp        cooldown-ms=150  { focus-column-left; }
-    Mod+Ctrl+WheelScrollDown cooldown-ms=150  { move-column-left; }
-    Mod+Ctrl+WheelScrollUp   cooldown-ms=150  { move-column-right; }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150  { move-column-right; }
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=150  { move-column-left; }
 
     // Shift+Wheel — workspace navigation
     Mod+Shift+WheelScrollDown { move-column-to-workspace-down; }
