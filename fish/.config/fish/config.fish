@@ -7,3 +7,6 @@ source /usr/share/cachyos-fish-config/cachyos-config.fish
 #end
 #
 starship init fish | source
+
+# iuno — config management tool
+alias iuno "bash /home/tyler/iuno/scripts/iuno.sh"
