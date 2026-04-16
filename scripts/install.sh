@@ -12,7 +12,6 @@
 #   git clone git@github.com:Tukki2D/arch_iuno.git ~/iuno
 #   bash ~/iuno/scripts/install.sh
 
-DOTFILES="$HOME/iuno"
 SCRIPTS_DIR="$(dirname "$0")"
 source "$SCRIPTS_DIR/common.sh"
 
@@ -195,9 +194,6 @@ install_niri() {
         install_package "$pkg"
     done
     ok "Niri done."
-
-    # Wacom setup is part of any Wayland DE install
-    setup_wacom
 }
 
 setup_wacom() {
@@ -339,7 +335,7 @@ select_de() {
     read -r de_choice
 
     case "$de_choice" in
-        1) install_niri ;;
+        1) bash "$SCRIPTS_DIR/niri/niri-install.sh" ;;
         2) log "Skipping DE packages." ;;
         *) warn "Invalid choice. Skipping DE packages." ;;
     esac
@@ -361,28 +357,6 @@ select_shell() {
         4) log "Skipping shell packages." ;;
         *) warn "Invalid choice. Skipping shell packages." ;;
     esac
-}
-
-# ── Restore prompt ────────────────────────────────────────────────────────────
-
-prompt_restore() {
-    printf "\n"
-    printf "  Packages installed.\n"
-    printf "  Deploy configs from dotfiles repo? [y/N] "
-    read -r answer
-    if [[ "$answer" =~ ^[Yy]$ ]]; then
-        if [[ -f "$SCRIPTS_DIR/restore.sh" ]]; then
-            log "Running restore..."
-            bash "$SCRIPTS_DIR/restore.sh" -all
-        else
-            warn "restore.sh not found at $SCRIPTS_DIR/restore.sh"
-            warn "Clone the dotfiles repo first:"
-            warn "  git clone git@github.com:Tukki2D/arch_iuno.git ~/iuno"
-        fi
-    else
-        log "Skipping config restore."
-        log "Run 'restore -all' manually when ready."
-    fi
 }
 
 # ── Usage ─────────────────────────────────────────────────────────────────────
@@ -459,7 +433,7 @@ if [[ $# -eq 0 ]]; then
     read -r answer
     [[ "$answer" =~ ^[Yy]$ ]] && setup_wacom
 
-    prompt_restore
+    log "Done."
     exit 0
 fi
 
@@ -484,7 +458,7 @@ for arg in "$@"; do
         -hardware)   install_hardware ;;
         -ai)         install_ai ;;
         -repos)      install_repos ;;
-        -niri)       install_niri ;;
+        -niri)       bash "$SCRIPTS_DIR/niri/niri-install.sh" ;;
         -wacom)      setup_wacom ;;
         -noctalia)   install_noctalia ;;
         -caelestia)  install_caelestia ;;
@@ -496,7 +470,5 @@ for arg in "$@"; do
             ;;
     esac
 done
-
-prompt_restore
 
 log "Done."
