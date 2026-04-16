@@ -14,9 +14,6 @@ bash ~/iuno/scripts/bootstrap-alias.sh
 This detects your shell (fish, bash, zsh) and adds the `iuno` alias to the correct
 config file. After that, `iuno --help` is your entry point for everything.
 
-> **Note:** `iuno.sh` and `bootstrap-alias.sh` are planned. Until they are built,
-> use the fish functions listed below directly.
-
 ---
 
 ## How it works
@@ -26,7 +23,7 @@ Nothing is symlinked — your live configs in `~/.config/` are never moved or to
 by the backup process. You are always in control of when a snapshot is taken.
 
 ```bash
-dotback -all        # copy working configs → ~/iuno/
+iuno --backup -all  # copy working configs → ~/iuno/
 git add .
 git commit -m "what changed and why"
 git push            # safe offsite copy on GitHub
@@ -45,27 +42,14 @@ iuno --restore      # restore configs → ~/.config/
 
 ## Commands
 
-### iuno (planned)
+### iuno
 ```
-iuno --install      install packages
-iuno --backup       back up configs to ~/iuno/
-iuno --restore      restore configs from ~/iuno/ to ~/.config/
-iuno --clean        clean pacman and paru caches
-iuno --detect       show installed apps and available tools
-iuno --help         show all commands and available tools
-```
-
-### Current fish functions (transitional)
-```
-dotback -all          back up everything
-dotback -niri         back up one app
-dotback -niri -fish   back up multiple apps
-dotback -list         show backup and package status
-
-restore -all          check packages + restore everything
-restore -niri         check packages + restore one app
-
-clean-cache           clean pacman and paru caches
+iuno --install  [-flag]   install packages
+iuno --backup   [-app]    back up configs to ~/iuno/
+iuno --restore  [-app]    restore configs from ~/iuno/ to ~/.config/
+iuno --clean              clean pacman and paru caches
+iuno --detect             show installed apps and available tools
+iuno --help               show all commands and available tools
 ```
 
 ### niri-tool
@@ -112,8 +96,8 @@ niri-tool --help      show usage
 │   ├── install.sh                     package bootstrapper
 │   ├── clean_cache.sh                 cache cleaning
 │   ├── launcher-toggle.sh             shell-agnostic launcher toggle
-│   ├── iuno.sh                        top-level router (planned)
-│   ├── bootstrap-alias.sh             shell alias installer (planned)
+│   ├── iuno.sh                        top-level router
+│   ├── bootstrap-alias.sh             shell alias installer
 │   └── niri/
 │       ├── niri-tool.sh               niri config update pipeline
 │       └── niri-install.sh            niri fresh install (planned)
@@ -164,4 +148,4 @@ it is overwritten on the next restore run.
 4. Add a `backup_appname()` function to `sync.sh`
 5. Add a `restore_appname()` function to `restore.sh`
 6. Add the flag to the case statement and `-all` block in both scripts
-7. Run `dotback -appname` to test
+7. Run `iuno --backup -appname` to test

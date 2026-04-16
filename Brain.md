@@ -80,8 +80,8 @@ Convention for dotfile repos is hidden, but this has outgrown that pattern.
 │   ├── install.sh                     ← package bootstrapper
 │   ├── clean_cache.sh                 ← pacman/paru cache cleaning
 │   ├── launcher-toggle.sh             ← shell-agnostic launcher toggle
-│   ├── iuno.sh                        ← top-level router (planned)
-│   ├── bootstrap-alias.sh             ← shell alias installer (planned)
+│   ├── iuno.sh                        ← top-level router
+│   ├── bootstrap-alias.sh             ← shell alias installer
 │   └── niri/
 │       ├── niri-tool.sh               ← niri config update pipeline
 │       └── niri-install.sh            ← niri fresh install (planned)
@@ -102,10 +102,10 @@ Convention for dotfile repos is hidden, but this has outgrown that pattern.
 
 ---
 
-## iuno Command (planned)
+## iuno Command
 
 `iuno` is a bash script at `~/iuno/scripts/iuno.sh`. A one-line alias in any shell
-points to it.
+points to it. Set up with:
 
 | Command | Routes to | Purpose |
 |---------|-----------|---------|
@@ -133,22 +133,6 @@ Installed apps with dotfile support:
 
 Run iuno --help for full usage.
 ```
-
----
-
-## Current Fish Functions (transitional)
-
-These exist today and will be replaced by `iuno` flags once iuno.sh is built.
-The underlying bash scripts are already migrated to `~/iuno/`.
-
-| Function | Flags | Routes to | Will become |
-|----------|-------|-----------|-------------|
-| `dotback` | `-all` `-app` `-list` | `sync.sh` | `iuno --backup` |
-| `restore` | `-all` `-app` `-list` | `restore.sh` | `iuno --restore` |
-| `install` | `-all` `-flag` | `install.sh` | `iuno --install` |
-| `clean-cache` | — | `clean_cache.sh` | `iuno --clean` |
-| `dothelp` | — | inline | `iuno --help` |
-| `niri-tool` | see niri-tool section | `scripts/niri/niri-tool.sh` | stays as-is |
 
 ---
 
@@ -379,7 +363,7 @@ Split configs into upstream default (disposable) + personal files (committed).
 ### Starship
 - Currently installed manually to `/usr/local/bin/starship` (not via pacman)
 - Use `paru -S starship` on next fresh install (available in extra/ repo)
-- `dotback -list` shows `✗` until reinstalled via paru
+- `iuno --backup -list` shows `✗` until reinstalled via paru
 
 ### OPNSense / Samba
 - Ports: 445/TCP required, 137-139 optional (legacy NetBIOS)
@@ -393,11 +377,8 @@ Split configs into upstream default (disposable) + personal files (committed).
 ## What's Next
 
 ### Immediate
-- [ ] Write `iuno.sh` (--install, --backup, --restore, --clean, --detect, --help)
-- [ ] Write `bootstrap-alias.sh` (detects shell, adds iuno alias)
-- [ ] Update `README.md` to reflect iuno architecture (mirrors iuno --help, bootstrap first)
 - [ ] Write `niri-install.sh`
-- [ ] Update `install.sh` to call `niri-install.sh` for -niri flag
+- [ ] Update `install.sh -niri` to call `niri-install.sh` (spec written, ready to build)
 
 ### Config separation (other apps)
 - [ ] Kitty — extract `custom.conf`, implement include
@@ -412,6 +393,10 @@ Split configs into upstream default (disposable) + personal files (committed).
 ### Private setup
 - [ ] Write `private-setup.sh` for fstab, samba, UFW
 
-### Migration
-- [ ] Retire `~/.dotfiles/` once `~/iuno/` is fully operational and tested
-- [ ] Retire old fish functions once `iuno` is live
+### Completed
+- [x] iuno.sh — top-level router built and live
+- [x] bootstrap-alias.sh — shell alias installer built and live
+- [x] Transitional fish functions removed — iuno is the single entry point
+- [x] ~/.dotfiles/ retired — ~/iuno/ is the only source of truth
+- [x] README.md updated for iuno architecture
+- [x] install.sh updated — routes -niri to niri-install.sh, removed prompt_restore
