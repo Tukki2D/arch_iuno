@@ -82,9 +82,10 @@ Convention for dotfile repos is hidden, but this has outgrown that pattern.
 │   ├── launcher-toggle.sh             ← shell-agnostic launcher toggle
 │   ├── iuno.sh                        ← top-level router
 │   ├── bootstrap-alias.sh             ← shell alias installer
+│   ├── check-aur.sh                   ← verify AUR helper, install paru if needed
 │   └── niri/
 │       ├── niri-tool.sh               ← niri config update pipeline
-│       └── niri-install.sh            ← niri fresh install (planned)
+│       └── niri-install.sh            ← niri fresh install
 ├── fish/.config/fish/functions/       ← fish function wrappers
 ├── niri/.config/niri/                 ← backed up niri configs
 ├── kitty/.config/kitty/
@@ -376,10 +377,6 @@ Split configs into upstream default (disposable) + personal files (committed).
 
 ## What's Next
 
-### Immediate
-- [ ] Write `niri-install.sh`
-- [ ] Update `install.sh -niri` to call `niri-install.sh` (spec written, ready to build)
-
 ### Config separation (other apps)
 - [ ] Kitty — extract `custom.conf`, implement include
 - [ ] Alacritty — extract `custom.toml`, implement import
@@ -396,7 +393,9 @@ Split configs into upstream default (disposable) + personal files (committed).
 ### Completed
 - [x] iuno.sh — top-level router built and live
 - [x] bootstrap-alias.sh — shell alias installer built and live
+- [x] check-aur.sh — AUR helper verification built and live
+- [x] niri-install.sh — niri fresh install built and live
+- [x] install.sh — BASH_SOURCE guard added, routes -niri to niri-install.sh
 - [x] Transitional fish functions removed — iuno is the single entry point
 - [x] ~/.dotfiles/ retired — ~/iuno/ is the only source of truth
 - [x] README.md updated for iuno architecture
-- [x] install.sh updated — routes -niri to niri-install.sh, removed prompt_restore

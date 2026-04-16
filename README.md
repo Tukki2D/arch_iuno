@@ -98,9 +98,10 @@ niri-tool --help      show usage
 │   ├── launcher-toggle.sh             shell-agnostic launcher toggle
 │   ├── iuno.sh                        top-level router
 │   ├── bootstrap-alias.sh             shell alias installer
+│   ├── check-aur.sh                   verify AUR helper, install paru if needed
 │   └── niri/
 │       ├── niri-tool.sh               niri config update pipeline
-│       └── niri-install.sh            niri fresh install (planned)
+│       └── niri-install.sh            niri fresh install
 ├── fish/.config/fish/functions/
 ├── niri/.config/niri/
 ├── kitty/.config/kitty/
