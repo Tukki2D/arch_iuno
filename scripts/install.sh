@@ -51,7 +51,6 @@ bootstrap_paru() {
 
     log "Bootstrapping paru..."
 
-    # Ensure git and base-devel are present before attempting AUR build
     ensure_pacman_dep git
     ensure_pacman_dep base-devel
 
@@ -199,16 +198,12 @@ install_niri() {
 setup_wacom() {
     log "Setting up Wacom Cintiq Pro 24..."
 
-    # Install libwacom — provides device profiles for the kernel driver
     if ! is_installed "libwacom"; then
         install_package "libwacom"
     else
         ok "Already installed: libwacom"
     fi
 
-    # Write udev rule — grants hidraw access to the tablet
-    # Required because product IDs 037c/037f/0380/0381/0331 are missing
-    # from OTD's bundled rules as of version 0.6.6.2
     local udev_rule="/etc/udev/rules.d/99-wacom-cintiq-pro24.rules"
     if [[ -f "$udev_rule" ]]; then
         ok "Udev rule already exists: $udev_rule"
@@ -230,7 +225,6 @@ UDEV
         ok "Udev rule written."
     fi
 
-    # Write modules-load.d entry — loads wacom kernel module on boot
     local modules_conf="/etc/modules-load.d/wacom.conf"
     if [[ -f "$modules_conf" ]]; then
         ok "Module config already exists: $modules_conf"
@@ -240,13 +234,11 @@ UDEV
         ok "Module config written."
     fi
 
-    # Reload udev rules — applies immediately without reboot
     log "Reloading udev rules..."
     sudo udevadm control --reload-rules
     sudo udevadm trigger --action=add --attr-match=idVendor=056a
     ok "Udev rules reloaded."
 
-    # Load wacom module for current session
     if ! lsmod | grep -q "^wacom"; then
         log "Loading wacom kernel module..."
         sudo modprobe wacom && ok "Wacom module loaded." || warn "Failed to load wacom module — reboot may be required."
@@ -260,7 +252,6 @@ UDEV
 install_noctalia() {
     log "Installing Noctalia shell..."
 
-    # noctalia-qs provides the qs binary — required first
     if ! is_installed "noctalia-qs"; then
         log "Installing noctalia-qs (Quickshell dependency)..."
         install_package "noctalia-qs" || {
@@ -296,12 +287,10 @@ install_caelestia() {
 install_repos() {
     log "Installing GitHub repos..."
 
-    # Momoisay
     if command -v momoisay &>/dev/null; then
         ok "momoisay already installed."
     else
         log "Installing momoisay..."
-
         ensure_pacman_dep git
 
         local build_dir
@@ -375,12 +364,11 @@ usage() {
     printf "    -ai           Ollama\n"
     printf "    -repos        GitHub repos (Momoisay)\n"
     printf "\n"
-    printf "  DE flags:\n"
+    printf "  DE and terminal flags:\n"
     printf "    -niri         Niri compositor packages + Wacom setup\n"
     printf "    -kitty        Kitty terminal + config deploy\n"
-"
-"
-"
+    printf "    -alacritty    Alacritty terminal + config deploy\n"
+    printf "    -nvim         Neovim + config deploy\n"
     printf "\n"
     printf "  Hardware flags:\n"
     printf "    -wacom        Wacom Cintiq Pro 24 udev rules + kernel module\n"
@@ -466,7 +454,9 @@ if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
             -ai)         install_ai ;;
             -repos)      install_repos ;;
             -niri)       bash "$SCRIPTS_DIR/niri/niri-install.sh" ;;
-        -kitty)      bash "$SCRIPTS_DIR/kitty/kitty-install.sh" ;;
+            -kitty)      bash "$SCRIPTS_DIR/kitty/kitty-install.sh" ;;
+            -alacritty)  bash "$SCRIPTS_DIR/alacritty/alacritty-install.sh" ;;
+            -nvim)       bash "$SCRIPTS_DIR/nvim/nvim-install.sh" ;;
             -wacom)      setup_wacom ;;
             -noctalia)   install_noctalia ;;
             -caelestia)  install_caelestia ;;
