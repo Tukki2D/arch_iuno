@@ -111,3 +111,4 @@ it is overwritten on the next restore run.
 5. Add a restore_appname() function to restore.sh
 6. Add the flag to the case statement and -all block in both scripts
 7. Run dotback -appname to test
+# arch_iuno
