@@ -377,6 +377,10 @@ usage() {
     printf "\n"
     printf "  DE flags:\n"
     printf "    -niri         Niri compositor packages + Wacom setup\n"
+    printf "    -kitty        Kitty terminal + config deploy\n"
+"
+"
+"
     printf "\n"
     printf "  Hardware flags:\n"
     printf "    -wacom        Wacom Cintiq Pro 24 udev rules + kernel module\n"
@@ -462,6 +466,7 @@ if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
             -ai)         install_ai ;;
             -repos)      install_repos ;;
             -niri)       bash "$SCRIPTS_DIR/niri/niri-install.sh" ;;
+        -kitty)      bash "$SCRIPTS_DIR/kitty/kitty-install.sh" ;;
             -wacom)      setup_wacom ;;
             -noctalia)   install_noctalia ;;
             -caelestia)  install_caelestia ;;
