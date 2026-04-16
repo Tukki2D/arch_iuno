@@ -47,7 +47,7 @@ iuno --restore      # restore configs → ~/.config/
 -i, --install  [-flag]   install packages
 -b, --backup   [-app]    back up configs to ~/iuno/
 -r, --restore  [-app]    restore configs from ~/iuno/ to ~/.config/
--c, --clean              clean pacman and paru caches
+-c, --clean              clean staging and .bak files
 -d, --detect             show installed apps and available tools
 -h, --help               show all commands and available tools
 ```
@@ -94,7 +94,7 @@ iuno --restore      # restore configs → ~/.config/
 │   ├── sync.sh                        backup: ~/.config → ~/iuno
 │   ├── restore.sh                     restore: ~/iuno → ~/.config
 │   ├── install.sh                     package bootstrapper
-│   ├── clean_cache.sh                 cache cleaning
+│   ├── clean.sh                       clean staging and .bak files
 │   ├── launcher-toggle.sh             shell-agnostic launcher toggle
 │   ├── iuno.sh                        top-level router
 │   ├── bootstrap-alias.sh             shell alias installer

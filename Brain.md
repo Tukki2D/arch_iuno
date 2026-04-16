@@ -78,7 +78,7 @@ Convention for dotfile repos is hidden, but this has outgrown that pattern.
 │   ├── sync.sh                        ← backup ~/.config → ~/iuno
 │   ├── restore.sh                     ← restore configs + check packages
 │   ├── install.sh                     ← package bootstrapper
-│   ├── clean_cache.sh                 ← pacman/paru cache cleaning
+│   ├── clean.sh                       ← clean staging and .bak files
 │   ├── launcher-toggle.sh             ← shell-agnostic launcher toggle
 │   ├── iuno.sh                        ← top-level router
 │   ├── bootstrap-alias.sh             ← shell alias installer
@@ -113,7 +113,7 @@ points to it. Set up with:
 | `-i, --install` | `scripts/install.sh` | Install packages |
 | `-b, --backup` | `scripts/sync.sh` | Back up configs to ~/iuno |
 | `-r, --restore` | `scripts/restore.sh` | Restore configs from ~/iuno |
-| `-c, --clean` | `scripts/clean_cache.sh` | Clean package manager caches |
+| `-c, --clean` | `scripts/clean.sh` | Clean staging and .bak files |
 | `-d, --detect` | reads common.sh registry | Show installed apps + available tools |
 | `-h, --help` | inline | Show all commands, tool list, README link |
 
