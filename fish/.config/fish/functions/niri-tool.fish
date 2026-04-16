@@ -11,5 +11,5 @@
 #   niri-tool --help        Show usage
 
 function niri-tool
-    bash ~/.dotfiles/scripts/update/niri-tool.sh $argv
+   bash ~/.dotfiles/scripts/update/niri-tool.sh 
 end

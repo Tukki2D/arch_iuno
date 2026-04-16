@@ -104,15 +104,15 @@
                 {
                     "colorizeIcons": false,
                     "hideMode": "hidden",
-                    "iconScale": 0.89,
+                    "iconScale": 0.8,
                     "id": "Taskbar",
-                    "maxTaskbarWidth": 40,
+                    "maxTaskbarWidth": 70,
                     "onlyActiveWorkspaces": false,
                     "onlySameOutput": true,
                     "showPinnedApps": true,
                     "showTitle": true,
-                    "smartWidth": false,
-                    "titleWidth": 120
+                    "smartWidth": true,
+                    "titleWidth": 100
                 }
             ],
             "left": [
@@ -246,6 +246,7 @@
                 {
                     "colorizeDistroLogo": false,
                     "colorizeSystemIcon": "none",
+                    "colorizeSystemText": "none",
                     "customIconPath": "/home/tyler/Pictures/arona/arona_wave.png",
                     "enableColorization": false,
                     "icon": "noctalia",
@@ -511,7 +512,7 @@
     "nightLight": {
         "autoSchedule": true,
         "dayTemp": "6500",
-        "enabled": true,
+        "enabled": false,
         "forced": false,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
@@ -541,8 +542,8 @@
         "respectExpireTimeout": false,
         "saveToHistory": {
             "critical": true,
-            "low": true,
-            "normal": true
+            "low": false,
+            "normal": false
         },
         "sounds": {
             "criticalSoundFile": "",
