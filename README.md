@@ -71,7 +71,7 @@ iuno --restore      # restore configs → ~/.config/
 |-----|-------------|-----------|------|
 | niri | `~/.config/niri/` | `niri` | `niri-tool` |
 | hypr | `~/.config/hypr/` | `hyprland` | none yet |
-| kitty | `~/.config/kitty/` | `kitty` | none yet |
+| kitty | `~/.config/kitty/` | `kitty` | ✓ include split |
 | alacritty | `~/.config/alacritty/` | `alacritty` | none yet |
 | fastfetch | `~/.config/fastfetch/` | `fastfetch` | — |
 | noctalia | `~/.config/noctalia/` | `noctalia-qs noctalia-shell` | — |

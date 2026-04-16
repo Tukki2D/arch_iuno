@@ -6,7 +6,7 @@
 - **README.md must stay in sync with `iuno --help` output** — if one changes, both change
 - **iuno is a router, not a monolith** — logic lives in underlying scripts, never in iuno.sh
 - **No automation of judgment calls** — scaffold and report, let the user decide
-- **Always verify before writing** — never guess at versions, paths, or hardware values
+- **Include convention** — personal includes are always appended to the bottom of the upstream default config file. Never put includes inside other include files. The upstream default + include block at the bottom is the only pattern used across all apps.
 
 ---
 
@@ -316,13 +316,27 @@ paste into the staging file, validate. This is the right tool for judgment work.
 When apps ship new default configs, restoring old snapshots means missing new
 options or conflicting with new formats.
 
-### Solution: include-based separation
-Split configs into upstream default (disposable) + personal files (committed).
+### The convention (proven with niri and kitty)
+Personal includes are always appended to the **bottom of the upstream default
+config file**. Never put includes inside other include files. The pattern:
 
+```
+upstream-default.conf   ← never personally edited, replaced freely on updates
+    └── (bottom) include block:
+            include custom.conf      ← active immediately, safe on updates
+            include window.conf      ← active on this system
+            # include font.conf      ← commented, uncomment after verifying
+            # include theme.conf     ← commented, uncomment when ready
+```
+
+On updates: replace upstream default, re-append include block. Personal files
+are untouched. New upstream options appear automatically.
+
+### Include separation status
 | App | Include syntax | Status |
 |-----|---------------|--------|
 | Niri | `include "custom.kdl"` etc. | ✓ Implemented |
-| Kitty | `include custom.conf` | Planned |
+| Kitty | `include custom.conf` etc. | ✓ Implemented |
 | Alacritty | `import: [custom.toml]` | Planned |
 | Fish | functions are already separate files | ✓ Done by design |
 | Nvim | `:source custom.vim` | Planned |
@@ -332,6 +346,52 @@ Split configs into upstream default (disposable) + personal files (committed).
 |-----|---------|
 | Noctalia | Watch changelogs — JSON has no include support |
 | Krita | Watch changelogs — rc files are stable, low risk |
+
+---
+
+## Kitty Configuration
+
+### File structure
+```
+~/.config/kitty/
+├── kitty.conf              ← upstream default + include block at bottom, not backed up
+├── custom.conf             ← key overrides and any future personal settings
+├── window.conf             ← geometry, opacity, blur, tab bar
+├── font.conf               ← font settings (commented in kitty.conf until verified)
+├── current-theme.conf      ← managed by kitten theme automatically
+└── themes/
+    └── Arona.conf          ← custom color theme
+```
+
+### kitty.conf include block
+```conf
+# ── Personal Configuration ────────────────────────────────────────────────────
+# Managed by iuno. See ~/iuno/
+
+# Window and tab settings:
+include window.conf
+
+# Font settings — uncomment after verifying font is installed:
+# include font.conf
+
+# Theme — managed by kitten theme, uncomment if needed:
+# include current-theme.conf
+```
+
+### What gets committed to ~/iuno
+| File | Committed | Reason |
+|------|-----------|--------|
+| `custom.conf` | ✓ | Personal overrides |
+| `window.conf` | ✓ | Window preferences |
+| `font.conf` | ✓ | Font settings |
+| `themes/Arona.conf` | ✓ | Custom color theme |
+| `current-theme.conf` | ✓ | Kitty-managed theme reference |
+| `kitty.conf` | ✗ | Regenerated on updates |
+
+### Notes
+- `background_blur 80` is set but requires compositor blur support — pending niri next release
+- Kitty manages `# BEGIN_KITTY_FONTS` and `# BEGIN_KITTY_THEME` blocks in kitty.conf automatically — do not remove them
+- Theme selection via: `kitten theme`
 
 ---
 
@@ -378,7 +438,6 @@ Split configs into upstream default (disposable) + personal files (committed).
 ## What's Next
 
 ### Config separation (other apps)
-- [ ] Kitty — extract `custom.conf`, implement include
 - [ ] Alacritty — extract `custom.toml`, implement import
 - [ ] Nvim — extract `custom.vim`, implement source
 
@@ -398,4 +457,4 @@ Split configs into upstream default (disposable) + personal files (committed).
 - [x] install.sh — BASH_SOURCE guard added, routes -niri to niri-install.sh
 - [x] Transitional fish functions removed — iuno is the single entry point
 - [x] ~/.dotfiles/ retired — ~/iuno/ is the only source of truth
-- [x] README.md updated for iuno architecture
+- [x] Kitty — include separation implemented (custom.conf, window.conf, font.conf)
