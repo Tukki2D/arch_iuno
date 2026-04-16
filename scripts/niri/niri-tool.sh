@@ -11,7 +11,7 @@
 #   --push      Save to dotfiles repo and push to GitHub
 #   --help      Show usage
 
-STAGING="/tmp/dotniri"
+STAGING="/tmp/iuno/niri"
 LIVE="$HOME/.config/niri"
 DOTFILES_NIRI="$HOME/iuno/niri/.config/niri"
 UPSTREAM_URL="https://raw.githubusercontent.com/niri-wm/niri/main/resources/default-config.kdl"
@@ -169,7 +169,7 @@ EOF
 
 # ── --backup ──────────────────────────────────────────────────────────────────
 
-cmd_backup() {
+cmd_bak() {
     log "Backing up live config files..."
 
     local backed_up=0
@@ -199,7 +199,7 @@ cmd_backup() {
 
 # ── --build ───────────────────────────────────────────────────────────────────
 
-cmd_build() {
+cmd_stage() {
     log "Building staging environment..."
 
     # Warn if staging already exists
@@ -246,14 +246,14 @@ cmd_build() {
     printf "  2. Move input{} from staging/config.kdl  → staging/input.kdl\n"
     printf "  3. Make any other changes you want across staging files\n"
     printf "  4. Optional: niri-tool --diff to review your changes\n"
-    printf "  5. Run: niri-tool --validate when ready\n"
+    printf "  5. Run: niri-tool --finalize when ready\n"
     printf "\n"
 }
 
 # ── --diff ────────────────────────────────────────────────────────────────────
 
 cmd_diff() {
-    [[ -d "$STAGING" ]] || die "No staging directory found. Run niri-tool --build first."
+    [[ -d "$STAGING" ]] || die "No staging directory found. Run niri-tool --stage first."
 
     local report="$STAGING/niri-changes.md"
     local date
@@ -296,8 +296,8 @@ cmd_diff() {
 
 # ── --validate ────────────────────────────────────────────────────────────────
 
-cmd_validate() {
-    [[ -d "$STAGING" ]] || die "No staging directory found. Run niri-tool --build first."
+cmd_finalize() {
+    [[ -d "$STAGING" ]] || die "No staging directory found. Run niri-tool --stage first."
 
     log "Checking staging files..."
     local abort=0
@@ -311,7 +311,7 @@ cmd_validate() {
         fi
     done
 
-    [[ $abort -eq 1 ]] && die "Fill the empty files above then run niri-tool --validate again."
+    [[ $abort -eq 1 ]] && die "Fill the empty files above then run niri-tool --finalize again."
 
     # Check that managed blocks have been removed from staging config.kdl
     for entry in "${MANAGED[@]}"; do
@@ -503,24 +503,24 @@ cmd_help() {
     printf "  niri-tool — niri configuration update tool\n"
     printf "\n"
     printf "  Commands:\n"
-    printf "    --backup      Back up all live config files to .bak\n"
-    printf "    --build       Scaffold staging, copy live files in\n"
-    printf "    --diff        Show differences between staging and live (optional)\n"
-    printf "    --validate    Check staging, promote to live, niri reloads\n"
-    printf "    --rollback    Restore all live files from .bak (all or nothing)\n"
-    printf "    --push        Save to dotfiles repo and push to GitHub\n"
-    printf "    --help        Show this help\n"
+    printf "    -b, --bak     Back up all live config files to .bak\n"
+    printf "    -s, --stage   Scaffold staging, copy live files in\n"
+    printf "    -d, --diff    Show differences between staging and live (optional)\n"
+    printf "    -f, --finalize  Check staging, promote to live, niri reloads\n"
+    printf "    -r, --rollback  Restore all live files from .bak (all or nothing)\n"
+    printf "    -p, --push    Save to dotfiles repo and push to GitHub\n"
+    printf "    -h, --help    Show this help\n"
     printf "\n"
     printf "  Typical update flow:\n"
-    printf "    1. niri-tool --build\n"
+    printf "    1. niri-tool --stage\n"
     printf "    2. Edit files in %s\n" "$STAGING"
     printf "    3. niri-tool --diff        (optional)\n"
-    printf "    4. niri-tool --validate\n"
+    printf "    4. niri-tool --finalize\n"
     printf "    5. niri-tool --rollback    (if something breaks)\n"
     printf "    6. niri-tool --push\n"
     printf "\n"
     printf "  To safely fidget with live config:\n"
-    printf "    1. niri-tool --backup\n"
+    printf "    1. niri-tool --bak\n"
     printf "    2. Edit files in %s directly\n" "$LIVE"
     printf "    3. niri-tool --rollback    (to restore if needed)\n"
     printf "\n"
@@ -534,19 +534,19 @@ cmd_help() {
     done
     printf "\n"
     printf "  .bak files live in %s\n" "$LIVE"
-    printf "  They are overwritten on the next --backup or --validate run.\n"
+    printf "  They are overwritten on the next --bak or --finalize run.\n"
     printf "\n"
 }
 
 # ── Dispatch ──────────────────────────────────────────────────────────────────
 
 case "${1:-}" in
-    --backup)   cmd_backup ;;
-    --build)    cmd_build ;;
-    --diff)     cmd_diff ;;
-    --validate) cmd_validate ;;
-    --rollback) cmd_rollback ;;
-    --push)     cmd_push ;;
-    --help)     cmd_help ;;
-    *)          cmd_help ;;
+    --bak|-b)     cmd_bak ;;
+    --stage|-s)   cmd_stage ;;
+    --diff|-d)    cmd_diff ;;
+    --finalize|-f) cmd_finalize ;;
+    --rollback|-r) cmd_rollback ;;
+    --push|-p)    cmd_push ;;
+    --help|-h)    cmd_help ;;
+    *) cmd_help ;;
 esac

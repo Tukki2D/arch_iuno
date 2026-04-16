@@ -1,24 +1,34 @@
 #!/bin/bash
-# bootstrap-alias.sh — add the iuno alias to your shell config
+# bootstrap-alias.sh — set up iuno and app tool aliases for your shell
 # Lives at: ~/iuno/scripts/bootstrap-alias.sh
 #
 # Usage:
 #   bash ~/iuno/scripts/bootstrap-alias.sh
 #
-# Detects your active shell (fish, bash, zsh) and adds:
-#   alias iuno="bash ~/iuno/scripts/iuno.sh"
-# to the correct config file.
+# Detects your active shell (fish, bash, zsh) and adds aliases for:
+#   iuno       → bash ~/iuno/scripts/iuno.sh
+#   niri-tool  → bash ~/iuno/scripts/niri/niri-tool.sh
 #
-# Safe to run multiple times — will not add a duplicate alias.
+# Safe to run multiple times — will not add duplicate aliases.
+# Add new tools to the TOOLS array below as they are built.
 
-IUNO_SCRIPT="$HOME/iuno/scripts/iuno.sh"
-ALIAS_LINE="alias iuno=\"bash $IUNO_SCRIPT\""
-FISH_LINE="alias iuno \"bash $IUNO_SCRIPT\""
+IUNO="$HOME/iuno/scripts"
 
-log()  { echo "[iuno] $*"; }
-ok()   { echo "[iuno] ✓  $*"; }
-warn() { echo "[iuno] ⚠  $*"; }
-err()  { echo "[iuno] ✗  $*"; }
+# ── Tool registry ─────────────────────────────────────────────────────────────
+# App tools only — iuno itself is handled separately below.
+# Format: "alias-name|script-path"
+# Add entries here as new app tools are built.
+
+TOOLS=(
+    "niri-tool|$IUNO/niri/niri-tool.sh"
+)
+
+# ── Helpers ───────────────────────────────────────────────────────────────────
+
+log()  { echo "[bootstrap] $*"; }
+ok()   { echo "[bootstrap] ✓  $*"; }
+warn() { echo "[bootstrap] ⚠  $*"; }
+err()  { echo "[bootstrap] ✗  $*"; }
 
 die() {
     err "$*"
@@ -28,7 +38,6 @@ die() {
 # ── Shell detection ───────────────────────────────────────────────────────────
 
 detect_shell() {
-    # Check SHELL env var first
     local shell_name
     shell_name=$(basename "$SHELL")
 
@@ -37,7 +46,6 @@ detect_shell() {
         zsh)  echo "zsh" ;;
         bash) echo "bash" ;;
         *)
-            # Fall back to checking running process
             if command -v fish &>/dev/null && ps -p $PPID -o comm= 2>/dev/null | grep -q fish; then
                 echo "fish"
             else
@@ -47,46 +55,108 @@ detect_shell() {
     esac
 }
 
-# ── Install alias ─────────────────────────────────────────────────────────────
+# ── Fish ──────────────────────────────────────────────────────────────────────
+# Fish uses per-function files in ~/.config/fish/functions/
+# Each tool gets its own function file.
 
 install_fish() {
+    local functions_dir="$HOME/.config/fish/functions"
     local config="$HOME/.config/fish/config.fish"
+    mkdir -p "$functions_dir"
 
+    # iuno goes in config.fish as an alias
     if grep -q "alias iuno" "$config" 2>/dev/null; then
         ok "iuno alias already present in $config"
-        return 0
+    else
+        printf "\n# iuno — config management tool\nalias iuno \"bash %s/iuno.sh\"\n" "$IUNO" >> "$config"
+        ok "Added iuno alias to $config"
     fi
 
-    mkdir -p "$(dirname "$config")"
-    printf "\n# iuno — config management tool\n%s\n" "$FISH_LINE" >> "$config"
-    ok "Added iuno alias to $config"
-    log "Reload fish or open a new terminal to use: iuno --help"
+    # App tools get their own function files
+    for entry in "${TOOLS[@]}"; do
+        local name="${entry%%|*}"
+        local script="${entry##*|}"
+        local function_file="$functions_dir/$name.fish"
+
+        if [[ -f "$function_file" ]]; then
+            ok "$name function already present: $function_file"
+            continue
+        fi
+
+        cat > "$function_file" << EOF
+# $name — added by bootstrap-alias.sh
+function $name
+    bash $script \$argv
+end
+EOF
+        ok "Added $name function: $function_file"
+    done
+
+    log "Reload fish or open a new terminal to use the tools."
 }
+
+# ── Bash ──────────────────────────────────────────────────────────────────────
 
 install_bash() {
     local config="$HOME/.bashrc"
+    local iuno_line="alias iuno=\"bash $IUNO/iuno.sh\""
 
+    # iuno alias
     if grep -q "alias iuno" "$config" 2>/dev/null; then
         ok "iuno alias already present in $config"
-        return 0
+    else
+        printf "\n# iuno — config management tool\n%s\n" "$iuno_line" >> "$config"
+        ok "Added iuno alias to $config"
     fi
 
-    printf "\n# iuno — config management tool\n%s\n" "$ALIAS_LINE" >> "$config"
-    ok "Added iuno alias to $config"
-    log "Run: source ~/.bashrc  or open a new terminal to use: iuno --help"
+    # App tools
+    for entry in "${TOOLS[@]}"; do
+        local name="${entry%%|*}"
+        local script="${entry##*|}"
+        local alias_line="alias $name=\"bash $script\""
+
+        if grep -q "alias $name" "$config" 2>/dev/null; then
+            ok "$name alias already present in $config"
+            continue
+        fi
+
+        printf "\n# %s — added by bootstrap-alias.sh\n%s\n" "$name" "$alias_line" >> "$config"
+        ok "Added $name alias to $config"
+    done
+
+    log "Run: source ~/.bashrc  or open a new terminal to use the tools."
 }
+
+# ── Zsh ───────────────────────────────────────────────────────────────────────
 
 install_zsh() {
     local config="$HOME/.zshrc"
+    local iuno_line="alias iuno=\"bash $IUNO/iuno.sh\""
 
+    # iuno alias
     if grep -q "alias iuno" "$config" 2>/dev/null; then
         ok "iuno alias already present in $config"
-        return 0
+    else
+        printf "\n# iuno — config management tool\n%s\n" "$iuno_line" >> "$config"
+        ok "Added iuno alias to $config"
     fi
 
-    printf "\n# iuno — config management tool\n%s\n" "$ALIAS_LINE" >> "$config"
-    ok "Added iuno alias to $config"
-    log "Run: source ~/.zshrc  or open a new terminal to use: iuno --help"
+    # App tools
+    for entry in "${TOOLS[@]}"; do
+        local name="${entry%%|*}"
+        local script="${entry##*|}"
+        local alias_line="alias $name=\"bash $script\""
+
+        if grep -q "alias $name" "$config" 2>/dev/null; then
+            ok "$name alias already present in $config"
+            continue
+        fi
+
+        printf "\n# %s — added by bootstrap-alias.sh\n%s\n" "$name" "$alias_line" >> "$config"
+        ok "Added $name alias to $config"
+    done
+
+    log "Run: source ~/.zshrc  or open a new terminal to use the tools."
 }
 
 # ── Main ──────────────────────────────────────────────────────────────────────
@@ -96,21 +166,24 @@ log "Detecting shell..."
 
 SHELL_TYPE=$(detect_shell)
 log "Detected: $SHELL_TYPE"
+printf "\n"
 
 case "$SHELL_TYPE" in
     fish) install_fish ;;
     zsh)  install_zsh ;;
     bash) install_bash ;;
-    *)    die "Unrecognised shell: $SHELL_TYPE. Add the alias manually:" ;;
+    *)    die "Unrecognised shell: $SHELL_TYPE. Add aliases manually — see ~/iuno/README.md" ;;
 esac
 
 printf "\n"
-log "iuno alias points to: $IUNO_SCRIPT"
-
-if [[ ! -f "$IUNO_SCRIPT" ]]; then
-    warn "iuno.sh does not exist yet at $IUNO_SCRIPT"
-    warn "iuno.sh is planned — use fish functions directly until it is built."
-    warn "See: ~/iuno/README.md"
-fi
-
+log "Tools registered:"
+for entry in "${TOOLS[@]}"; do
+    local_name="${entry%%|*}"
+    local_script="${entry##*|}"
+    if [[ -f "$local_script" ]]; then
+        ok "  $local_name → $local_script"
+    else
+        warn "  $local_name → $local_script (script not found)"
+    fi
+done
 printf "\n"

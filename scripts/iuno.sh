@@ -60,21 +60,21 @@ cmd_help() {
     printf "  iuno — config management tool\n"
     printf "\n"
     printf "  Commands:\n"
-    printf "    --install  [-flag]   Install packages\n"
-    printf "    --backup   [-app]    Back up configs to ~/iuno/\n"
-    printf "    --restore  [-app]    Restore configs from ~/iuno/ to ~/.config/\n"
-    printf "    --clean              Clean pacman and paru caches\n"
-    printf "    --detect             Show installed apps and available tools\n"
-    printf "    --help               Show this help\n"
+    printf "    -i, --install  [-flag]   Install packages\n"
+    printf "    -b, --backup   [-app]    Back up configs to ~/iuno/\n"
+    printf "    -r, --restore  [-app]    Restore configs from ~/iuno/ to ~/.config/\n"
+    printf "    -c, --clean              Clean pacman and paru caches\n"
+    printf "    -d, --detect             Show installed apps and available tools\n"
+    printf "    -h, --help               Show this help\n"
     printf "\n"
     printf "  App tools:\n"
     printf "    niri-tool            Niri config update pipeline\n"
     printf "                         run: niri-tool --help\n"
     printf "\n"
     printf "  Examples:\n"
-    printf "    iuno --backup -niri\n"
+    printf "    iuno --backup -niri  or  iuno -b -niri\n"
     printf "    iuno --restore -niri -fish\n"
-    printf "    iuno --install -niri\n"
+    printf "    iuno --install -niri  or  iuno -i -niri\n"
     printf "    iuno --install -core -browsers\n"
     printf "\n"
     printf "  Docs: https://github.com/Tukki2D/arch_iuno\n"
@@ -84,12 +84,12 @@ cmd_help() {
 # ── Dispatch ──────────────────────────────────────────────────────────────────
 
 case "${1:-}" in
-    --install)  bash "$SCRIPTS/install.sh"     "${@:2}" ;;
-    --backup)   bash "$SCRIPTS/sync.sh"        "${@:2}" ;;
-    --restore)  bash "$SCRIPTS/restore.sh"     "${@:2}" ;;
-    --clean)    bash "$SCRIPTS/clean_cache.sh" "${@:2}" ;;
-    --detect)   cmd_detect ;;
-    --help)     cmd_help ;;
+    --install|-i)  bash "$SCRIPTS/install.sh"     "${@:2}" ;;
+    --backup|-b)   bash "$SCRIPTS/sync.sh"        "${@:2}" ;;
+    --restore|-r)  bash "$SCRIPTS/restore.sh"     "${@:2}" ;;
+    --clean|-c)    bash "$SCRIPTS/clean_cache.sh" "${@:2}" ;;
+    --detect|-d)   cmd_detect ;;
+    --help|-h)     cmd_help ;;
     *)
         cmd_help
         exit 0
