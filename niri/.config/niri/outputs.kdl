@@ -28,3 +28,49 @@ output "DP-2" {
     mode "3840x2160@59.997"
     position x=0 y=1440
 }
+
+
+// ── Workspaces ───────────────────────────────────────────────────────────
+
+workspace "flexible" {
+    open-on-output "DP-3"
+}
+workspace "chat" {
+    open-on-output "DP-3"
+}
+workspace "gaming" {
+    open-on-output "DP-3"
+}
+workspace "secondary" {
+    open-on-output "HDMI-A-1"
+}
+
+
+// ── Workspace window rules ────────────────────────────────────────────────────
+// These rules are here because they depend on the output/workspace setup above.
+// If outputs change, review these rules.
+
+window-rule {
+    match app-id="waterfox"
+    open-on-workspace "flexible"
+}
+
+window-rule {
+    match app-id="org.telegram.desktop"
+    open-on-workspace "chat"
+}
+
+window-rule {
+    match app-id="discord"
+    open-on-workspace "chat"
+}
+
+window-rule {
+    match app-id="steam"
+    open-on-workspace "gaming"
+}
+
+window-rule {
+    match app-id="brave-browser"
+    open-on-workspace "secondary"
+}
