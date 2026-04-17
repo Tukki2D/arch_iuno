@@ -192,7 +192,7 @@
                     "blacklist": [
                     ],
                     "chevronColor": "primary",
-                    "colorizeIcons": true,
+                    "colorizeIcons": false,
                     "drawerEnabled": false,
                     "hidePassive": true,
                     "id": "Tray",
@@ -512,7 +512,7 @@
     "nightLight": {
         "autoSchedule": true,
         "dayTemp": "6500",
-        "enabled": true,
+        "enabled": false,
         "forced": false,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",

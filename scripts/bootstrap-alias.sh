@@ -156,7 +156,7 @@ install_zsh() {
         ok "Added $name alias to $config"
     done
 
-    log "Run: source ~/.zshrc  or open a new terminal to use the tools."
+    log "Open a new terminal to use the tools. (source ~/.zshrc may not apply in the current session)"
 }
 
 # ── Main ──────────────────────────────────────────────────────────────────────
