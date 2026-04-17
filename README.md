@@ -118,6 +118,8 @@ iuno --restore      # restore configs → ~/.config/
 ├── noctalia/.config/noctalia/
 ├── nvim/.config/nvim/
 ├── starship/.config/
+├── home/                              stray dotfiles that live in ~/
+│   └── .zshrc
 └── krita/
 ```
 

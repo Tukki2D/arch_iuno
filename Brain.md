@@ -15,7 +15,8 @@
 - **OS:** CachyOS (Arch-based), kernel 6.19.12
 - **DE/Compositor:** Niri 25.11 (b35bcae)
 - **Shell:** Noctalia (Quickshell-based), noctalia-qs + noctalia-shell
-- **Terminal:** Kitty (primary), Alacritty (secondary)
+- **Interactive shell:** Zsh + Starship prompt (switched from Fish)
+- **Terminal:** Kitty (primary), Alacritty (secondary/scripting)
 - **Machine hostname:** Arona
 - **GPU:** AMD (ROCm, radeon driver)
 - **Tablet:** Wacom Cintiq Pro 24 (DTK-2420), product ID 056a:037c
@@ -102,9 +103,17 @@ Convention for dotfile repos is hidden, but this has outgrown that pattern.
 ├── noctalia/.config/noctalia/
 ├── nvim/.config/nvim/
 ├── starship/.config/
-└── krita/
+├── krita/
+└── home/                              ← stray dotfiles that live in ~/
+    └── .zshrc
 
-~/iuno/backups/                        ← one .bak per app, overwritten each restore run
+### home/ directory convention
+Stray dotfiles that live directly in `~/` rather than `~/.config/` go in `~/iuno/home/`.
+The repo structure mirrors the live structure — `~/iuno/home/.zshrc` restores to `~/.zshrc`.
+Any future home directory dotfile follows the same pattern.
+
+Currently managed:
+- `.zshrc` — zsh interactive shell config
 ```
 
 ---
