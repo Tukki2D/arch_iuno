@@ -28,10 +28,10 @@ export FZF_BASE=/usr/share/fzf
 
 
 # iuno — config management tool
-alias iuno="bash /home/tyler/iuno/scripts/iuno.sh"
+alias iuno="bash $HOME/iuno/scripts/iuno.sh"
 
 # niri-tool — added by bootstrap-alias.sh
-alias niri-tool="bash /home/tyler/iuno/scripts/niri/niri-tool.sh"
+alias niri-tool="bash $HOME/iuno/scripts/niri/niri-tool.sh"
 
 prompt_powerlevel10k_setup() { :; }
 eval "$(starship init zsh)"

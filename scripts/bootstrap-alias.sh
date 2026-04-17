@@ -12,15 +12,14 @@
 # Safe to run multiple times — will not add duplicate aliases.
 # Add new tools to the TOOLS array below as they are built.
 
-IUNO="$HOME/iuno/scripts"
-
 # ── Tool registry ─────────────────────────────────────────────────────────────
 # App tools only — iuno itself is handled separately below.
 # Format: "alias-name|script-path"
+# Paths use $HOME so no username is hardcoded in written config files.
 # Add entries here as new app tools are built.
 
 TOOLS=(
-    "niri-tool|$IUNO/niri/niri-tool.sh"
+    "niri-tool|\$HOME/iuno/scripts/niri/niri-tool.sh"
 )
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -64,11 +63,11 @@ install_fish() {
     local config="$HOME/.config/fish/config.fish"
     mkdir -p "$functions_dir"
 
-    # iuno goes in config.fish as an alias
+    # iuno goes in config.fish as an alias — written with $HOME literal
     if grep -q "alias iuno" "$config" 2>/dev/null; then
         ok "iuno alias already present in $config"
     else
-        printf "\n# iuno — config management tool\nalias iuno \"bash %s/iuno.sh\"\n" "$IUNO" >> "$config"
+        printf "\n# iuno — config management tool\nalias iuno \"bash \$HOME/iuno/scripts/iuno.sh\"\n" >> "$config"
         ok "Added iuno alias to $config"
     fi
 
@@ -99,7 +98,7 @@ EOF
 
 install_bash() {
     local config="$HOME/.bashrc"
-    local iuno_line="alias iuno=\"bash $IUNO/iuno.sh\""
+    local iuno_line='alias iuno="bash $HOME/iuno/scripts/iuno.sh"'
 
     # iuno alias
     if grep -q "alias iuno" "$config" 2>/dev/null; then
@@ -131,7 +130,7 @@ install_bash() {
 
 install_zsh() {
     local config="$HOME/.zshrc"
-    local iuno_line="alias iuno=\"bash $IUNO/iuno.sh\""
+    local iuno_line='alias iuno="bash $HOME/iuno/scripts/iuno.sh"'
 
     # iuno alias
     if grep -q "alias iuno" "$config" 2>/dev/null; then
@@ -180,7 +179,9 @@ log "Tools registered:"
 for entry in "${TOOLS[@]}"; do
     local_name="${entry%%|*}"
     local_script="${entry##*|}"
-    if [[ -f "$local_script" ]]; then
+    # Expand $HOME for the existence check only
+    local_script_expanded="${local_script/\$HOME/$HOME}"
+    if [[ -f "$local_script_expanded" ]]; then
         ok "  $local_name → $local_script"
     else
         warn "  $local_name → $local_script (script not found)"
