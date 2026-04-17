@@ -6,12 +6,13 @@
 #   iuno --install [-flag]
 #   iuno --backup  [-app]
 #   iuno --restore [-app]
-#   iuno --clean
+#   iuno --clean   [-location]
 #   iuno --detect
 #   iuno --help
 
 IUNO="$HOME/iuno"
 SCRIPTS="$IUNO/scripts"
+BIN="$IUNO/bin"
 source "$SCRIPTS/common.sh"
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -90,6 +91,11 @@ case "${1:-}" in
     --clean|-c)    bash "$SCRIPTS/clean.sh" "${@:2}" ;;
     --detect|-d)   cmd_detect ;;
     --help|-h)     cmd_help ;;
+
+    #bin scripts
+    #--clean-cache|-cc)    bash "$BIN/clean-cache.sh" "$(@:2)" ;;
+    
+    # // END //
     *)
         cmd_help
         exit 0
