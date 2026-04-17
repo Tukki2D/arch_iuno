@@ -3,10 +3,6 @@
 // Check the wiki for a full description of the configuration:
 // https://niri-wm.github.io/niri/Configuration:-Introduction
 
-// Input device configuration.
-// Find the full list of options on the wiki:
-// https://niri-wm.github.io/niri/Configuration:-Input
-
 
 // You can configure outputs by their name, which you can find
 // by running `niri msg outputs` while inside a niri instance.
@@ -14,40 +10,7 @@
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-/-output "eDP-1" {
-    // Uncomment this line to disable this output.
-    // off
 
-    // Resolution and, optionally, refresh rate of the output.
-    // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
-    // If the refresh rate is omitted, niri will pick the highest refresh rate
-    // for the resolution.
-    // If the mode is omitted altogether or is invalid, niri will pick one automatically.
-    // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1920x1080@120.030"
-
-    // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 2
-
-    // Transform allows to rotate the output counter-clockwise, valid values are:
-    // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
-    transform "normal"
-
-    // Position of the output in the global coordinate space.
-    // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
-    // The cursor can only move between directly adjacent outputs.
-    // Output scale and rotation has to be taken into account for positioning:
-    // outputs are sized in logical, or scaled, pixels.
-    // For example, a 3840×2160 output with scale 2.0 will have a logical size of 1920×1080,
-    // so to put another output directly adjacent to it on the right, set its x to 1920.
-    // If the position is unset or results in an overlap, the output is instead placed
-    // automatically.
-    position x=1280 y=0
-}
-
-// Settings that influence how windows are positioned and sized.
-// Find more information on the wiki:
-// https://niri-wm.github.io/niri/Configuration:-Layout
 
 
 // Add lines like this to spawn processes at startup.
@@ -76,7 +39,7 @@ hotkey-overlay {
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
 // The path is formatted with strftime(3) to give you the screenshot date and time.
-//screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null
@@ -338,11 +301,14 @@ binds {
     // Expel the bottom window from the focused column to the right.
     Mod+Period { expel-window-from-column; }
 
+    // Cycle through widths set in preset-column-widths.
     Mod+R { switch-preset-column-width; }
     // Cycling through the presets in reverse order is also possible.
-    // Mod+R { switch-preset-column-width-back; }
-    Mod+Shift+R { switch-preset-window-height; }
+    Mod+Shift+R { switch-preset-column-width-back; }
+
+    Mod+Ctrl+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
+
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
 
@@ -416,9 +382,17 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 }
 
-//Custom Additions
-include "custom.kdl"
-include "outputs.kdl"
-include "input.kdl"
-include "layout.kdl"
+// ── Personal Configuration ──────────────────────────────────────────────
+// Managed by niri-tool. See ~/iuno/scripts/niri/niri-tool.sh
 
+// Always safe — does not conflict with upstream defaults:
+include "custom.kdl"
+
+// System-specific — verify connector names with: niri msg outputs
+// Then uncomment:
+include "outputs.kdl"
+
+// Remove layout{} from config.kdl above, then uncomment:
+include "layout.kdl"
+// Remove input{} from config.kdl above, then uncomment:
+include "input.kdl"
