@@ -1,4 +1,4 @@
-# iuno
+# Iuno
 
 Personal config management and install tooling for Arch/CachyOS.
 Currently running: Niri compositor + Noctalia shell + Zsh.
