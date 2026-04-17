@@ -211,7 +211,7 @@ Hyprland is not currently installed but configs are preserved in `~/iuno/hypr/`.
 ~/.config/niri/
 ├── config.kdl      ← upstream default + include lines, never personally edited
 ├── custom.kdl      ← binds, window-rules, spawns, prefer-no-csd, screenshot-path
-├── outputs.kdl     ← monitor output blocks (system-specific)
+├── outputs.kdl     ← monitor output blocks, named workspaces, workspace window-rules
 ├── input.kdl       ← full input{} block
 └── layout.kdl      ← full layout{} block
 ```
@@ -265,6 +265,28 @@ include "custom.kdl"
 | `Mod+Tab` | Toggle overview |
 | `Mod+Shift+W` | Toggle tabbed display |
 | `Super+Alt+L` | Swaylock |
+
+### Named workspaces and window rules (in outputs.kdl)
+Named workspaces are top-level blocks — not inside `output {}`. They live in `outputs.kdl`
+because they are hardware-specific and only make sense alongside the output configuration.
+
+| Workspace | Output | Apps |
+|-----------|--------|------|
+| `flexible` | DP-3 | Waterfox |
+| `chat` | DP-3 | Telegram, Discord |
+| `gaming` | DP-3 | Steam |
+| `secondary` | HDMI-A-1 | Brave |
+
+Syntax:
+```kdl
+workspace "chat" {
+    open-on-output "DP-3"
+}
+window-rule {
+    match app-id="discord"
+    open-on-workspace "chat"
+}
+```
 
 ---
 
@@ -554,6 +576,7 @@ eval "$(starship init zsh)"
 - [x] install.sh — clean rewrite, consistent indentation, all app flags wired
 - [x] clean.sh — staging + .bak cleaner with --temp/--bak/--cache/--full flags
 - [x] Niri — include separation implemented, niri-tool pipeline proven end to end
+- [x] Niri — named workspaces + window rules added to outputs.kdl
 - [x] Kitty — include separation implemented (custom.conf, window.conf, font.conf)
 - [x] Hyprland — config cleaned, custom.conf and monitors.conf split, source block added
 - [x] Alacritty — single file, all personal, backed up
