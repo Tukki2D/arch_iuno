@@ -392,6 +392,7 @@ usage() {
     printf "    -kitty        Kitty terminal + config deploy\n"
     printf "    -alacritty    Alacritty terminal + config deploy\n"
     printf "    -nvim         Neovim + config deploy\n"
+    printf "    -zsh          Zsh shell + plugins + oh-my-zsh + starship\n"
     printf "\n"
     printf "  Hardware flags:\n"
     printf "    -wacom        Wacom Cintiq Pro 24 udev rules + kernel module\n"
@@ -481,6 +482,7 @@ if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
             -kitty)      bash "$SCRIPTS_DIR/kitty/kitty-install.sh" ;;
             -alacritty)  bash "$SCRIPTS_DIR/alacritty/alacritty-install.sh" ;;
             -nvim)       bash "$SCRIPTS_DIR/nvim/nvim-install.sh" ;;
+	    -zsh)        bash "$SCRIPTS_DIR/zsh/zsh-install.sh" ;; 
             -wacom)      setup_wacom ;;
             -noctalia)   install_noctalia ;;
             -caelestia)  install_caelestia ;;
