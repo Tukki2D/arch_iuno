@@ -44,6 +44,11 @@ bash "$SCRIPTS_DIR/iuno.sh" --detect
 
 # 5. Offer niri-tool --stage
 printf "\n"
+if [[ -z "$NIRI_SOCKET" ]]; then
+    warn "You are not currently running Niri."
+    warn "You can stage configs but won't be able to test them live."
+    printf "\n"
+fi
 printf "  Run niri-tool --stage now to set up your config pipeline? [y/N] "
 read -r answer
 if [[ "$answer" =~ ^[Yy]$ ]]; then
