@@ -15,9 +15,11 @@
 
 - **OS:** CachyOS (Arch-based), kernel 6.19.12
 - **DE/Compositor:** Niri 25.11 (b35bcae)
+- **Login manager:** SDDM 0.21.0 (auto-login to niri, config at `/etc/sddm.conf.d/niri.conf`)
 - **Shell:** Noctalia (Quickshell-based), noctalia-qs + noctalia-shell
 - **Interactive shell:** Zsh + Starship prompt (switched from Fish)
 - **Terminal:** Kitty (primary), Alacritty (secondary/scripting)
+- **File manager:** Thunar (replaced Dolphin)
 - **Machine hostname:** Arona
 - **GPU:** AMD (ROCm, radeon driver)
 - **Tablet:** Wacom Cintiq Pro 24 (DTK-2420), product ID 056a:037c
@@ -625,16 +627,40 @@ CachyOS likely provides similar assistive packages for Fish. Document when inves
 ### Private setup
 - [ ] Write `private-setup.sh` for fstab, samba, UFW (USB only, never pushed)
 
-### KDE cleanup
-- [ ] Back up any wanted KDE configs
-- [ ] Remove KDE packages
-
 ### Order of operations doc
 - [ ] Write fresh install recovery flow document
 
 ### Fish install
 - [ ] Investigate CachyOS Fish assistive packages
 - [ ] Write `fish-install.sh`
+
+### Completed
+- [x] iuno.sh — top-level router built and live
+- [x] bootstrap-alias.sh — shell alias installer, writes `$HOME` not hardcoded paths
+- [x] check-aur.sh — AUR helper verification built and live
+- [x] install.sh — clean rewrite, all app flags wired including hyprland and zsh
+- [x] clean.sh — staging + .bak cleaner with --temp/--bak/--cache/--full flags
+- [x] niri-install.sh — niri fresh install, DE check before staging
+- [x] niri-tool.sh — full pipeline with stage/diff/finalize/rollback/push
+- [x] hyprland-install.sh — hyprland fresh install, DE check before restore
+- [x] zsh-install.sh — zsh fresh install, deploys .zshrc, sets default shell
+- [x] kitty-install.sh — kitty fresh install built and live
+- [x] alacritty-install.sh — alacritty fresh install built and live
+- [x] nvim-install.sh — neovim fresh install built and live
+- [x] Niri — include separation, niri-tool pipeline, named workspaces + window rules
+- [x] Kitty — include separation implemented (custom.conf, window.conf, font.conf)
+- [x] Hyprland — config cleaned, custom.conf and monitors.conf split, source block added
+- [x] Alacritty — single file, all personal, backed up
+- [x] Nvim — single file, all personal, backed up
+- [x] Repo flattened — no more nested .config/appname/ paths
+- [x] Noctalia removed from backup/restore — install-only
+- [x] Switched interactive shell from Fish to Zsh + Starship
+- [x] home/ directory established for stray dotfiles
+- [x] bin/ directory established for personal utilities
+- [x] ~/.dotfiles/ retired — ~/iuno/ is the only source of truth
+- [x] KDE removed — 223 packages, 962MB freed
+- [x] Migrated from plasmalogin to SDDM with auto-login to niri
+- [x] Thunar installed as Dolphin replacement with Breeze-Dark GTK theme
 
 ### Completed
 - [x] iuno.sh — top-level router built and live
