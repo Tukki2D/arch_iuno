@@ -78,11 +78,6 @@ backup_fastfetch() {
     copy_dir "$HOME/.config/fastfetch" "$DOTFILES/fastfetch"
 }
 
-backup_noctalia() {
-    log "Backing up noctalia..."
-    copy_dir "$HOME/.config/noctalia" "$DOTFILES/noctalia"
-}
-
 backup_fish() {
     log "Backing up fish..."
     # Copy the full fish config dir excluding fish_variables
@@ -172,7 +167,6 @@ usage() {
     printf "    -kitty        Kitty terminal\n"
     printf "    -alacritty    Alacritty terminal\n"
     printf "    -fastfetch    Fastfetch\n"
-    printf "    -noctalia     Noctalia shell theme\n"
     printf "    -fish         Fish shell (excludes fish_variables)\n"
     printf "    -starship     Starship prompt\n"
     printf "    -nvim         Neovim\n"
@@ -199,7 +193,6 @@ for arg in "$@"; do
             backup_kitty
             backup_alacritty
             backup_fastfetch
-            backup_noctalia
             backup_fish
             backup_starship
             backup_nvim
@@ -211,7 +204,6 @@ for arg in "$@"; do
         -kitty)     backup_kitty ;;
         -alacritty) backup_alacritty ;;
         -fastfetch) backup_fastfetch ;;
-        -noctalia)  backup_noctalia ;;
         -fish)      backup_fish ;;
         -starship)  backup_starship ;;
         -nvim)      backup_nvim ;;
