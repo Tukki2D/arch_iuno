@@ -94,29 +94,37 @@ Convention for dotfile repos is hidden, but this has outgrown that pattern.
 │   │   └── alacritty-install.sh       ← alacritty fresh install
 │   └── nvim/
 │       └── nvim-install.sh            ← neovim fresh install
-├── fish/.config/fish/functions/       ← fish function wrappers
-├── niri/.config/niri/                 ← backed up niri configs
-├── kitty/.config/kitty/
-├── alacritty/.config/alacritty/
-├── hypr/.config/hypr/
-├── ckb-next/.config/ckb-next/
-├── fastfetch/.config/fastfetch/
-├── noctalia/.config/noctalia/
-├── nvim/.config/nvim/
-├── starship/.config/
-├── krita/
+├── niri/                              ← backed up niri configs (flat)
+├── kitty/                             ← backed up kitty configs (flat)
+├── alacritty/                         ← alacritty.toml
+├── hypr/                              ← hyprland configs (flat)
+├── ckb-next/                          ← ckb-next profiles
+├── fastfetch/                         ← fastfetch config
+├── nvim/                              ← init.vim
+├── starship/                          ← starship.toml
+├── fish/                              ← fish config (flat, fish_variables excluded)
+├── krita/                             ← krita rc files + .local/share/ (nested, two destinations)
 ├── home/                              ← stray dotfiles that live in ~/
 │   └── .zshrc
 └── bin/                               ← personal utility scripts (not iuno tools)
     └── clean_cache.sh
+```
 
-### home/ directory convention
-Stray dotfiles that live directly in `~/` rather than `~/.config/` go in `~/iuno/home/`.
-The repo structure mirrors the live structure — `~/iuno/home/.zshrc` restores to `~/.zshrc`.
-Any future home directory dotfile follows the same pattern.
+### Flat structure convention
+Config files are stored directly in `~/iuno/appname/` — no nested `.config/appname/` subdirectory.
+The restore scripts know the live destination for each app explicitly.
 
-Currently managed:
-- `.zshrc` — zsh interactive shell config
+**Exception: krita** — krita maps to two live locations (`~/.config/` and `~/.local/share/`).
+It keeps its nested structure so the restore script knows which files go where:
+```
+krita/
+├── .config/
+│   ├── kritarc
+│   ├── kritadisplayrc
+│   └── kritashortcutsrc
+└── .local/share/krita/
+    └── brushes, palettes etc.
+```
 
 ### bin/ directory
 Personal utility scripts that are used frequently but are not iuno tools live here.
@@ -168,7 +176,7 @@ Run iuno --help for full usage.
 | kitty | `~/.config/kitty/` | `kitty` | none yet |
 | alacritty | `~/.config/alacritty/` | `alacritty` | none yet |
 | fastfetch | `~/.config/fastfetch/` | `fastfetch` | none |
-| noctalia | `~/.config/noctalia/` | `noctalia-qs noctalia-shell` | none |
+| noctalia | not backed up — install only | `noctalia-qs noctalia-shell` | none |
 | fish | `~/.config/fish/` | `fish` | none |
 | starship | `~/.config/starship.toml` | `starship` | none |
 | nvim | `~/.config/nvim/` | `neovim` | none yet |

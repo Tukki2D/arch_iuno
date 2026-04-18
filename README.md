@@ -74,7 +74,7 @@ iuno --restore      # restore configs → ~/.config/
 | kitty | `~/.config/kitty/` | `kitty` | ✓ include split |
 | alacritty | `~/.config/alacritty/` | `alacritty` | ✓ single file |
 | fastfetch | `~/.config/fastfetch/` | `fastfetch` | — |
-| noctalia | `~/.config/noctalia/` | `noctalia-qs noctalia-shell` | — |
+| noctalia | install only — not backed up | `noctalia-qs noctalia-shell` | — |
 | fish | `~/.config/fish/` (no fish_variables) | `fish` | — |
 | starship | `~/.config/starship.toml` | `starship` (extra/ repo) | — |
 | nvim | `~/.config/nvim/` | `neovim` | ✓ single file |
@@ -108,16 +108,16 @@ iuno --restore      # restore configs → ~/.config/
 │   │   └── alacritty-install.sh       alacritty fresh install
 │   └── nvim/
 │       └── nvim-install.sh            neovim fresh install
-├── fish/.config/fish/functions/
-├── niri/.config/niri/
-├── kitty/.config/kitty/
-├── alacritty/.config/alacritty/
-├── hypr/.config/hypr/
-├── ckb-next/.config/ckb-next/
-├── fastfetch/.config/fastfetch/
-├── noctalia/.config/noctalia/
-├── nvim/.config/nvim/
-├── starship/.config/
+├── niri/                              niri configs (flat)
+├── kitty/                             kitty configs (flat)
+├── alacritty/                         alacritty.toml
+├── hypr/                              hyprland configs (flat)
+├── ckb-next/                          ckb-next profiles
+├── fastfetch/                         fastfetch config
+├── nvim/                              init.vim
+├── starship/                          starship.toml
+├── fish/                              fish config (flat, no fish_variables)
+├── krita/                             krita rc files + .local/share/ (nested, two destinations)
 ├── home/                              stray dotfiles that live in ~/
 │   └── .zshrc
 ├── bin/                               personal utility scripts
