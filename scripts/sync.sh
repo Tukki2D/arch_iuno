@@ -55,43 +55,43 @@ copy_file() {
 
 backup_niri() {
     log "Backing up niri..."
-    copy_dir "$HOME/.config/niri" "$DOTFILES/niri/.config/niri"
+    copy_dir "$HOME/.config/niri" "$DOTFILES/niri"
 }
 
 backup_hypr() {
     log "Backing up hypr..."
-    copy_dir "$HOME/.config/hypr" "$DOTFILES/hypr/.config/hypr"
+    copy_dir "$HOME/.config/hypr" "$DOTFILES/hypr"
 }
 
 backup_kitty() {
     log "Backing up kitty..."
-    copy_dir "$HOME/.config/kitty" "$DOTFILES/kitty/.config/kitty"
+    copy_dir "$HOME/.config/kitty" "$DOTFILES/kitty"
 }
 
 backup_alacritty() {
     log "Backing up alacritty..."
-    copy_dir "$HOME/.config/alacritty" "$DOTFILES/alacritty/.config/alacritty"
+    copy_dir "$HOME/.config/alacritty" "$DOTFILES/alacritty"
 }
 
 backup_fastfetch() {
     log "Backing up fastfetch..."
-    copy_dir "$HOME/.config/fastfetch" "$DOTFILES/fastfetch/.config/fastfetch"
+    copy_dir "$HOME/.config/fastfetch" "$DOTFILES/fastfetch"
 }
 
 backup_noctalia() {
     log "Backing up noctalia..."
-    copy_dir "$HOME/.config/noctalia" "$DOTFILES/noctalia/.config/noctalia"
+    copy_dir "$HOME/.config/noctalia" "$DOTFILES/noctalia"
 }
 
 backup_fish() {
     log "Backing up fish..."
     # Copy the full fish config dir excluding fish_variables
     # fish_variables is runtime generated and changes constantly
-    mkdir -p "$DOTFILES/fish/.config/fish"
-    cp -r "$HOME/.config/fish/completions" "$DOTFILES/fish/.config/fish/" 2>/dev/null
-    cp -r "$HOME/.config/fish/conf.d"      "$DOTFILES/fish/.config/fish/" 2>/dev/null
-    cp -r "$HOME/.config/fish/functions"   "$DOTFILES/fish/.config/fish/" 2>/dev/null
-    copy_file "$HOME/.config/fish/config.fish" "$DOTFILES/fish/.config/fish/config.fish"
+    mkdir -p "$DOTFILES/fish"
+    cp -r "$HOME/.config/fish/completions" "$DOTFILES/fish/" 2>/dev/null
+    cp -r "$HOME/.config/fish/conf.d"      "$DOTFILES/fish/" 2>/dev/null
+    cp -r "$HOME/.config/fish/functions"   "$DOTFILES/fish/" 2>/dev/null
+    copy_file "$HOME/.config/fish/config.fish" "$DOTFILES/fish/config.fish"
     ok "Backed up: ~/.config/fish (fish_variables excluded)"
 }
 
@@ -100,12 +100,12 @@ backup_starship() {
     # ~/.config/starship.toml is currently a symlink to mybash.
     # We copy the real file content, not the symlink itself.
     copy_file "$(realpath "$HOME/.config/starship.toml")" \
-              "$DOTFILES/starship/.config/starship.toml"
+              "$DOTFILES/starship.toml"
 }
 
 backup_nvim() {
     log "Backing up nvim..."
-    copy_dir "$HOME/.config/nvim" "$DOTFILES/nvim/.config/nvim"
+    copy_dir "$HOME/.config/nvim" "$DOTFILES/nvim"
 }
 
 backup_krita() {
@@ -115,7 +115,7 @@ backup_krita() {
     copy_file "$HOME/.config/kritarc"          "$DOTFILES/krita/.config/kritarc"
     copy_file "$HOME/.config/kritadisplayrc"   "$DOTFILES/krita/.config/kritadisplayrc"
     copy_file "$HOME/.config/kritashortcutsrc" "$DOTFILES/krita/.config/kritashortcutsrc"
-
+    
     # User data dirs — skip default bundles, cache, and logs
     local krita_dirs=(
         brushes
@@ -156,7 +156,7 @@ backup_krita() {
 
 backup_ckbnext() {
     log "Backing up ckb-next..."
-    copy_dir "$HOME/.config/ckb-next" "$DOTFILES/ckb-next/.config/ckb-next"
+    copy_dir "$HOME/.config/ckb-next" "$DOTFILES/ckb-next"
 }
 
 # ── Usage ─────────────────────────────────────────────────────────────────────

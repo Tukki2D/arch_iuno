@@ -8,7 +8,7 @@
 
 SCRIPTS_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 IUNO="$HOME/iuno"
-NVIM_REPO="$IUNO/nvim/.config/nvim"
+NVIM_REPO="$IUNO/nvim"
 NVIM_LIVE="$HOME/.config/nvim"
 
 source "$SCRIPTS_DIR/common.sh"

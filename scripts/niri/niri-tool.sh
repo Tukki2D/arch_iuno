@@ -13,7 +13,7 @@
 
 STAGING="/tmp/iuno/niri"
 LIVE="$HOME/.config/niri"
-DOTFILES_NIRI="$HOME/iuno/niri/.config/niri"
+DOTFILES_NIRI="$HOME/iuno/niri"
 UPSTREAM_URL="https://raw.githubusercontent.com/niri-wm/niri/main/resources/default-config.kdl"
 
 # ── Managed files ─────────────────────────────────────────────────────────────
