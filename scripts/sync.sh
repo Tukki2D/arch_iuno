@@ -95,7 +95,7 @@ backup_starship() {
     # ~/.config/starship.toml is currently a symlink to mybash.
     # We copy the real file content, not the symlink itself.
     copy_file "$(realpath "$HOME/.config/starship.toml")" \
-              "$DOTFILES/starship.toml"
+              "$DOTFILES/starship/starship.toml"
 }
 
 backup_nvim() {
