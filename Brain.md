@@ -193,7 +193,7 @@ Hyprland is not currently installed but configs are preserved in `~/iuno/hypr/`.
 | `-hardware` | ckb-next-git, openrgb |
 | `-ai` | ollama-rocm |
 | `-repos` | Momoisay |
-| `-niri` | niri, dunst, swayidle, swaylock, swaybg, xwayland-satellite, xdg-desktop-portal-gnome + Wacom setup |
+| `-niri` | niri, dunst, swayidle, swaylock, swaybg, xwayland-satellite, xdg-desktop-portal-gnome, polkit-gnome |
 | `-hyprland` | hyprland, dunst, hyprpolkitagent, xdg-desktop-portal-hyprland, hyprlauncher, hyprpaper |
 | `-wacom` | Wacom udev rule + kernel module config (standalone) |
 | `-noctalia` | noctalia-qs (first), noctalia-shell |
@@ -250,6 +250,7 @@ include "custom.kdl"
 - `tablet { map-to-output "DP-2" }` — in `input.kdl`
 - `spawn-at-startup "xsettingsd"` — in `custom.kdl`
 - `spawn-at-startup "xwayland-satellite"` — in `custom.kdl`
+- `spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"` — in `custom.kdl`
 - `spawn-sh-at-startup "qs -c noctalia-shell -d"` — in `custom.kdl`
 
 ### Key bindings (in custom.kdl)
@@ -512,6 +513,47 @@ eval "$(starship init zsh)"
 - `prompt_powerlevel10k_setup() { :; }` overrides p10k's setup function so Starship can take prompt ownership
 - `.zshrc` backed up in `~/iuno/home/.zshrc`
 - Aliases use `$HOME` not hardcoded paths — safe to make repo public
+
+### Planned
+- [ ] Write `zsh-install.sh` — installs zsh packages and deploys `.zshrc` from `home/`
+- [ ] Write `fish-install.sh` — installs fish packages and deploys fish config
+
+---
+
+## CachyOS Wins — Notes for Base Arch Migration
+
+CachyOS provides assistive packages and configs that don't exist on base Arch.
+This section tracks what needs to be manually sourced or installed when moving
+back to base Arch Linux.
+
+### Zsh
+CachyOS provides these packages pre-installed that need to be sourced in `.zshrc`:
+
+| Package | Path | Purpose |
+|---------|------|---------|
+| `zsh-syntax-highlighting` | `/usr/share/zsh/plugins/zsh-syntax-highlighting/` | Syntax coloring as you type |
+| `zsh-autosuggestions` | `/usr/share/zsh/plugins/zsh-autosuggestions/` | Fish-style inline suggestions |
+| `zsh-history-substring-search` | `/usr/share/zsh/plugins/zsh-history-substring-search/` | Up arrow searches history by prefix |
+| `oh-my-zsh` | `/usr/share/oh-my-zsh/` | Plugin framework (git, fzf, extract plugins) |
+| `fzf` | `/usr/share/fzf/` | Fuzzy finder integration |
+
+On base Arch these need to be installed via `paru` and sourced from their installed paths.
+
+### Fish
+CachyOS likely provides similar assistive packages for Fish. Document when investigated.
+
+### General
+- CachyOS `cachyos-config.zsh` bundles p10k, oh-my-zsh, and aliases — useful reference
+  but not sourced directly (conflicts with Starship, too opinionated)
+- CachyOS kernel (6.19.12) includes patches not in mainline — performance difference
+  may be noticeable on base Arch
+- `pkgfile` command-not-found handler — available on Arch via `pkgfile` package
+
+### Action items for Arch migration
+- [ ] Add zsh plugin packages to `-core` or a new `-zsh` flag in `install.sh`
+- [ ] Write `zsh-install.sh` that installs packages and deploys `.zshrc`
+- [ ] Investigate Fish assistive packages CachyOS provides
+- [ ] Write `fish-install.sh` similarly
 
 ---
 

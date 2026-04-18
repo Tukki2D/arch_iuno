@@ -187,6 +187,7 @@ install_niri() {
         swaybg
         xwayland-satellite
         xdg-desktop-portal-gnome
+	polkit-gnome
     )
     for pkg in "${pkgs[@]}"; do
         is_installed "$pkg" && ok "Already installed: $pkg" && continue
