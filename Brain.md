@@ -70,6 +70,43 @@ Convention for dotfile repos is hidden, but this has outgrown that pattern.
 - **No shell dependency** — iuno.sh is bash, callable from any shell
 - **Install never touches ~/.config/** — packages only, user makes config decisions separately
 - **`bin/` for personal utilities** — scripts used frequently but not part of iuno's core live in `~/iuno/bin/`
+- **Distro-agnostic by design** — configs and architecture are portable. Package management is isolated to `install_package()` and a package map. Rewriting for a new distro means updating those two things only.
+
+### Future Architecture — Multi-Distro Support
+
+Currently iuno is Arch/CachyOS specific. The install system uses paru/pacman directly inside for loops. When migrating to Debian/PikaOS or any other distro the plan is:
+
+**The for loop stays dumb** — it iterates a list of names and calls `install_package()`. No changes needed.
+
+**The intelligence moves to a package map** — a table that defines the package name and install method per distro:
+
+```bash
+# Format: "app-name|arch-package|debian-package|method"
+# Methods: pkg (native PM), flatpak, aur, manual, none
+PACKAGE_MAP=(
+    "starship|starship|starship|pkg"
+    "niri|niri|flatpak:io.github.nicoulaj.niri|flatpak"
+    "paru|paru|none|aur-bootstrap"
+)
+```
+
+**`install_package()` becomes a dispatcher** — detects distro, looks up the app in the table, calls the correct install method:
+
+```bash
+install_package() {
+    local name="$1"
+    # detect distro → pacman/apt/etc
+    # look up name in PACKAGE_MAP
+    # call correct method (pkg/flatpak/manual)
+    # if method=none: warn and print manual install note
+}
+```
+
+**`check-aur.sh` becomes `check-pkg-manager.sh`** — same concept, broader scope.
+
+**Packages marked `none`** get a warning and a manual install note — no silent failures.
+
+This is not built yet. Current install.sh works correctly for Arch/CachyOS. This pattern is the target when multi-distro support is needed.
 
 ### Directory Structure
 ```
