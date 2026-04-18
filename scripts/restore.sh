@@ -105,37 +105,37 @@ ensure_packages() {
 restore_niri() {
     log "Restoring niri..."
     ensure_packages niri
-    restore_dir "$DOTFILES/niri/.config/niri" "$HOME/.config/niri"
+    restore_dir "$DOTFILES/niri" "$HOME/.config/niri"
 }
 
 restore_hypr() {
     log "Restoring hypr..."
     ensure_packages hypr
-    restore_dir "$DOTFILES/hypr/.config/hypr" "$HOME/.config/hypr"
+    restore_dir "$DOTFILES/hypr" "$HOME/.config/hypr"
 }
 
 restore_kitty() {
     log "Restoring kitty..."
     ensure_packages kitty
-    restore_dir "$DOTFILES/kitty/.config/kitty" "$HOME/.config/kitty"
+    restore_dir "$DOTFILES/kitty" "$HOME/.config/kitty"
 }
 
 restore_alacritty() {
     log "Restoring alacritty..."
     ensure_packages alacritty
-    restore_dir "$DOTFILES/alacritty/.config/alacritty" "$HOME/.config/alacritty"
+    restore_dir "$DOTFILES/alacritty" "$HOME/.config/alacritty"
 }
 
 restore_fastfetch() {
     log "Restoring fastfetch..."
     ensure_packages fastfetch
-    restore_dir "$DOTFILES/fastfetch/.config/fastfetch" "$HOME/.config/fastfetch"
+    restore_dir "$DOTFILES/fastfetch" "$HOME/.config/fastfetch"
 }
 
 restore_noctalia() {
     log "Restoring noctalia..."
     ensure_packages noctalia
-    restore_dir "$DOTFILES/noctalia/.config/noctalia" "$HOME/.config/noctalia"
+    restore_dir "$DOTFILES/noctalia" "$HOME/.config/noctalia"
 }
 
 restore_fish() {
@@ -145,7 +145,7 @@ restore_fish() {
     # Restore fish config dirs individually — fish_variables is never restored
     # as it is runtime generated and machine specific
     local fish_dest="$HOME/.config/fish"
-    local fish_src="$DOTFILES/fish/.config/fish"
+    local fish_src="$DOTFILES/fish"
 
     if [[ ! -d "$fish_src" ]]; then
         warn "No fish backup found in repo, skipping."
@@ -171,14 +171,14 @@ restore_starship() {
     # Restores to ~/.config/starship.toml directly.
     # Note: on a fresh CachyOS install mybash may have placed a symlink here.
     # backup_existing will move it aside before restoring the real file.
-    restore_file "$DOTFILES/starship/.config/starship.toml" \
+    restore_file "$DOTFILES/starship.toml" \
                  "$HOME/.config/starship.toml"
 }
 
 restore_nvim() {
     log "Restoring nvim..."
     ensure_packages nvim
-    restore_dir "$DOTFILES/nvim/.config/nvim" "$HOME/.config/nvim"
+    restore_dir "$DOTFILES/nvim" "$HOME/.config/nvim"
 }
 
 restore_krita() {
@@ -229,7 +229,7 @@ restore_krita() {
 restore_ckbnext() {
     log "Restoring ckb-next..."
     ensure_packages ckb-next
-    restore_dir "$DOTFILES/ckb-next/.config/ckb-next" "$HOME/.config/ckb-next"
+    restore_dir "$DOTFILES/ckb-next" "$HOME/.config/ckb-next"
 }
 
 # ── Usage ─────────────────────────────────────────────────────────────────────

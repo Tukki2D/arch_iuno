@@ -79,17 +79,17 @@ APP_NAMES=(
 )
 
 declare -A APP_CONFIG_CHECK
-APP_CONFIG_CHECK[niri]="niri/.config/niri"
-APP_CONFIG_CHECK[hypr]="hypr/.config/hypr"
-APP_CONFIG_CHECK[kitty]="kitty/.config/kitty"
-APP_CONFIG_CHECK[alacritty]="alacritty/.config/alacritty"
-APP_CONFIG_CHECK[fastfetch]="fastfetch/.config/fastfetch"
-APP_CONFIG_CHECK[noctalia]="noctalia/.config/noctalia"
-APP_CONFIG_CHECK[fish]="fish/.config/fish"
-APP_CONFIG_CHECK[starship]="starship/.config/starship.toml"
-APP_CONFIG_CHECK[nvim]="nvim/.config/nvim"
-APP_CONFIG_CHECK[krita]="krita/.config/kritarc"
-APP_CONFIG_CHECK[ckb-next]="ckb-next/.config/ckb-next"
+APP_CONFIG_CHECK[niri]="niri"
+APP_CONFIG_CHECK[hypr]="hypr"
+APP_CONFIG_CHECK[kitty]="kitty"
+APP_CONFIG_CHECK[alacritty]="alacritty"
+APP_CONFIG_CHECK[fastfetch]="fastfetch"
+APP_CONFIG_CHECK[noctalia]="noctalia"
+APP_CONFIG_CHECK[fish]="fish"
+APP_CONFIG_CHECK[starship]="starship.toml"
+APP_CONFIG_CHECK[nvim]="nvim"
+APP_CONFIG_CHECK[krita]="kritarc"
+APP_CONFIG_CHECK[ckb-next]="ckb-next"
 
 declare -A APP_PACKAGES
 APP_PACKAGES[niri]="niri"

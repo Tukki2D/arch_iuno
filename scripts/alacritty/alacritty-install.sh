@@ -8,7 +8,7 @@
 
 SCRIPTS_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 IUNO="$HOME/iuno"
-ALACRITTY_REPO="$IUNO/alacritty/.config/alacritty"
+ALACRITTY_REPO="$IUNO/alacritty"
 ALACRITTY_LIVE="$HOME/.config/alacritty"
 
 source "$SCRIPTS_DIR/common.sh"

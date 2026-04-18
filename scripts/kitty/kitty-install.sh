@@ -11,7 +11,7 @@
 
 SCRIPTS_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 IUNO="$HOME/iuno"
-KITTY_REPO="$IUNO/kitty/.config/kitty"
+KITTY_REPO="$IUNO/kitty"
 KITTY_LIVE="$HOME/.config/kitty"
 
 source "$SCRIPTS_DIR/common.sh"
