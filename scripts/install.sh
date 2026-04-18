@@ -196,6 +196,25 @@ install_niri() {
     ok "Niri done."
 }
 
+
+install_hyprland() {
+    log "Installing Hyprland DE packages..."
+    local pkgs=(
+        hyprland
+        dunst
+        hyprpolkitagent
+        xdg-desktop-portal-hyprland
+        hyprlauncher
+        hyprpaper
+    )
+    for pkg in "${pkgs[@]}"; do
+        is_installed "$pkg" && ok "Already installed: $pkg" && continue
+        install_package "$pkg"
+    done
+    ok "Hyprland done."
+}
+
+
 setup_wacom() {
     log "Setting up Wacom Cintiq Pro 24..."
 
@@ -320,16 +339,18 @@ install_repos() {
 select_de() {
     printf "\n  Which desktop environment are you installing for?\n"
     printf "    1) Niri\n"
-    printf "    2) None (core packages only)\n"
+    printf "    2) Hyprland\n"
+    printf "    3) None (core packages only)\n"
     printf "\n  Choice: "
     read -r de_choice
-
     case "$de_choice" in
         1) bash "$SCRIPTS_DIR/niri/niri-install.sh" ;;
-        2) log "Skipping DE packages." ;;
+        2) bash "$SCRIPTS_DIR/hyprland/hyprland-install.sh" ;;
+        3) log "Skipping DE packages." ;;
         *) warn "Invalid choice. Skipping DE packages." ;;
     esac
 }
+
 
 select_shell() {
     printf "\n  Which shell would you like to install?\n"
@@ -367,6 +388,7 @@ usage() {
     printf "\n"
     printf "  DE and terminal flags:\n"
     printf "    -niri         Niri compositor packages + Wacom setup\n"
+    printf "    -hyprland     Hyprland compositor packages\n"
     printf "    -kitty        Kitty terminal + config deploy\n"
     printf "    -alacritty    Alacritty terminal + config deploy\n"
     printf "    -nvim         Neovim + config deploy\n"
@@ -455,6 +477,7 @@ if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
             -ai)         install_ai ;;
             -repos)      install_repos ;;
             -niri)       bash "$SCRIPTS_DIR/niri/niri-install.sh" ;;
+	    -hyprland)   bash "$SCRIPTS_DIR/hyprland/hyprland-install.sh" ;;
             -kitty)      bash "$SCRIPTS_DIR/kitty/kitty-install.sh" ;;
             -alacritty)  bash "$SCRIPTS_DIR/alacritty/alacritty-install.sh" ;;
             -nvim)       bash "$SCRIPTS_DIR/nvim/nvim-install.sh" ;;
