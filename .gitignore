@@ -14,3 +14,4 @@ kitty/no-preference-theme.auto.conf
 .DS_Store
 Thumbs.db
 noctalia/
+*-spec.md
