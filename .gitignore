@@ -6,7 +6,9 @@ krita/.local/share/krita/resourcecache.sqlite
 *.log
 
 # Fish runtime file — machine specific
-fish/.config/fish/fish_variables
+fish/fish_variables
+kitty/dark-theme.auto.conf
+kitty/no-preference-theme.auto.conf
 
 # OS clutter
 .DS_Store
