@@ -88,6 +88,10 @@ Convention for dotfile repos is hidden, but this has outgrown that pattern.
 │   ├── niri/
 │   │   ├── niri-tool.sh               ← niri config update pipeline
 │   │   └── niri-install.sh            ← niri fresh install
+│   ├── hyprland/
+│   │   └── hyprland-install.sh        ← hyprland fresh install
+│   ├── zsh/
+│   │   └── zsh-install.sh             ← zsh fresh install
 │   ├── kitty/
 │   │   └── kitty-install.sh           ← kitty fresh install
 │   ├── alacritty/
@@ -206,6 +210,7 @@ Hyprland is not currently installed but configs are preserved in `~/iuno/hypr/`.
 | `-wacom` | Wacom udev rule + kernel module config (standalone) |
 | `-noctalia` | noctalia-qs (first), noctalia-shell |
 | `-caelestia` | caelestia-shell, caelestia-cli |
+| `-zsh` | zsh, zsh-syntax-highlighting, zsh-autosuggestions, zsh-history-substring-search, fzf, oh-my-zsh-git, starship |
 
 ### Package manager fallback chain
 `paru → yay → pacman`
@@ -303,7 +308,6 @@ window-rule {
 
 ### Location
 `~/iuno/scripts/niri/niri-tool.sh`
-Fish function: `~/.config/fish/functions/niri-tool.fish`
 
 ### Commands
 | Command | Purpose |
@@ -398,7 +402,6 @@ are untouched. New upstream options appear automatically.
 ### Apps without include support
 | App | Strategy |
 |-----|---------|
-| Noctalia | Watch changelogs — JSON has no include support |
 | Krita | Watch changelogs — rc files are stable, low risk |
 
 ---
@@ -521,10 +524,18 @@ eval "$(starship init zsh)"
 - `prompt_powerlevel10k_setup() { :; }` overrides p10k's setup function so Starship can take prompt ownership
 - `.zshrc` backed up in `~/iuno/home/.zshrc`
 - Aliases use `$HOME` not hardcoded paths — safe to make repo public
+- `zsh-install.sh` built and live at `~/iuno/scripts/zsh/zsh-install.sh`
 
-### Planned
-- [ ] Write `zsh-install.sh` — installs zsh packages and deploys `.zshrc` from `home/`
-- [ ] Write `fish-install.sh` — installs fish packages and deploys fish config
+### Base Arch warning — oh-my-zsh path
+On CachyOS, oh-my-zsh installs to `/usr/share/oh-my-zsh/` — this is the path in `.zshrc`.
+On base Arch, `oh-my-zsh-git` may not be available. The manual install from GitHub puts files in `~/.oh-my-zsh/` instead.
+If installing manually on base Arch, update `.zshrc`:
+```zsh
+# Change this:
+export ZSH="/usr/share/oh-my-zsh"
+# To this:
+export ZSH="$HOME/.oh-my-zsh"
+```
 
 ---
 
@@ -558,8 +569,7 @@ CachyOS likely provides similar assistive packages for Fish. Document when inves
 - `pkgfile` command-not-found handler — available on Arch via `pkgfile` package
 
 ### Action items for Arch migration
-- [ ] Add zsh plugin packages to `-core` or a new `-zsh` flag in `install.sh`
-- [ ] Write `zsh-install.sh` that installs packages and deploys `.zshrc`
+- [x] Write `zsh-install.sh` that installs packages and deploys `.zshrc`
 - [ ] Investigate Fish assistive packages CachyOS provides
 - [ ] Write `fish-install.sh` similarly
 
@@ -613,26 +623,40 @@ CachyOS likely provides similar assistive packages for Fish. Document when inves
 - [ ] `niri-tool --push`
 
 ### Private setup
-- [ ] Write `private-setup.sh` for fstab, samba, UFW
+- [ ] Write `private-setup.sh` for fstab, samba, UFW (USB only, never pushed)
+
+### KDE cleanup
+- [ ] Back up any wanted KDE configs
+- [ ] Remove KDE packages
+
+### Order of operations doc
+- [ ] Write fresh install recovery flow document
+
+### Fish install
+- [ ] Investigate CachyOS Fish assistive packages
+- [ ] Write `fish-install.sh`
 
 ### Completed
 - [x] iuno.sh — top-level router built and live
 - [x] bootstrap-alias.sh — shell alias installer, writes `$HOME` not hardcoded paths
 - [x] check-aur.sh — AUR helper verification built and live
-- [x] niri-install.sh — niri fresh install built and live
+- [x] install.sh — clean rewrite, all app flags wired including hyprland and zsh
+- [x] clean.sh — staging + .bak cleaner with --temp/--bak/--cache/--full flags
+- [x] niri-install.sh — niri fresh install, DE check before staging
+- [x] niri-tool.sh — full pipeline with stage/diff/finalize/rollback/push
+- [x] hyprland-install.sh — hyprland fresh install, DE check before restore
+- [x] zsh-install.sh — zsh fresh install, deploys .zshrc, sets default shell
 - [x] kitty-install.sh — kitty fresh install built and live
 - [x] alacritty-install.sh — alacritty fresh install built and live
 - [x] nvim-install.sh — neovim fresh install built and live
-- [x] install.sh — clean rewrite, consistent indentation, all app flags wired
-- [x] clean.sh — staging + .bak cleaner with --temp/--bak/--cache/--full flags
-- [x] Niri — include separation implemented, niri-tool pipeline proven end to end
-- [x] Niri — named workspaces + window rules added to outputs.kdl
+- [x] Niri — include separation, niri-tool pipeline, named workspaces + window rules
 - [x] Kitty — include separation implemented (custom.conf, window.conf, font.conf)
 - [x] Hyprland — config cleaned, custom.conf and monitors.conf split, source block added
 - [x] Alacritty — single file, all personal, backed up
 - [x] Nvim — single file, all personal, backed up
-- [x] Transitional fish functions removed — iuno is the single entry point
-- [x] ~/.dotfiles/ retired — ~/iuno/ is the only source of truth
+- [x] Repo flattened — no more nested .config/appname/ paths
+- [x] Noctalia removed from backup/restore — install-only
 - [x] Switched interactive shell from Fish to Zsh + Starship
 - [x] home/ directory established for stray dotfiles
 - [x] bin/ directory established for personal utilities
+- [x] ~/.dotfiles/ retired — ~/iuno/ is the only source of truth
