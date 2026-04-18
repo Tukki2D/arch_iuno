@@ -70,7 +70,6 @@ APP_NAMES=(
     kitty
     alacritty
     fastfetch
-    noctalia
     fish
     starship
     nvim
@@ -84,7 +83,6 @@ APP_CONFIG_CHECK[hypr]="hypr"
 APP_CONFIG_CHECK[kitty]="kitty"
 APP_CONFIG_CHECK[alacritty]="alacritty"
 APP_CONFIG_CHECK[fastfetch]="fastfetch"
-APP_CONFIG_CHECK[noctalia]="noctalia"
 APP_CONFIG_CHECK[fish]="fish"
 APP_CONFIG_CHECK[starship]="starship.toml"
 APP_CONFIG_CHECK[nvim]="nvim"
@@ -97,7 +95,6 @@ APP_PACKAGES[hypr]="hyprland"
 APP_PACKAGES[kitty]="kitty"
 APP_PACKAGES[alacritty]="alacritty"
 APP_PACKAGES[fastfetch]="fastfetch"
-APP_PACKAGES[noctalia]="noctalia-qs noctalia-shell"
 APP_PACKAGES[fish]="fish"
 APP_PACKAGES[starship]="starship"
 APP_PACKAGES[nvim]="neovim"

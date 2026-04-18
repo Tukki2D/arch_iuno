@@ -132,12 +132,6 @@ restore_fastfetch() {
     restore_dir "$DOTFILES/fastfetch" "$HOME/.config/fastfetch"
 }
 
-restore_noctalia() {
-    log "Restoring noctalia..."
-    ensure_packages noctalia
-    restore_dir "$DOTFILES/noctalia" "$HOME/.config/noctalia"
-}
-
 restore_fish() {
     log "Restoring fish..."
     ensure_packages fish
@@ -245,7 +239,6 @@ usage() {
     printf "    -kitty        Kitty terminal\n"
     printf "    -alacritty    Alacritty terminal\n"
     printf "    -fastfetch    Fastfetch\n"
-    printf "    -noctalia     Noctalia shell theme\n"
     printf "    -fish         Fish shell\n"
     printf "    -starship     Starship prompt\n"
     printf "    -nvim         Neovim\n"
@@ -273,7 +266,6 @@ for arg in "$@"; do
             restore_kitty
             restore_alacritty
             restore_fastfetch
-            restore_noctalia
             restore_fish
             restore_starship
             restore_nvim
@@ -285,7 +277,6 @@ for arg in "$@"; do
         -kitty)     restore_kitty ;;
         -alacritty) restore_alacritty ;;
         -fastfetch) restore_fastfetch ;;
-        -noctalia)  restore_noctalia ;;
         -fish)      restore_fish ;;
         -starship)  restore_starship ;;
         -nvim)      restore_nvim ;;
