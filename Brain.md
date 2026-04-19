@@ -62,15 +62,46 @@ Convention for dotfile repos is hidden, but this has outgrown that pattern.
 ## iuno Architecture
 
 ### Philosophy
-- **Copy-based, not symlink-based** — live configs in `~/.config/` are never moved or touched by backup
+- **Personal tool, not a product** — built to learn, not to sell
+- **Simple is right** — start with the dumbest version that works, make it smarter when you understand how to
+- **No backtracking** — the structure supports future growth without rewrites
+- **Understand everything** — if a feature exists in iuno, it was written by hand and is understood completely
+- **One router** — iuno.sh dispatches, never contains logic
+- **Copy-based** — live configs are never moved or touched by backup
 - **Deliberate snapshots** — backup is run manually when configs are in a known-good state
-- **One backup per app** — restore keeps one prior state in `~/iuno/backups/`, overwritten each run
-- **iuno is a router** — all logic lives in underlying scripts, iuno.sh only dispatches
-- **App tools are separate** — niri-tool, future kitty-tool etc. are named by app
-- **No shell dependency** — iuno.sh is bash, callable from any shell
-- **Install never touches ~/.config/** — packages only, user makes config decisions separately
-- **`bin/` for personal utilities** — scripts used frequently but not part of iuno's core live in `~/iuno/bin/`
-- **Distro-agnostic by design** — configs and architecture are portable. Package management is isolated to `install_package()` and a package map. Rewriting for a new distro means updating those two things only.
+- **Install never touches ~/.config/** — packages only, config decisions are separate
+- **Distro-agnostic by design** — configs and architecture are portable, package management is isolated to install_package() in common.sh
+
+### Directory Structure
+```
+~/iuno/
+├── Brain.md                     ← source of truth, session record
+├── README.md                    ← honest entry point
+├── .gitignore
+├── apps/                        ← one directory per managed app
+│   └── [appname]/
+│       ├── arch.sh              ← arch/cachyos install
+│       ├── deb.sh               ← debian install (add when needed)
+│       ├── backup.sh            ← copy live configs into iuno
+│       ├── restore.sh           ← copy iuno configs to live
+│       ├── stage.sh             ← staging pipeline (add when needed)
+│       ├── config-paths         ← plain text list of live config locations
+│       └── backups/             ← rollback history
+├── machines/                    ← machine-specific values
+│   ├── defaults.sh              ← shared across all machines
+│   └── Arona.sh                 ← this machine's overrides
+├── scripts/
+│   ├── core/                    ← iuno's own machinery
+│   │   ├── iuno.sh              ← router only
+│   │   ├── common.sh            ← distro detection, install dispatcher, log_action
+│   │   ├── clean.sh             ← staging and cache cleanup
+│   │   └── bootstrap-alias.sh   ← shell alias installer
+│   └── user/                    ← personal scripts
+│       ├── launcher-toggle.sh
+│       └── clean_cache.sh
+└── home/                        ← stray dotfiles that live in ~/
+    └── .zshrc
+```
 
 ### Future Architecture — Multi-Distro Support
 
@@ -655,6 +686,14 @@ CachyOS likely provides similar assistive packages for Fish. Document when inves
 ---
 
 ## What's Next
+
+### Iuno v2 migration
+- [ ] Create `apps/` directory structure
+- [ ] Migrate niri first — most complete app, best teacher
+- [ ] Move core scripts to `scripts/core/`
+- [ ] Move personal scripts to `scripts/user/`
+- [ ] Write `common.sh` with `install_package()` dispatcher and `log_action()`
+- [ ] Retire sync.sh, restore.sh, install.sh as apps migrate to new structure
 
 ### When niri blur lands
 - [ ] Set `background_opacity` in kitty and alacritty configs

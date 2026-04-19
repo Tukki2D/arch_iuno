@@ -1,160 +1,62 @@
 # Iuno
 
-Personal config management and install tooling for Arch/CachyOS.
-Currently running: Niri compositor + Noctalia shell + Zsh.
+Personal Linux setup tool. Handles installs, config staging, and backups.
+Built for Arch/CachyOS, designed to grow with its author.
 
-## Getting started
-
-The first thing to do on a fresh clone is set up the `iuno` alias for your shell:
-
-```bash
-bash ~/iuno/scripts/bootstrap-alias.sh
-```
-
-This detects your shell (fish, bash, zsh) and adds the `iuno` alias to the correct
-config file. After that, `iuno --help` is your entry point for everything.
+This is not a product. It is a personal tool and a learning project.
+If something is broken it means the author hasn't fixed it yet.
 
 ---
 
-## How it works
+## Setup
 
-Configs are copied deliberately into this repo when in a known-good state.
-Nothing is symlinked — your live configs in `~/.config/` are never moved or touched
-by the backup process. You are always in control of when a snapshot is taken.
-
-```bash
-iuno --backup -all  # copy working configs → ~/iuno/
-git add .
-git commit -m "what changed and why"
-git push            # safe offsite copy on GitHub
-```
-
-On a fresh install or after breaking something:
+Clone and run bootstrap to register the iuno alias for your shell:
 
 ```bash
 git clone git@github.com:Tukki2D/arch_iuno.git ~/iuno
-bash ~/iuno/scripts/bootstrap-alias.sh
-iuno --install      # install packages
-iuno --restore      # restore configs → ~/.config/
+bash ~/iuno/scripts/core/bootstrap-alias.sh
 ```
 
 ---
 
 ## Commands
 
-### iuno
 ```
--i, --install  [-flag]   install packages
--b, --backup   [-app]    back up configs to ~/iuno/
--r, --restore  [-app]    restore configs from ~/iuno/ to ~/.config/
--c, --clean  [--temp|--bak|--cache|--full]   clean staging, .bak files, or package cache
--d, --detect             show installed apps and available tools
--h, --help               show all commands and available tools
-```
-
-### niri-tool
-```
--b, --bak       back up all live niri config files to .bak
--s, --stage     scaffold staging at /tmp/iuno/niri/
--d, --diff      show differences between staging and live (optional)
--f, --finalize  check staging, promote to live
--r, --rollback  restore all live files from .bak (all or nothing)
--p, --push      save to ~/iuno and push to GitHub
--h, --help      show usage
+iuno --install  [-app]    install an app from apps/
+iuno --backup   [-app]    copy live configs into iuno
+iuno --restore  [-app]    copy iuno configs to live locations
+iuno --stage    [-app]    run the staging pipeline for an app
+iuno --detect             list managed apps and their status
+iuno --clean              clean /tmp/iuno and package cache
+iuno --log                show the iuno action log
 ```
 
 ---
 
-## App inventory
-
-| App | Config path | Package(s) | Tool |
-|-----|-------------|-----------|------|
-| niri | `~/.config/niri/` | `niri` | `niri-tool` |
-| hypr | `~/.config/hypr/` | `hyprland` | ✓ include split |
-| kitty | `~/.config/kitty/` | `kitty` | ✓ include split |
-| alacritty | `~/.config/alacritty/` | `alacritty` | ✓ single file |
-| fastfetch | `~/.config/fastfetch/` | `fastfetch` | — |
-| noctalia | install only — not backed up | `noctalia-qs noctalia-shell` | — |
-| fish | `~/.config/fish/` (no fish_variables) | `fish` | — |
-| starship | `~/.config/starship.toml` | `starship` (extra/ repo) | — |
-| nvim | `~/.config/nvim/` | `neovim` | ✓ single file |
-| krita | `~/.config/krita* + .local/share/` | `krita` | — |
-| ckb-next | `~/.config/ckb-next/` | `ckb-next-git` | — |
-
----
-
-## Repo structure
+## Structure
 
 ```
 ~/iuno/
-├── Brain.md                           source of truth and session record
-├── README.md                          this file
+├── apps/              one directory per managed app
+├── machines/          machine-specific values
 ├── scripts/
-│   ├── common.sh                      shared functions, app registry
-│   ├── sync.sh                        backup: ~/.config → ~/iuno
-│   ├── restore.sh                     restore: ~/iuno → ~/.config
-│   ├── install.sh                     package bootstrapper
-│   ├── clean.sh                       clean staging and .bak files
-│   ├── launcher-toggle.sh             shell-agnostic launcher toggle
-│   ├── iuno.sh                        top-level router
-│   ├── bootstrap-alias.sh             shell alias installer
-│   ├── check-aur.sh                   verify AUR helper, install paru if needed
-│   ├── niri/
-│   │   ├── niri-tool.sh               niri config update pipeline
-│   │   └── niri-install.sh            niri fresh install
-│   ├── kitty/
-│   │   └── kitty-install.sh           kitty fresh install
-│   ├── alacritty/
-│   │   └── alacritty-install.sh       alacritty fresh install
-│   └── nvim/
-│       └── nvim-install.sh            neovim fresh install
-├── niri/                              niri configs (flat)
-├── kitty/                             kitty configs (flat)
-├── alacritty/                         alacritty.toml
-├── hypr/                              hyprland configs (flat)
-├── ckb-next/                          ckb-next profiles
-├── fastfetch/                         fastfetch config
-├── nvim/                              init.vim
-├── starship/                          starship.toml
-├── fish/                              fish config (flat, no fish_variables)
-├── krita/                             krita rc files + .local/share/ (nested, two destinations)
-├── home/                              stray dotfiles that live in ~/
-│   └── .zshrc
-├── bin/                               personal utility scripts
-└── krita/
+│   ├── core/          iuno's own machinery
+│   └── user/          personal scripts
+└── home/              stray dotfiles that live in ~/
 ```
 
----
-
-## Backups
-
-When restore runs and a config already exists at the target path, it is moved
-to `~/iuno/backups/` before restoring. One backup is kept per app —
-it is overwritten on the next restore run.
+Each app directory contains its own install, backup, restore, and stage scripts.
+Adding a new app means creating a new directory. Nothing else changes.
 
 ---
 
-## Notes
+## Current Machine
 
-- **starship** — currently installed manually to `/usr/local/bin/starship`.
-  On next fresh install use: `paru -S starship` (available in extra/ repo).
-- **zsh** — `.zshrc` backed up in `home/.zshrc`. Aliases use `$HOME` not hardcoded paths.
-- **KDE** configs excluded — use KDE's built-in import/export instead.
-- **Wacom Cintiq Pro 24** requires two system files outside this repo:
-  ```
-  /etc/udev/rules.d/99-wacom-cintiq-pro24.rules
-  /etc/modules-load.d/wacom.conf
-  ```
-  Handled automatically by `install.sh -wacom` or `install.sh -niri`.
+Arona — CachyOS, Niri 25.11, Zsh, SDDM
 
 ---
 
-## Adding a new app
+## Brain.md
 
-1. Add the app name to `APP_NAMES` in `scripts/common.sh`
-2. Add its config check path to `APP_CONFIG_CHECK`
-3. Add its package(s) to `APP_PACKAGES`
-4. Add a `backup_appname()` function to `sync.sh`
-5. Add a `restore_appname()` function to `restore.sh`
-6. Add the flag to the case statement and `-all` block in both scripts
-7. Run `iuno --backup -appname` to test
+Full system record, architecture notes, and session history lives in Brain.md.
+That's the real documentation. This file is just the entry point.

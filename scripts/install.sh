@@ -188,6 +188,7 @@ install_niri() {
         xwayland-satellite
         xdg-desktop-portal-gnome
 	polkit-gnome
+	wl-sunset
     )
     for pkg in "${pkgs[@]}"; do
         is_installed "$pkg" && ok "Already installed: $pkg" && continue

@@ -47,13 +47,13 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // Animation settings.
 // The wiki explains how to configure individual animations:
 // https://niri-wm.github.io/niri/Configuration:-Animations
-animations {
+//animations {
     // Uncomment to turn off all animations.
     // off
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
     // slowdown 3.0
-}
+//}
 
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
@@ -396,3 +396,5 @@ include "outputs.kdl"
 include "layout.kdl"
 // Remove input{} from config.kdl above, then uncomment:
 include "input.kdl"
+
+include "animations.kdl"
