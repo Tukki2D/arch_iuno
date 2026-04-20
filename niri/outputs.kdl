@@ -50,9 +50,11 @@ workspace "secondary" {
 // These rules are here because they depend on the output/workspace setup above.
 // If outputs change, review these rules.
 
+
 window-rule {
-    match app-id="waterfox"
-    open-on-workspace "main"
+    match app-id=r#"^waterfox$"#
+    exclude title=r#"^(Save Image|Save As|Save File|Open File|Library|Downloads)$"#
+    open-on-workspace "primary"
 }
 
 window-rule {
