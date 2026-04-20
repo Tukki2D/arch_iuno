@@ -82,3 +82,38 @@ window-rule {
 }
 
 
+// ### GAME SPECIFIC HANDLING ####
+// Open Steam Games on the Gaming Workspace
+window-rule {
+    match app-id=r#"^steam$"#
+    match app-id=r#"^steam_app_\d+$"#
+    open-on-workspace "gaming"
+}
+
+
+// Open specific apps fullscreen. Add/remove app-ids as you like.
+// Steam games fullscreen example — usually games fullscreen themselves,
+// but this forces it at open time if they don't.
+window-rule {
+    match app-id=r#"^steam_app_1245620$"#   // Elden Ring
+    match app-id=r#"^steam_app_2622380$"#   // Elden Ring Nightreign
+    match app-id=r#"^steam_app_3513350$"#   // Wuthering Waves 
+
+    //Exclude Launchers
+    exclude title=r#"(?i)(launcher|updater)"#
+
+    //Open Fullscreen
+    open-fullscreen true
+}
+
+// #Heroic Games Launcher
+window-rule {
+    match app-id=r#"^gamescope$"#
+    open-on-workspace "gaming"
+
+    //Exclude Launcher
+    exclude title=r#"(?i)(launcher|updater)"#
+
+    //Open Fullscreen
+    open-fullscreen true
+}
