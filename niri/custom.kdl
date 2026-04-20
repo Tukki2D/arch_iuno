@@ -86,3 +86,5 @@ binds {
     Mod+Alt+WheelScrollDown { focus-workspace-down; }
     Mod+Alt+WheelScrollUp   { focus-workspace-up; }
 }
+
+
