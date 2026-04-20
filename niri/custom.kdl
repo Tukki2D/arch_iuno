@@ -46,6 +46,7 @@ binds {
 
     // Additional app launchers
     Mod+W hotkey-overlay-title="Run an Application: waterfox" { spawn "waterfox"; }
+    Mod+B hotkey-overlay-title="Run an Application: brave" { spawn "brave"; }
     Mod+E hotkey-overlay-title="Run an Application: thunar" { spawn "thunar"; }
 
     // Close window — Mod+C instead of default Mod+Q
