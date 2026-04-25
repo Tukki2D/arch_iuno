@@ -32,13 +32,16 @@ output "DP-2" {
 
 // ── Workspaces ───────────────────────────────────────────────────────────
 
-workspace "main" {
+workspace "primary" {
     open-on-output "DP-3"
 }
 workspace "chat" {
     open-on-output "DP-3"
 }
 workspace "gaming" {
+    open-on-output "DP-3"
+}
+workspace "playing" {
     open-on-output "DP-3"
 }
 workspace "secondary" {
@@ -53,13 +56,13 @@ workspace "secondary" {
 
 window-rule {
     match app-id=r#"^waterfox$"#
-    exclude title=r#"^(Save Image|Save As|Save File|Open File|Library|Downloads)$"#
+    exclude title=r#"^(Save Image|Save As|Save File|Open File|Library|Downloads|Opening|.png)$"#
     open-on-workspace "primary"
 }
 
 window-rule {
     match app-id="librewolf"
-    open-on-workspace "main"
+    open-on-workspace "primary"
 }
 
 
@@ -74,11 +77,6 @@ window-rule {
 }
 
 window-rule {
-    match app-id="steam"
-    open-on-workspace "gaming"
-}
-
-window-rule {
     match app-id="brave-browser"
     open-on-workspace "secondary"
 }
@@ -89,6 +87,9 @@ window-rule {
 window-rule {
     match app-id=r#"^steam$"#
     match app-id=r#"^steam_app_\d+$"#
+    match app-id="steam"
+    match app-id="twintaillauncher"
+    match app-id="heroic"
     open-on-workspace "gaming"
 }
 
@@ -97,15 +98,19 @@ window-rule {
 // Steam games fullscreen example — usually games fullscreen themselves,
 // but this forces it at open time if they don't.
 window-rule {
+    match app-id=r#"^steam_proton"#	    // Twintail Launcher Games
+    match app-id=r#"^steam_app_default"#    // Heroic Games - Games
     match app-id=r#"^steam_app_1245620$"#   // Elden Ring
     match app-id=r#"^steam_app_2622380$"#   // Elden Ring Nightreign
     match app-id=r#"^steam_app_3513350$"#   // Wuthering Waves 
+    match app-id=r#"^steam_app_3557620$"#   //Blue Archive
 
     //Exclude Launchers
     exclude title=r#"(?i)(launcher|updater)"#
 
     //Open Fullscreen
     open-fullscreen true
+    open-on-workspace "playing"
 }
 
 // #Heroic Games Launcher
