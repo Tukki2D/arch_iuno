@@ -1,0 +1,5 @@
+2026/05/04-13:18:04.454 235d Creating DB /home/tyler/.config/net.imput.helium/Default/Local Extension Settings/pkehgijcmpdhfbdbbnkijodmdjhbjlgp since it was missing.
+2026/05/04-13:18:04.462 235d Reusing MANIFEST /home/tyler/.config/net.imput.helium/Default/Local Extension Settings/pkehgijcmpdhfbdbbnkijodmdjhbjlgp/MANIFEST-000001
+2026/05/04-13:19:14.235 235d Level-0 table #5: started
+2026/05/04-13:19:14.246 235d Level-0 table #5: 1015774 bytes OK
+2026/05/04-13:19:14.251 235d Delete type=0 #3

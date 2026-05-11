@@ -1,0 +1,20 @@
+{
+   "background": {
+      "service_worker": "background.js"
+   },
+   "description": "Adds the \"Save Image As PNG\" option to the context menu of images.",
+   "host_permissions": [ "\u003Call_urls>" ],
+   "icons": {
+      "128": "img/icon128.png",
+      "16": "img/icon16.png",
+      "48": "img/icon48.png"
+   },
+   "incognito": "split",
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCCjKfc7iZZHxAMZ+DHXhL1IEXAyQJvacU+IOcVe8C39jNj7fHOLkLnoIF1BqZqXCan6EaH5XV6l6BTDU2BDHC6VvKdkferI7143ylo/Z+KwSpNGHtxupIbYLwd3q5Z7Otyan2wA+KedDDKRD28vQddoqqhqnwG9BRKWleq7mLzSwIDAQAB",
+   "manifest_version": 3,
+   "minimum_chrome_version": "106",
+   "name": "Save Image As PNG",
+   "permissions": [ "activeTab", "contextMenus", "downloads", "offscreen", "scripting" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0.3"
+}

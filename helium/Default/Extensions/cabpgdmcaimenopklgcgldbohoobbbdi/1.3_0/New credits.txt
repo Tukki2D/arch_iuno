@@ -1,0 +1,1 @@
+I'm not associated with xamayon or https://saucenao.com/. I just decided to modify the code of the original extension to work on manifest version 3 whilst gutting the options because I didn't know how to get them to work on manifest version 3.

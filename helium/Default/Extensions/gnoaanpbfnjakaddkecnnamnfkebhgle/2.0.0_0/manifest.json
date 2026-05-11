@@ -1,0 +1,62 @@
+{
+   "action": {
+      "default_icon": {
+         "128": "icons/icon128.png",
+         "16": "icons/icon16.png",
+         "48": "icons/icon48.png"
+      },
+      "default_popup": "popup/popup.html",
+      "default_title": "Cookie Guardian"
+   },
+   "background": {
+      "service_worker": "background.js",
+      "type": "module"
+   },
+   "commands": {
+      "clean-all-cookies": {
+         "description": "Clean all non-whitelisted cookies",
+         "suggested_key": {
+            "default": "Alt+Shift+A"
+         }
+      },
+      "clean-current-site": {
+         "description": "Clean cookies for current site",
+         "suggested_key": {
+            "default": "Alt+Shift+X"
+         }
+      },
+      "toggle-extension": {
+         "description": "Toggle Cookie Guardian on/off",
+         "suggested_key": {
+            "default": "Alt+Shift+C"
+         }
+      },
+      "whitelist-current-site": {
+         "description": "Add current site to whitelist",
+         "suggested_key": {
+            "default": "Alt+Shift+W"
+         }
+      }
+   },
+   "content_scripts": [ {
+      "js": [ "ExtPay.js" ],
+      "matches": [ "https://extensionpay.com/*" ],
+      "run_at": "document_start"
+   } ],
+   "description": "Auto-delete cookies when tabs close. Whitelist trusted sites. Cookie AutoDelete alternative that works. Privacy-first, MV3 ready.",
+   "host_permissions": [ "\u003Call_urls>" ],
+   "icons": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu/izpJ/YBRPzUfccZkZ+3AWQF6oQOkNWUUr5FwBXAaPNBaLkwfSNevMddlIfc3rXgaNDdFUne3zWJj3Fk9jK3t67BFOYCvv1Zj6Ms2jWiqmZVoNBj69XAGI61rTrJbZH/o3rW3DCtTgodjKSr7Up8P5p4pV5cP4Y6oBFjS1Bcx7vVAFJhHppvIi6mtRVbJtpqbNlTauZEQZZ+XwPxO6xM0IjADphEdIC4vfgH5sblBBcLi/hSqb/xW3P7MACMeCeLqk8KhqQnD2iZyJh1KwYtkKFiJl+6lS3edho5jSsvldmPr4WWa4IVI3m8h61Ilnh0eymGSOzaMEY6QQJzFhXswIDAQAB",
+   "manifest_version": 3,
+   "minimum_chrome_version": "120",
+   "name": "Cookie Guardian - Auto Delete Cookies on Tab Close | Privacy Cleaner",
+   "options_page": "options/options.html",
+   "permissions": [ "cookies", "storage", "tabs", "alarms", "notifications", "contextMenus" ],
+   "short_name": "Cookie Guardian",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2.0.0"
+}

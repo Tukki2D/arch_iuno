@@ -1,0 +1,61 @@
+2026/05/03-23:38:55.378 ecd8 Creating DB /home/tyler/.config/net.imput.helium/Default/Local Extension Settings/blockjmkbacgjkknlgpkjjiijinjdanf since it was missing.
+2026/05/03-23:38:55.389 ecd8 Reusing MANIFEST /home/tyler/.config/net.imput.helium/Default/Local Extension Settings/blockjmkbacgjkknlgpkjjiijinjdanf/MANIFEST-000001
+2026/05/03-23:38:59.043 ecd8 Level-0 table #5: started
+2026/05/03-23:38:59.067 ecd8 Level-0 table #5: 5034427 bytes OK
+2026/05/03-23:38:59.072 ecd8 Delete type=0 #3
+2026/05/03-23:39:55.665 ecd7 Level-0 table #7: started
+2026/05/03-23:39:55.707 ecd7 Level-0 table #7: 7362832 bytes OK
+2026/05/03-23:39:55.711 ecd7 Delete type=0 #4
+2026/05/03-23:40:55.408 ecd8 Level-0 table #9: started
+2026/05/03-23:40:55.429 ecd8 Level-0 table #9: 4875568 bytes OK
+2026/05/03-23:40:55.433 ecd8 Delete type=0 #6
+2026/05/03-23:40:59.912 ecd8 Level-0 table #11: started
+2026/05/03-23:40:59.937 ecd8 Level-0 table #11: 4277850 bytes OK
+2026/05/03-23:40:59.944 ecd8 Delete type=0 #8
+2026/05/03-23:41:02.346 ecd8 Level-0 table #13: started
+2026/05/03-23:41:02.377 ecd8 Level-0 table #13: 6331867 bytes OK
+2026/05/03-23:41:02.382 ecd8 Delete type=0 #10
+2026/05/03-23:42:08.002 ecd8 Level-0 table #15: started
+2026/05/03-23:42:08.047 ecd8 Level-0 table #15: 9325757 bytes OK
+2026/05/03-23:42:08.053 ecd8 Delete type=0 #12
+2026/05/03-23:42:08.055 ecd8 Compacting 4@0 + 1@1 files
+2026/05/03-23:42:08.071 ecd8 Generated table #16@0: 5 keys, 2833172 bytes
+2026/05/03-23:42:08.089 ecd8 Generated table #17@0: 4 keys, 3479634 bytes
+2026/05/03-23:42:08.106 ecd8 Generated table #18@0: 3 keys, 2206721 bytes
+2026/05/03-23:42:08.121 ecd8 Generated table #19@0: 5 keys, 2147249 bytes
+2026/05/03-23:42:08.137 ecd8 Generated table #20@0: 7 keys, 2097784 bytes
+2026/05/03-23:42:08.152 ecd8 Generated table #21@0: 3 keys, 2195988 bytes
+2026/05/03-23:42:08.193 ecd8 Generated table #22@0: 9 keys, 7783067 bytes
+2026/05/03-23:42:08.208 ecd8 Generated table #23@0: 13 keys, 2058241 bytes
+2026/05/03-23:42:08.208 ecd8 Compacted 4@0 + 1@1 files => 24801856 bytes
+2026/05/03-23:42:08.214 ecd8 compacted to: files[ 0 8 1 0 0 0 0 ]
+2026/05/03-23:42:08.214 ecd8 Delete type=2 #7
+2026/05/03-23:42:08.214 ecd8 Delete type=2 #9
+2026/05/03-23:42:08.214 ecd8 Delete type=2 #11
+2026/05/03-23:42:08.214 ecd8 Delete type=2 #13
+2026/05/03-23:42:08.214 ecd8 Delete type=2 #15
+2026/05/03-23:42:08.219 ecd8 Expanding@1 1+1 (2833172+5034427 bytes) to 8+1 (24801856+5034427 bytes)
+2026/05/03-23:42:08.219 ecd8 Compacting 8@1 + 1@2 files
+2026/05/03-23:42:08.235 ecd8 Generated table #24@1: 5 keys, 2833172 bytes
+2026/05/03-23:42:08.254 ecd8 Generated table #25@1: 4 keys, 3479634 bytes
+2026/05/03-23:42:08.270 ecd8 Generated table #26@1: 3 keys, 2206721 bytes
+2026/05/03-23:42:08.286 ecd8 Generated table #27@1: 6 keys, 2148075 bytes
+2026/05/03-23:42:08.302 ecd8 Generated table #28@1: 7 keys, 2097784 bytes
+2026/05/03-23:42:08.316 ecd8 Generated table #29@1: 3 keys, 2195988 bytes
+2026/05/03-23:42:08.334 ecd8 Generated table #30@1: 9 keys, 2149265 bytes
+2026/05/03-23:42:08.364 ecd8 Generated table #31@1: 1 keys, 5749612 bytes
+2026/05/03-23:42:08.378 ecd8 Generated table #32@1: 18 keys, 2058579 bytes
+2026/05/03-23:42:08.378 ecd8 Compacted 8@1 + 1@2 files => 24918830 bytes
+2026/05/03-23:42:08.382 ecd8 compacted to: files[ 0 0 9 0 0 0 0 ]
+2026/05/03-23:42:08.382 ecd8 Delete type=2 #5
+2026/05/03-23:42:08.382 ecd8 Delete type=2 #16
+2026/05/03-23:42:08.382 ecd8 Delete type=2 #17
+2026/05/03-23:42:08.382 ecd8 Delete type=2 #18
+2026/05/03-23:42:08.382 ecd8 Delete type=2 #19
+2026/05/03-23:42:08.382 ecd8 Delete type=2 #20
+2026/05/03-23:42:08.382 ecd8 Delete type=2 #21
+2026/05/03-23:42:08.382 ecd8 Delete type=2 #22
+2026/05/03-23:42:08.382 ecd8 Delete type=2 #23
+2026/05/03-23:42:11.015 ecf1 Level-0 table #34: started
+2026/05/03-23:42:11.061 ecf1 Level-0 table #34: 7798230 bytes OK
+2026/05/03-23:42:11.065 ecf1 Delete type=0 #14

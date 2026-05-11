@@ -1,0 +1,1984 @@
+{
+   "checksum": "0ca8494f3d2ad38fb7abe73be51d75f4",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "children": [ {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "ab816c62-197f-4ed0-970d-5e86e474c4f8",
+               "id": "11",
+               "name": "mynoise.net/NoiseMachines/thunderNoiseGenerator.php",
+               "type": "url",
+               "url": "https://mynoise.net/NoiseMachines/thunderNoiseGenerator.php"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "a8ad08ae-b825-40be-8dbb-db6e8d0f2ef6",
+               "id": "12",
+               "name": "gmail.com/",
+               "type": "url",
+               "url": "http://gmail.com/"
+            }, {
+               "children": [ {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "9d890777-85ff-49d9-8d2b-7bf989d81021",
+                  "id": "14",
+                  "name": "/a/",
+                  "type": "url",
+                  "url": "https://boards.4channel.org/a/catalog"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "bd635d94-540a-4431-904f-cceb2b6ba366",
+                  "id": "15",
+                  "name": "/ic/",
+                  "type": "url",
+                  "url": "https://boards.4chan.org/ic/catalog"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "75d44cc5-0069-42a3-af01-a2ea16176962",
+                  "id": "16",
+                  "name": "/jp/",
+                  "type": "url",
+                  "url": "https://boards.4chan.org/jp/catalog"
+               } ],
+               "date_added": "13422399767253048",
+               "date_last_used": "0",
+               "date_modified": "0",
+               "guid": "76205dc1-e6e7-4184-8b64-ceb1b2284aa3",
+               "id": "13",
+               "name": "/boards/",
+               "type": "folder"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "e574772f-8bac-40fa-a178-551d12f1db2d",
+               "id": "17",
+               "name": "http://odysee.com/",
+               "type": "url",
+               "url": "http://odysee.com/"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "085d0a18-869a-4d97-b915-a91ccb202e49",
+               "id": "18",
+               "name": "https://www.pinterest.com/",
+               "type": "url",
+               "url": "https://www.pinterest.com/"
+            }, {
+               "children": [ {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "2e3432ab-1d54-4dd1-881a-ef43e978a4a1",
+                  "id": "20",
+                  "name": "RSI Website",
+                  "type": "url",
+                  "url": "https://robertsspaceindustries.com/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "27e05a18-ed63-4317-961c-1db7a90d62a9",
+                  "id": "21",
+                  "name": "Star Citizen",
+                  "type": "url",
+                  "url": "https://reddit.com/r/starcitizen/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "7269a5a2-6885-4490-9d4f-7ed666e26e2b",
+                  "id": "22",
+                  "name": "https://www.erkul.games/",
+                  "type": "url",
+                  "url": "https://www.erkul.games/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "acfca0ed-93fa-4e23-85ad-317304c0be78",
+                  "id": "23",
+                  "name": "https://www.spviewer.eu/",
+                  "type": "url",
+                  "url": "https://www.spviewer.eu/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "1a8e252b-7a0b-4fbd-bc0d-5015427d788c",
+                  "id": "24",
+                  "name": "https://docs.google.com/spreadsheets/d/1JSFtB-EkVi-fWX95vu8HGmPA_RUJPjlnaxhTn5J33gU/edit#gid=0",
+                  "type": "url",
+                  "url": "https://docs.google.com/spreadsheets/d/1JSFtB-EkVi-fWX95vu8HGmPA_RUJPjlnaxhTn5J33gU/edit#gid=0"
+               } ],
+               "date_added": "13422399767253117",
+               "date_last_used": "0",
+               "date_modified": "0",
+               "guid": "c786e248-2772-4640-9db2-4a9ad6a8d153",
+               "id": "19",
+               "name": "Star Citizen",
+               "type": "folder"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "bf589fd4-016d-44bc-8f72-bc0271115873",
+               "id": "25",
+               "name": "https://www.anatomystandard.com/",
+               "type": "url",
+               "url": "https://www.anatomystandard.com/"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "e6191e73-e843-4eb2-b73d-f4fab7413a7c",
+               "id": "26",
+               "name": "Free Photo Muscle",
+               "type": "url",
+               "url": "https://freephotomuscle.com/"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "cfd40642-792a-493a-95e0-c6f7adbfa7f1",
+               "id": "27",
+               "name": "Lewd Figures",
+               "type": "url",
+               "url": "https://www.native-web.jp/"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "754796c5-e3c9-408f-86a0-419cf10eabb9",
+               "id": "28",
+               "name": "croquis.cafe/",
+               "type": "url",
+               "url": "https://croquis.cafe/"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "1007bef3-a08d-48e0-bb81-3f6f16750cd6",
+               "id": "29",
+               "name": "line-of-action.com/",
+               "type": "url",
+               "url": "https://line-of-action.com/"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "f830967c-849e-4d01-8a99-f5654c101daf",
+               "id": "30",
+               "name": "https://www.reddit.com/r/WutheringWaves/",
+               "type": "url",
+               "url": "https://www.reddit.com/r/WutheringWaves/"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "dc23a25c-aaa9-45f8-8c41-08da188a5653",
+               "id": "31",
+               "name": "WuWa Leaks",
+               "type": "url",
+               "url": "https://www.reddit.com/r/WutheringWavesLeaks/"
+            }, {
+               "children": [ {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "4b20b38d-4ae0-4ace-acbb-d0c38f104dda",
+                  "id": "33",
+                  "name": "GelBooru",
+                  "type": "url",
+                  "url": "https://gelbooru.com/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "b000252b-972f-4e9b-8387-54996a744f22",
+                  "id": "34",
+                  "name": "danbooru.donmai.us/posts?tags=minaba_hideo&z=2",
+                  "type": "url",
+                  "url": "https://danbooru.donmai.us/posts?tags=minaba_hideo&z=2"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "78f48598-8a99-4695-acd3-09cd9cb01027",
+                  "id": "35",
+                  "name": "Arowana",
+                  "type": "url",
+                  "url": "https://www.artstation.com/arowana"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "ea0e50a1-04e2-4faa-9d73-017052a76cad",
+                  "id": "36",
+                  "name": "https://cdn.donmai.us/original/a2/7b/__aris_and_aris_blue_archive_drawn_by_ggymj__a27b3a7896a8eb8d74e2ff366dd77de5.jpg",
+                  "type": "url",
+                  "url": "https://cdn.donmai.us/original/a2/7b/__aris_and_aris_blue_archive_drawn_by_ggymj__a27b3a7896a8eb8d74e2ff366dd77de5.jpg"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "62177dc9-6a5f-45dd-a435-6e3060aebbe3",
+                  "id": "37",
+                  "name": "danbooru.donmai.us/posts/8975872?q=monogrbl",
+                  "type": "url",
+                  "url": "https://danbooru.donmai.us/posts/8975872?q=monogrbl"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "8f3b5dad-47ba-4f40-a481-71f6ad91fb72",
+                  "id": "38",
+                  "name": "jelosus2.github.io/BD2-L2D-Viewer/?char=003603&anim=idle&skin=default&type=character",
+                  "type": "url",
+                  "url": "https://jelosus2.github.io/BD2-L2D-Viewer/?char=003603&anim=idle&skin=default&type=character"
+               } ],
+               "date_added": "13422399767253284",
+               "date_last_used": "0",
+               "date_modified": "0",
+               "guid": "4bfd07f2-b80e-4558-9b64-2e08240e1681",
+               "id": "32",
+               "name": "Art Favoritees",
+               "type": "folder"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "c23b8149-a6bb-4b59-9603-9428cc5ceda7",
+               "id": "39",
+               "name": "Patreon",
+               "type": "url",
+               "url": "https://www.patreon.com/c/Tukki2D"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "c95d2a26-4491-4e69-95d4-f0c77f8f7f36",
+               "id": "40",
+               "name": "Prydwen.gg",
+               "type": "url",
+               "url": "https://www.prydwen.gg/wuthering-waves/characters"
+            }, {
+               "children": [ {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "3c744aed-8854-4b37-aefc-597f7c5e9c0f",
+                  "id": "42",
+                  "name": "TyPi-Portainer",
+                  "type": "url",
+                  "url": "https://192.168.0.60:9443/#!/home"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "0f5f23fa-775e-460a-91e3-ed31b83d7a79",
+                  "id": "43",
+                  "name": "RaspberryTy PiHole",
+                  "type": "url",
+                  "url": "http://192.168.0.60/admin/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "9da907b8-bbb3-4a0f-9a9e-0e1803c37585",
+                  "id": "44",
+                  "name": "192.168.0.187:8096/",
+                  "type": "url",
+                  "url": "http://192.168.0.187:8096/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "b7100bca-4ba2-4804-8b26-c811e9ee03de",
+                  "id": "45",
+                  "name": "PiHole-DNS-1",
+                  "type": "url",
+                  "url": "http://192.168.0.49/admin/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "6614282e-a382-49ed-b201-165f59028bb2",
+                  "id": "46",
+                  "name": "PiHole-DNS-2",
+                  "type": "url",
+                  "url": "http://192.168.0.51/admin/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "9b7c9ede-57a1-451b-853a-465e0603489e",
+                  "id": "47",
+                  "name": "FileBrowser",
+                  "type": "url",
+                  "url": "http://192.168.0.60:8082/login?redirect=%2Ffiles%2F"
+               } ],
+               "date_added": "13422399767253399",
+               "date_last_used": "0",
+               "date_modified": "0",
+               "guid": "3370431f-fcc3-4406-80d3-6821c54d69de",
+               "id": "41",
+               "name": "Self-Hosting",
+               "type": "folder"
+            } ],
+            "date_added": "13422399767253013",
+            "date_last_used": "0",
+            "date_modified": "0",
+            "guid": "5f2e5efc-4ed5-48b4-baf0-6573e91170cc",
+            "id": "10",
+            "name": "Startup",
+            "type": "folder"
+         }, {
+            "date_added": "13413495461000000",
+            "date_last_used": "0",
+            "guid": "52d8b445-5b6a-461c-a018-de3c47e97594",
+            "id": "48",
+            "name": "Jellyfin",
+            "type": "url",
+            "url": "http://192.168.4.4:8096/"
+         }, {
+            "date_added": "13419797586000000",
+            "date_last_used": "0",
+            "guid": "da2766d2-000c-4f49-83f1-dd215e3ab68d",
+            "id": "49",
+            "name": "",
+            "type": "url",
+            "url": "http://localhost:8080/"
+         }, {
+            "date_added": "13413495461000000",
+            "date_last_used": "0",
+            "guid": "35d3840b-8c1e-4d76-a178-d160efae6f2e",
+            "id": "50",
+            "name": "",
+            "type": "url",
+            "url": "https://croquis.cafe/"
+         }, {
+            "date_added": "13413495461000000",
+            "date_last_used": "0",
+            "guid": "45ceeb83-3e53-4a46-8216-23379abf0d16",
+            "id": "51",
+            "name": "",
+            "type": "url",
+            "url": "https://mail.google.com/mail/u/0/#inbox"
+         }, {
+            "date_added": "13421312067000000",
+            "date_last_used": "0",
+            "guid": "67806a72-40d9-4ce1-b884-60a44028d592",
+            "id": "52",
+            "name": "",
+            "type": "url",
+            "url": "https://mail.tutanota.com/mail/Oqne0X4-2J-9/Oqne0YS--N-9?mail"
+         }, {
+            "date_added": "13413495461000000",
+            "date_last_used": "0",
+            "guid": "b8c7117c-f8a4-4092-a4ad-06e6983d4d7c",
+            "id": "53",
+            "name": "",
+            "type": "url",
+            "url": "https://drive.google.com/drive/u/0/my-drive"
+         }, {
+            "date_added": "13413495461000000",
+            "date_last_used": "0",
+            "guid": "ac9248dd-a942-4b41-9491-5d2cac0e76eb",
+            "id": "54",
+            "name": "",
+            "type": "url",
+            "url": "https://docs.google.com/spreadsheets/d/1JSFtB-EkVi-fWX95vu8HGmPA_RUJPjlnaxhTn5J33gU/edit?gid=1725586047#gid=1725586047"
+         }, {
+            "date_added": "13413495461000000",
+            "date_last_used": "0",
+            "guid": "12e84c58-c4d7-44a6-b954-10b7fcb76013",
+            "id": "55",
+            "name": "",
+            "type": "url",
+            "url": "https://web.weatherwise.app/#map=8.18/34.962/-87.395&sc=GOES-West&sp=ABI_GeoColor&m=RADAR&hcid=eb7ded21-88bd-4dd2-a5f9-a06d964ec4a7"
+         }, {
+            "date_added": "13413495461000000",
+            "date_last_used": "0",
+            "guid": "b9bf1256-a6bc-424a-88a8-6f137cf60d18",
+            "id": "56",
+            "name": "",
+            "type": "url",
+            "url": "https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJ3ZWF0aGVyIiwiY2VudGVyIjpbLTkxLjE4NiwzMy43ODldLCJsb2NhdGlvbiI6Wy04Ny42NDksNDEuODY0XSwiem9vbSI6Ny41NjU3NjQ2NzI1MTQ0MzcsImxheWVyIjoiYnJlZl9xY2QifSwiYW5pbWF0aW5nIjp0cnVlLCJiYXNlIjoic3RhbmRhcmQiLCJhcnRjYyI6ZmFsc2UsImNvdW50eSI6ZmFsc2UsImN3YSI6ZmFsc2UsInJmYyI6ZmFsc2UsInN0YXRlIjpmYWxzZSwibWVudSI6dHJ1ZSwic2hvcnRGdXNlZE9ubHkiOmZhbHNlLCJvcGFjaXR5Ijp7ImFsZXJ0cyI6MC4zMiwibG9jYWwiOjAuNiwibG9jYWxTdGF0aW9ucyI6MC44LCJuYXRpb25hbCI6MC45MX19"
+         }, {
+            "date_added": "13415220764000000",
+            "date_last_used": "0",
+            "guid": "f5ddd678-0ef7-46f1-8c55-e65a2de14a65",
+            "id": "57",
+            "name": "",
+            "type": "url",
+            "url": "https://www.native-web.jp/"
+         }, {
+            "date_added": "13413495461000000",
+            "date_last_used": "0",
+            "guid": "fb8bb55a-bff1-4e89-98bc-d751a074687f",
+            "id": "58",
+            "name": "",
+            "type": "url",
+            "url": "https://www.pinterest.com/dramapanda/male-oc/"
+         }, {
+            "date_added": "13415323151000000",
+            "date_last_used": "0",
+            "guid": "978c5bc2-d96c-4344-a067-6e0253ef3f82",
+            "id": "59",
+            "name": "",
+            "type": "url",
+            "url": "https://www.patreon.com/c/Tukki2D?vanity=user"
+         }, {
+            "date_added": "13415740520000000",
+            "date_last_used": "0",
+            "guid": "4aca9871-636e-4921-a9cb-b43d13e2ca26",
+            "id": "60",
+            "name": "",
+            "type": "url",
+            "url": "https://app.milanote.com/1OJhkj1um8BIQH/home"
+         }, {
+            "date_added": "13419028454000000",
+            "date_last_used": "0",
+            "guid": "8f76c9de-7406-4b6a-b426-5e5ea59643b8",
+            "id": "61",
+            "name": "Instagram",
+            "type": "url",
+            "url": "https://www.instagram.com/p/DWTk_Z2Evup/?img_index=1"
+         }, {
+            "children": [ {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "c541f089-35c2-4a50-868a-208ebcd2ce0d",
+               "id": "63",
+               "name": "Open Source Education |",
+               "type": "url",
+               "url": "https://opensourceeducation.online/"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "8a2a01ab-5789-4056-8ccb-4473646213de",
+               "id": "64",
+               "name": "Truthstream Media",
+               "type": "url",
+               "url": "https://www.bitchute.com/truthstream"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "1c488e82-e245-415e-ad34-0c133f6c21f6",
+               "id": "65",
+               "name": "Truthstream Media – by Aaron & Melissa Dykes",
+               "type": "url",
+               "url": "https://truthstreammedia.com/"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "ccf1d40b-6cb1-4fd3-bba8-0efe76de7a42",
+               "id": "66",
+               "name": "TCRN",
+               "type": "url",
+               "url": "https://theconsciousresistance.com/"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "0fe4f89c-152f-4718-baff-e42110a048cb",
+               "id": "67",
+               "name": "FreedomTaker",
+               "type": "url",
+               "url": "https://freedomtaker.com/"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "40f40958-fcc0-43e4-bde2-1d6663cfb5cd",
+               "id": "68",
+               "name": "Unlimited Hangout",
+               "type": "url",
+               "url": "https://unlimitedhangout.com/"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "fd43f080-6f81-45ad-9163-90e3fa827e72",
+               "id": "69",
+               "name": "The Counter Signal",
+               "type": "url",
+               "url": "https://www.thecountersignal.com/news"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "ed761094-bed3-4fdb-ac4c-3667fe3faf3f",
+               "id": "70",
+               "name": "Press for Truth",
+               "type": "url",
+               "url": "https://pressfortruth.ca/"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "61b61657-ea4b-4c53-a82e-0020fad8b46d",
+               "id": "71",
+               "name": "Truth Comes to Light",
+               "type": "url",
+               "url": "https://truthcomestolight.com/"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "442a4365-5e44-49a7-9f35-5c94baa3c497",
+               "id": "72",
+               "name": "Cerbett Report",
+               "type": "url",
+               "url": "https://www.corbettreport.com/"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "18d6900f-4565-4ddf-a8de-55e6fd060e2d",
+               "id": "73",
+               "name": "The Last American Vegabond",
+               "type": "url",
+               "url": "https://www.thelastamericanvagabond.com/last-american-vagabonds/"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "be638647-6710-4ffc-a85e-920027f42c7c",
+               "id": "74",
+               "name": "Activist Post",
+               "type": "url",
+               "url": "https://www.activistpost.com/"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "f8f88121-fcf7-479b-8829-6085bac70a9f",
+               "id": "75",
+               "name": "Banned Preaching",
+               "type": "url",
+               "url": "https://bannedpreaching.com/"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "16234076-d7ee-4c29-ad9a-ec414b5f492e",
+               "id": "76",
+               "name": "Media Monarchy",
+               "type": "url",
+               "url": "https://mediamonarchy.com/20220210morningmonarchy/"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "096d31a9-5b5f-431a-80b3-75a44e61ab35",
+               "id": "77",
+               "name": "Faithful Word Baptist Church",
+               "type": "url",
+               "url": "http://www.faithfulwordbaptist.org/page5.html"
+            }, {
+               "children": [ {
+                  "date_added": "13418237986000000",
+                  "date_last_used": "0",
+                  "guid": "a18bd0a3-df38-4c12-82f2-07617d48b8f0",
+                  "id": "79",
+                  "name": "“Ukraine’s Azov Battalion has received teams of American military advisors and high powered US-made weapons” | Adara Press",
+                  "type": "url",
+                  "url": "https://adarapress.com/2022/02/27/ukraines-azov-battalion-has-received-teams-of-american-military-advisors-and-high-powered-us-made-weapons/"
+               }, {
+                  "date_added": "13418238001000000",
+                  "date_last_used": "0",
+                  "guid": "634d7ee4-6da3-422a-ab30-75e623dc7f36",
+                  "id": "80",
+                  "name": "A Year After 1/6, Ukraine’s War Draws U.S. Far-Right to Fight Russia, Train for Violence at Home - Newsweek",
+                  "type": "url",
+                  "url": "https://www.newsweek.com/ukraine-war-draws-us-far-right-fight-russia-violence-home-1665027"
+               }, {
+                  "date_added": "13418238004000000",
+                  "date_last_used": "0",
+                  "guid": "93d52c3f-94f1-4667-816a-6eabab0206c4",
+                  "id": "81",
+                  "name": "4 indicted on charges stemming from 2017 Charlottesville 'Unite the Right' rally",
+                  "type": "url",
+                  "url": "https://wjla.com/news/local/4-indicted-charges-2017-charlottesville-unite-right-rally"
+               }, {
+                  "date_added": "13418238006000000",
+                  "date_last_used": "0",
+                  "guid": "366522b4-0d1e-4c26-9718-10fe77aeb2b7",
+                  "id": "82",
+                  "name": "AERODYNAMIC VOL. 1_0118.pdf",
+                  "type": "url",
+                  "url": "https://www.cia.gov/readingroom/docs/AERODYNAMIC%20%20%20VOL.%201_0118.pdf"
+               }, {
+                  "date_added": "13418238009000000",
+                  "date_last_used": "0",
+                  "guid": "12dfa088-3fcd-4f13-8793-62887fee5103",
+                  "id": "83",
+                  "name": "U.S. ﻿Congress has removed from year-end spending bill a ban on funding neo-Nazis - New Cold War: Know Better",
+                  "type": "url",
+                  "url": "https://newcoldwar.org/u-s-%EF%BB%BFcongress-has-removed-from-year-end-spending-bill-a-ban-on-funding-neo-nazis/"
+               }, {
+                  "date_added": "13418238011000000",
+                  "date_last_used": "0",
+                  "guid": "ac9b77a3-6e03-4d03-b9d7-13d0023a803f",
+                  "id": "84",
+                  "name": "eyeofthedoodlebug on Twitter: \"Verifiable facts: US Congress made sure the Azov Battalion WOULD get US arms in 2016. CIA has trained them since 2015. FBI verified that the Azov Battalion is neo-nazi, is immersed with Ukraine's gov & that those in Charlottesville are their US faction. https://t.co/aGfB72LWvZ https://t.co/okxjrpZKgn\" / Twitter",
+                  "type": "url",
+                  "url": "https://web.archive.org/web/20220410054523/https://twitter.com/doodlebugeye/status/1505580527558049793"
+               }, {
+                  "date_added": "13418238015000000",
+                  "date_last_used": "0",
+                  "guid": "de5fffd5-e9e9-42af-bbf8-81f689ad63dc",
+                  "id": "85",
+                  "name": "Azov Battalion Tie To Charlottesville/CIA & Ukraine TV Host Calls For \"Killing Children\" If Russian",
+                  "type": "url",
+                  "url": "https://www.thelastamericanvagabond.com/azov-battalion-tie-charlottesville-cia-ukraine-tv-host-calls-for-killing-children-if-russian/"
+               }, {
+                  "date_added": "13418238017000000",
+                  "date_last_used": "0",
+                  "guid": "c86cbe72-98bd-4bb8-8a27-9edeeabc0beb",
+                  "id": "86",
+                  "name": "Ukraine/CIA Ties To \"Unite The Right Rally\", MSM Truth Lite, RSV Sidestep & CBDC/Digital ID Lockstep",
+                  "type": "url",
+                  "url": "https://www.thelastamericanvagabond.com/ukraine-cia-ties-unite-right-rally-msm-truth-lite-rsv-sidestep-cbdc-digital-id-lockstep/"
+               } ],
+               "date_added": "13422399767253760",
+               "date_last_used": "0",
+               "date_modified": "0",
+               "guid": "4206008a-f0be-4861-b26a-52eab02a01f3",
+               "id": "78",
+               "name": "Ukriane",
+               "type": "folder"
+            } ],
+            "date_added": "13422399767253619",
+            "date_last_used": "0",
+            "date_modified": "0",
+            "guid": "de3d0d04-5bea-4a16-820a-c9c43125e070",
+            "id": "62",
+            "name": "Journalism",
+            "type": "folder"
+         }, {
+            "children": [ {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "b5fd2245-6fcf-4956-8a4e-5bf5748b9b53",
+               "id": "88",
+               "name": "Wuthering Waves Wiki & Database | Prydwen Institute",
+               "type": "url",
+               "url": "https://www.prydwen.gg/wuthering-waves/"
+            }, {
+               "date_added": "13414019490000000",
+               "date_last_used": "0",
+               "guid": "987b3e74-3856-41e5-bce5-57bedf093d33",
+               "id": "89",
+               "name": "Arknights: Endfield | Prydwen Institute",
+               "type": "url",
+               "url": "https://www.prydwen.gg/arknights-endfield/characters"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "bdf826fa-8631-4ab9-adf8-874bb5ac828e",
+               "id": "90",
+               "name": "Event Timeline - Wuwa Tracker",
+               "type": "url",
+               "url": "https://wuwatracker.com/timeline"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "44d2ac86-4855-450d-bef3-b2807fc217b2",
+               "id": "91",
+               "name": "Banner Summary",
+               "type": "url",
+               "url": "https://hina.loves.midokuni.com/Summary/Banner"
+            }, {
+               "date_added": "13415989335000000",
+               "date_last_used": "0",
+               "guid": "254ec4ef-dbad-42b1-a64d-d55221c79ee0",
+               "id": "92",
+               "name": "Arknights Endfield Tools & Database | EndfieldTools.DEV",
+               "type": "url",
+               "url": "https://endfieldtools.dev/"
+            }, {
+               "date_added": "13415989415000000",
+               "date_last_used": "0",
+               "guid": "ac7cbae4-dfeb-47b5-9ecb-49640f642ad2",
+               "id": "93",
+               "name": "Essence Tools Hub - Arknights Endfield Community Tool by EndfieldTools - EndfieldTools.DEV",
+               "type": "url",
+               "url": "https://endfieldtools.dev/weapon-essence-solver/"
+            } ],
+            "date_added": "13422399767253970",
+            "date_last_used": "0",
+            "date_modified": "0",
+            "guid": "5be0f46d-3f24-4c33-885f-7105b1c7d6e3",
+            "id": "87",
+            "name": "Gacha",
+            "type": "folder"
+         }, {
+            "children": [ {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "cd1047fa-37c5-40ab-a363-c63ee6b9b8d8",
+               "id": "95",
+               "name": "Brown Dust 2 L2D Viewer",
+               "type": "url",
+               "url": "https://jelosus2.github.io/BD2-L2D-Viewer/?char=000204&anim=idle&skin=default&type=character"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "e575d57a-b2f2-4297-b573-f9bedc00115b",
+               "id": "96",
+               "name": "Design kit | Design kit",
+               "type": "url",
+               "url": "https://browndust2.gitbook.io/designkit_en"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "949192d7-6a7d-4e4d-a6aa-e02184199799",
+               "id": "97",
+               "name": "My OC Images",
+               "type": "url",
+               "url": "https://imgur.com/a/ocs-R3w1JNg"
+            }, {
+               "children": [ {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "a6299132-ccbc-45b8-82d9-8b123bb99f57",
+                  "id": "99",
+                  "name": "Line of Action",
+                  "type": "url",
+                  "url": "https://line-of-action.com/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "f49ab81d-d7c6-4d4b-8378-a23c1173e5d3",
+                  "id": "100",
+                  "name": "Quickposes",
+                  "type": "url",
+                  "url": "https://quickposes.com/en/gestures/timed"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "5f36af3a-938a-49b8-8b19-7afa40410322",
+                  "id": "101",
+                  "name": "Skull For Reference - 3D model by HEC (@hec) [719c274]",
+                  "type": "url",
+                  "url": "https://sketchfab.com/3d-models/skull-for-reference-719c274b35264ebbb906981298121955"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "5e51878b-c558-434b-b4e3-20d4c247a6af",
+                  "id": "102",
+                  "name": "Stylized Anime Female Head - Download Free 3D model by Rodesqa (@rodesqa) [e8d0432]",
+                  "type": "url",
+                  "url": "https://sketchfab.com/3d-models/stylized-anime-female-head-e8d04325a74e46a98a6494abe721a8b2"
+               } ],
+               "date_added": "13422399767254094",
+               "date_last_used": "0",
+               "date_modified": "0",
+               "guid": "5e9cafc0-156d-466b-9871-1df5a18d83ce",
+               "id": "98",
+               "name": "Active References",
+               "type": "folder"
+            }, {
+               "children": [ {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "b51e801f-d4ff-492e-b644-68744c7e4cb0",
+                  "id": "104",
+                  "name": "Human Anatomy for Artist - Ultra-high resolution human photo references – Human-Anatomy-for-Artist.com",
+                  "type": "url",
+                  "url": "https://www.human-anatomy-for-artist.com/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "108b7304-1be6-4844-9ea7-8ff6385df44b",
+                  "id": "105",
+                  "name": "Female Anatomy for Artist - Ultra-high resolution female photo references – Female-Anatomy-for-Artist.com",
+                  "type": "url",
+                  "url": "https://www.female-anatomy-for-artist.com/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "9b31bae3-8fdb-4df2-a026-a8da286bde75",
+                  "id": "106",
+                  "name": "Anatomy Standard Landing Page",
+                  "type": "url",
+                  "url": "https://www.anatomystandard.com/"
+               } ],
+               "date_added": "13422399767254178",
+               "date_last_used": "0",
+               "date_modified": "0",
+               "guid": "43e9edc5-4738-476a-8dc0-824b41d3c7ea",
+               "id": "103",
+               "name": "Anatomy",
+               "type": "folder"
+            }, {
+               "children": [ {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "9dc0b401-08b5-4171-8ff6-f4e06de497cf",
+                  "id": "108",
+                  "name": "The Art of Ryota Murayama",
+                  "type": "url",
+                  "url": "https://www.iamag.co/the-art-of-ryota-murayama/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "a9dc5c9a-b19d-43a2-9553-a0d43a22340d",
+                  "id": "109",
+                  "name": "ヒーロー - pixiv",
+                  "type": "url",
+                  "url": "https://www.pixiv.net/en/users/85038647"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "bf0d1385-df52-4802-9eb4-7a00e98262a1",
+                  "id": "110",
+                  "name": "pikat",
+                  "type": "url",
+                  "url": "https://www.pikat.io/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "4ef2231d-a20c-4de1-b579-78cec8a0a712",
+                  "id": "111",
+                  "name": "vienri | Danbooru",
+                  "type": "url",
+                  "url": "https://danbooru.donmai.us/posts/5914077?q=yuel_%28granblue_fantasy%29"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "794de4a0-ea41-410c-8b4f-591d46d187f4",
+                  "id": "112",
+                  "name": "iwashi_(morpho000) | Danbooru",
+                  "type": "url",
+                  "url": "https://danbooru.donmai.us/posts/8834990?q=iwashi_%28morpho000%29"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "d3d0bc5f-d383-422c-ae69-4e25c64935c2",
+                  "id": "113",
+                  "name": "mikasayaki | Danbooru",
+                  "type": "url",
+                  "url": "https://danbooru.donmai.us/posts/3472978?q=grea_%28shingeki_no_bahamut%29+"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "6f9c3b0c-c423-405a-8398-2837b9eedef4",
+                  "id": "114",
+                  "name": "chela77 | Danbooru",
+                  "type": "url",
+                  "url": "https://danbooru.donmai.us/posts/6912014?q=fubuki_%28senran_kagura%29+"
+               } ],
+               "date_added": "13422399767254233",
+               "date_last_used": "0",
+               "date_modified": "0",
+               "guid": "ad7d404f-e901-486a-b401-41ace2c61499",
+               "id": "107",
+               "name": "Artists",
+               "type": "folder"
+            }, {
+               "children": [ {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "4431262b-75f1-424f-8dce-280f729c8322",
+                  "id": "116",
+                  "name": "Translate text from photos from English and other languages – Yandex.Translate",
+                  "type": "url",
+                  "url": "https://translate.yandex.com/ocr"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "1b52f55a-25f0-4b93-ac0d-93b6be9f7dad",
+                  "id": "117",
+                  "name": "Art Books",
+                  "type": "url",
+                  "url": "https://e-hentai.org/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "03daa11a-1e66-4a30-a19b-19396333c901",
+                  "id": "118",
+                  "name": "Asian Fantasy Girl Character Design Book - E-Hentai Galleries",
+                  "type": "url",
+                  "url": "https://e-hentai.org/g/1508581/93366f8302/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "9bf4fd02-3bdf-45a1-a095-d0be9b5af8da",
+                  "id": "119",
+                  "name": "Encyclopedia of how to draw “expression” in digital illustration - E-Hentai Galleries",
+                  "type": "url",
+                  "url": "https://e-hentai.org/g/1508580/6af42d2470/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "e6485f17-506e-44a5-8372-ff578125f59c",
+                  "id": "120",
+                  "name": "Fairy tale cute girl costume design catalog - E-Hentai Galleries",
+                  "type": "url",
+                  "url": "https://e-hentai.org/g/1508552/d9b71c4335/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "80639321-cc90-464e-b4f7-abe6c89feb41",
+                  "id": "121",
+                  "name": "Monochrome illustration technique - E-Hentai Galleries",
+                  "type": "url",
+                  "url": "https://e-hentai.org/g/1498106/d319d79bde/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "38814df3-e3b5-401c-a006-a58b7b712ecf",
+                  "id": "122",
+                  "name": "Reference to how to draw a skirt (long version) - E-Hentai Galleries",
+                  "type": "url",
+                  "url": "https://e-hentai.org/g/1498104/d7bd6630d0/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "a3e0d2f2-e987-4364-a190-10cef4fa4596",
+                  "id": "123",
+                  "name": "muscle draw - E-Hentai Galleries",
+                  "type": "url",
+                  "url": "https://e-hentai.org/g/400717/d82bd0195a/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "077a6d1a-1d07-495c-8327-5065d12a8f80",
+                  "id": "124",
+                  "name": "[Houtengeki] Choppiri Ecchi na Onnanoko no Kakikata | How to Draw a (Slightly) Sexy Girl Chapter 1-3 [English] [Ara Ara~ Publishing] [Incomplete] - E-Hentai Galleries",
+                  "type": "url",
+                  "url": "https://e-hentai.org/g/1973041/51c2db04c6/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "4d99539c-344b-437b-9feb-bc7288a7fdb5",
+                  "id": "125",
+                  "name": "artist:houtengeki - E-Hentai Galleries",
+                  "type": "url",
+                  "url": "https://e-hentai.org/tag/artist:houtengeki"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "7a85089e-6ab6-49f9-a0bb-31b8603ad1ac",
+                  "id": "126",
+                  "name": "Tag: how to - E-Hentai Galleries",
+                  "type": "url",
+                  "url": "https://e-hentai.org/tag/how+to"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "8cd85f0b-f510-4125-b498-2269bc4e880c",
+                  "id": "127",
+                  "name": "Blue Archive Official Artworks (Blue Archive) - E-Hentai Galleries",
+                  "type": "url",
+                  "url": "https://e-hentai.org/g/2380863/8c9c72529b/"
+               } ],
+               "date_added": "13422399767254894",
+               "date_last_used": "0",
+               "date_modified": "0",
+               "guid": "37befaa3-64e0-499d-af1a-15798dbe62dc",
+               "id": "115",
+               "name": "Books",
+               "type": "folder"
+            }, {
+               "children": [ {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "d69259dc-5654-48cd-b002-76c2fcff3d83",
+                  "id": "129",
+                  "name": "E-Hentai Galleries - The Free Hentai Doujinshi, Manga and Image Gallery System",
+                  "type": "url",
+                  "url": "https://e-hentai.org/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "297e140d-76f0-4340-a0b2-49cc8a0dc8c4",
+                  "id": "130",
+                  "name": "Welcome | Kemono",
+                  "type": "url",
+                  "url": "https://kemono.su/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "5921b0e1-b89e-4062-9f11-d5068c0e685e",
+                  "id": "131",
+                  "name": "Illustrations of characters that draw the aesthetics of the human body naturally in any posture by Jason Kim (Korean, Eng sub) \u003C Premium Courses Online",
+                  "type": "url",
+                  "url": "https://online-courses.club/class101-illustrations-of-characters-that-draw-the-aesthetics-of-the-human-body-naturally-in-any-posture-korean-eng-sub/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "7df2f74c-8b69-4bfb-8f45-3de56b2774ea",
+                  "id": "132",
+                  "name": "Cubebrush - Curated digital assets & resources",
+                  "type": "url",
+                  "url": "https://cubebrush.co/orders/159g6ah7f4"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "9750cd41-02ff-403e-91ba-8ca90639ddd9",
+                  "id": "133",
+                  "name": "GitHub - ItIsMeCall911/Course-Piracy-Index: Course Piracy Index 🏴‍☠️",
+                  "type": "url",
+                  "url": "https://github.com/ItIsMeCall911/Course-Piracy-Index"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "0378a571-3169-4027-86c1-4bd6882ce660",
+                  "id": "134",
+                  "name": "Face Drawing Mastery - Drawing Bootcamp by Precia-T \u003C Premium Courses Online",
+                  "type": "url",
+                  "url": "https://online-courses.club/face-drawing-mastery-drawing-bootcamp-by-precia-t/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "0055225b-74cc-477b-a890-74359de77805",
+                  "id": "135",
+                  "name": "how to draw manga: free download. Ebooks library. On-line books store on Z-Library",
+                  "type": "url",
+                  "url": "https://usa1lib.org/s/how%20to%20draw%20manga"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "8888effb-6ff5-4a22-986e-779286566ca2",
+                  "id": "136",
+                  "name": "",
+                  "type": "url",
+                  "url": "https://www.mediafire.com/?i44dwzkf9j9n8"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "27ad2513-18f2-48e6-96a8-1599f984a025",
+                  "id": "137",
+                  "name": "Richard Williams - The Animator's Survival Kit.pdf - Google Drive",
+                  "type": "url",
+                  "url": "https://docs.google.com/file/d/0B-OTUJDZcAzLcDhFbVN3TjdwUnc/view"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "ee28baf9-77e5-4ef9-8166-6e2b8083465a",
+                  "id": "138",
+                  "name": "Encyclopedia of how to draw “expression” in digital illustration - E-Hentai Galleries",
+                  "type": "url",
+                  "url": "https://e-hentai.org/g/1508580/6af42d2470/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "94551510-9b87-4f15-9e07-31a959cde4dd",
+                  "id": "139",
+                  "name": "Icon Workshop - Warcraft Frost Nova icon redesign",
+                  "type": "url",
+                  "url": "https://app.gumroad.com/d/4aedc4d48e7e96bc714750e014e65594"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "fbe46b7d-770f-4858-ae40-2fbb1b0f6f47",
+                  "id": "140",
+                  "name": "books on art stuff",
+                  "type": "url",
+                  "url": "https://www.mediafire.com/?i44dwzkf9j9n8"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "a1c41786-8cbf-4a18-b297-9286e1b6d5ac",
+                  "id": "141",
+                  "name": "Icon Workshop - Warcraft Frost Nova icon redesign",
+                  "type": "url",
+                  "url": "https://app.gumroad.com/d/4aedc4d48e7e96bc714750e014e65594"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "8186a4f5-e46c-4ead-b33f-e559df48a48e",
+                  "id": "142",
+                  "name": "Download file Gumroad Trent Photoshop Brushpack 2019 L",
+                  "type": "url",
+                  "url": "https://rapidgator.net/folder/5430741/Gumroad%20Trent%20Photoshop%20Brushpack%202019%20L.html"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "05983be0-2431-49e2-b2c2-5a3ca79df4e4",
+                  "id": "143",
+                  "name": "Download file Gumroad Reference Collection L",
+                  "type": "url",
+                  "url": "https://rapidgator.net/folder/5761821/Gumroad%20Reference%20Collection%20L.html"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "586164a1-b07b-4f2e-a255-97ff32938ac0",
+                  "id": "144",
+                  "name": "Artstation – Reference Pack Collection June 2022 | CG Persia",
+                  "type": "url",
+                  "url": "https://cgpersia.com/2022/06/artstation-reference-pack-collection-june-2022-184343.html"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "5ac88f38-38a8-4cee-92b9-012a55a359aa",
+                  "id": "145",
+                  "name": "Gumroad – Reference Collection | CG Persia",
+                  "type": "url",
+                  "url": "https://cgpersia.com/2020/09/gumroad-reference-collection-172746.html"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "8fef7044-e025-4fee-903d-91bb332df090",
+                  "id": "146",
+                  "name": "Stylized Character Illustration Using Deformation by Seoji (Korean, Eng sub) \u003C Premium Courses Online",
+                  "type": "url",
+                  "url": "https://online-courses.club/coloso-stylized-character-illustration-using-deformation-by-seoji-korean-eng-sub/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "355e2caf-ed3c-4794-a247-c4b30fe05545",
+                  "id": "147",
+                  "name": "How to Design Stylish and Trendy Characters for Illustration by OKKU \u003C Premium Courses Online",
+                  "type": "url",
+                  "url": "https://online-courses.club/coloso-how-to-design-stylish-and-trendy-characters-for-illustration-by-okku/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "bc29f1b9-f3bf-4f1b-9f56-014871c3100e",
+                  "id": "148",
+                  "name": "Stylized Character Illustration Using Deformation by Seoji (Korean, Eng sub) \u003C Premium Courses Online",
+                  "type": "url",
+                  "url": "https://online-courses.club/coloso-stylized-character-illustration-using-deformation-by-seoji-korean-eng-sub/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "72d10525-46b8-49e2-b231-5d638e5096e8",
+                  "id": "149",
+                  "name": "Cute Character Illustrations - Learn about Coloring by Han_ (Korean, Eng sub) \u003C Premium Courses Online",
+                  "type": "url",
+                  "url": "https://online-courses.club/class101-cute-character-illustrations-learn-about-coloring-by-han_-korean-eng-sub/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "2e33b835-2164-4441-832e-cbe132154783",
+                  "id": "150",
+                  "name": "You searched for HEARTKI \u003C Premium Courses Online",
+                  "type": "url",
+                  "url": "https://online-courses.club/?s=HEARTKI"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "629e50e9-1a92-4d65-9dc4-cc346b04c45e",
+                  "id": "151",
+                  "name": "Premium Courses Online \u003C Watch and Learn. Educate yourself!",
+                  "type": "url",
+                  "url": "https://online-courses.club/"
+               } ],
+               "date_added": "13422399767255046",
+               "date_last_used": "0",
+               "date_modified": "0",
+               "guid": "c6e25846-8624-4c93-8181-ef8fa27cd8b4",
+               "id": "128",
+               "name": "Downloadables",
+               "type": "folder"
+            }, {
+               "children": [ {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "04b16df9-cbff-45d9-a9f1-3ac760f28605",
+                  "id": "153",
+                  "name": "AmiAmi [Character & Hobby Shop] | [Exclusive Sale] KDcolle \"Ane Naru Mono\" Chiyo 1/7 Complete Figure(Released)",
+                  "type": "url",
+                  "url": "https://www.amiami.com/eng/detail?scode=FIGURE-129822&rank="
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "3cf70298-b055-4ec2-90a2-4dbd36866f94",
+                  "id": "154",
+                  "name": "新作フィギュアレビュー・イベント情報のアキバ系ブログ | moeyo.com",
+                  "type": "url",
+                  "url": "https://www.moeyo.com/?s=w+sitting"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "b4d92b13-0b18-4444-8ddf-edba7ad61697",
+                  "id": "155",
+                  "name": "萩 麗子 | ネイティブ(native)",
+                  "type": "url",
+                  "url": "https://www.native-web.jp/creators/15086/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "a6101ee4-4d03-4589-a9e6-a9ac7fcab0bc",
+                  "id": "156",
+                  "name": "ネイティブ(native)",
+                  "type": "url",
+                  "url": "https://www.native-web.jp/"
+               } ],
+               "date_added": "13422399767255353",
+               "date_last_used": "0",
+               "date_modified": "0",
+               "guid": "5de69a80-6316-4bda-9607-2559cfd20b87",
+               "id": "152",
+               "name": "Figures",
+               "type": "folder"
+            }, {
+               "children": [ {
+                  "children": [ {
+                     "date_added": "13413495461000000",
+                     "date_last_used": "0",
+                     "guid": "eb9562c2-5794-49fd-aa01-e3aca67516a9",
+                     "id": "159",
+                     "name": "⎛⎝",
+                     "type": "url",
+                     "url": "https://www.marinapapetti.com/"
+                  }, {
+                     "date_added": "13413495461000000",
+                     "date_last_used": "0",
+                     "guid": "a78edb39-f1a3-4aec-a3ea-55a5f82f8305",
+                     "id": "160",
+                     "name": "Arlias User Profile | DeviantArt",
+                     "type": "url",
+                     "url": "https://www.deviantart.com/arlias"
+                  }, {
+                     "date_added": "13413495461000000",
+                     "date_last_used": "0",
+                     "guid": "a9a3a467-b17c-4188-900e-4de1b69e36aa",
+                     "id": "161",
+                     "name": "Kairunoburogu | Danbooru",
+                     "type": "url",
+                     "url": "https://danbooru.donmai.us/posts?tags=kairunoburogu&z=1"
+                  }, {
+                     "date_added": "13413495461000000",
+                     "date_last_used": "0",
+                     "guid": "105db0f6-bce8-491f-ad1e-34f19dfedfc6",
+                     "id": "162",
+                     "name": "◾️Agatha Schnips ◾️ (@agathaschnips) • Instagram photos and videos",
+                     "type": "url",
+                     "url": "https://www.instagram.com/agathaschnips/?hl=en"
+                  }, {
+                     "date_added": "13413495461000000",
+                     "date_last_used": "0",
+                     "guid": "e94c9dc0-85d6-4178-85ee-b6ab350298c4",
+                     "id": "163",
+                     "name": "tsuaii (Jonathan Hamilton) | DeviantArt",
+                     "type": "url",
+                     "url": "https://tsuaii.deviantart.com/"
+                  }, {
+                     "date_added": "13413495461000000",
+                     "date_last_used": "0",
+                     "guid": "9b1308c3-1c50-4a44-8f8a-8e9865b2435e",
+                     "id": "164",
+                     "name": "Emi Monserrate",
+                     "type": "url",
+                     "url": "http://excarabu.tumblr.com/"
+                  }, {
+                     "date_added": "13413495461000000",
+                     "date_last_used": "0",
+                     "guid": "3a0668ad-9cce-4be6-8dbb-f53470cd84a2",
+                     "id": "165",
+                     "name": "WYIT: Graphic Novel — Reagan Lodge Art",
+                     "type": "url",
+                     "url": "https://reaganlodge.com/wyit"
+                  }, {
+                     "date_added": "13413495461000000",
+                     "date_last_used": "0",
+                     "guid": "24199eef-eba3-44fd-a574-c6d41bb5b9d9",
+                     "id": "166",
+                     "name": "Valerie Garnace",
+                     "type": "url",
+                     "url": "https://www.valeriegarnace.com/"
+                  }, {
+                     "date_added": "13413495461000000",
+                     "date_last_used": "0",
+                     "guid": "4e7f3e56-30cc-43eb-af9b-a90d961a4a69",
+                     "id": "167",
+                     "name": "Andrés Moncayo | Illustration (@andresmoncayo) • Instagram photos and videos",
+                     "type": "url",
+                     "url": "https://www.instagram.com/andresmoncayo/"
+                  }, {
+                     "date_added": "13413495461000000",
+                     "date_last_used": "0",
+                     "guid": "76e99d47-a866-4974-b409-76f0f8b611df",
+                     "id": "168",
+                     "name": "ArtStation - Tin Brian Nguyen",
+                     "type": "url",
+                     "url": "https://www.artstation.com/bearthemighty"
+                  }, {
+                     "date_added": "13413495461000000",
+                     "date_last_used": "0",
+                     "guid": "3718fc42-6dab-4703-a582-580f0c879078",
+                     "id": "169",
+                     "name": "Knight Zhang",
+                     "type": "url",
+                     "url": "https://www.knightzhang.net/"
+                  }, {
+                     "date_added": "13413495461000000",
+                     "date_last_used": "0",
+                     "guid": "7ff7607c-2dd7-4fea-9f38-a0915555d19d",
+                     "id": "170",
+                     "name": "commissions — graylure",
+                     "type": "url",
+                     "url": "https://www.graylure.com/commissions"
+                  }, {
+                     "date_added": "13413495461000000",
+                     "date_last_used": "0",
+                     "guid": "5eea3bee-f44d-4f1f-90c5-4fdecbfd2dc7",
+                     "id": "171",
+                     "name": "ArtStation - Partners, not friends, Cristina Laviña",
+                     "type": "url",
+                     "url": "https://www.artstation.com/artwork/GXmNP3"
+                  }, {
+                     "date_added": "13413495461000000",
+                     "date_last_used": "0",
+                     "guid": "b5be4fa6-e361-4c3b-b830-123b94beb195",
+                     "id": "172",
+                     "name": "DDUCK KONG - pixiv",
+                     "type": "url",
+                     "url": "https://www.pixiv.net/en/users/17178734"
+                  } ],
+                  "date_added": "13422399767255468",
+                  "date_last_used": "0",
+                  "date_modified": "0",
+                  "guid": "7e83cb53-498c-485d-998b-2e9d504f3dac",
+                  "id": "158",
+                  "name": "Other Artists",
+                  "type": "folder"
+               }, {
+                  "children": [ {
+                     "date_added": "13413495461000000",
+                     "date_last_used": "0",
+                     "guid": "22416252-356f-4be3-ae15-729c1d70bfa5",
+                     "id": "174",
+                     "name": "Japanese Megumi Komuro Cakes Javgose Hot Modele javpornpics 美少女無料画像の天国",
+                     "type": "url",
+                     "url": "https://javpornpics.com/gallery/japanese-megumi-komuro-cakes-javgose-hot-modele"
+                  }, {
+                     "date_added": "13413495461000000",
+                     "date_last_used": "0",
+                     "guid": "3a3eb91d-1a24-4195-b2c5-67444268b5c3",
+                     "id": "175",
+                     "name": "SexArt - Lika Dolce - Lika Dolce - 121 pictures - 4220px (20 Nov, 2018) - 122 photos",
+                     "type": "url",
+                     "url": "https://nsfwalbum.com/album/740154"
+                  }, {
+                     "children": [ {
+                        "date_added": "13413495461000000",
+                        "date_last_used": "0",
+                        "guid": "1b31368f-0647-4deb-8405-fcf8123e0784",
+                        "id": "177",
+                        "name": "BbZwoiP.png (PNG Image, 1536 × 2048 pixels) - Scaled (45%)",
+                        "type": "url",
+                        "url": "https://i.imgur.com/BbZwoiP.png"
+                     } ],
+                     "date_added": "13422399767255668",
+                     "date_last_used": "0",
+                     "date_modified": "0",
+                     "guid": "e32e65f9-12a9-49df-a910-48f06ab3e3db",
+                     "id": "176",
+                     "name": "3D",
+                     "type": "folder"
+                  }, {
+                     "children": [ {
+                        "date_added": "13413495461000000",
+                        "date_last_used": "0",
+                        "guid": "4868f88f-b6f6-40ba-a0b9-fdc6d4677f23",
+                        "id": "179",
+                        "name": "[R-18] 【二次創作】\"アクア様キャラデ考察＆備忘録\" / Illustration by \"おしよん\" [pixiv]",
+                        "type": "url",
+                        "url": "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=55087904"
+                     }, {
+                        "date_added": "13413495461000000",
+                        "date_last_used": "0",
+                        "guid": "01d976cf-c8c5-46d8-b59e-4ed1b43c0028",
+                        "id": "180",
+                        "name": "二次創作 | Illustration: “めぐみんキャラデ考察＆備忘録” by おしよん [pixiv]",
+                        "type": "url",
+                        "url": "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=55228748"
+                     }, {
+                        "date_added": "13413495461000000",
+                        "date_last_used": "0",
+                        "guid": "f8fc129e-6455-4069-bfca-32a996924e8d",
+                        "id": "181",
+                        "name": "Kairunoburogu | Danbooru",
+                        "type": "url",
+                        "url": "https://danbooru.donmai.us/posts?page=5&tags=kairunoburogu"
+                     } ],
+                     "date_added": "13422399767255687",
+                     "date_last_used": "0",
+                     "date_modified": "0",
+                     "guid": "2ff84994-6085-4cdc-a3b9-14080a53d4bd",
+                     "id": "178",
+                     "name": "2D",
+                     "type": "folder"
+                  }, {
+                     "date_added": "13413495461000000",
+                     "date_last_used": "0",
+                     "guid": "aa3ebb9b-4fb2-44c2-b805-153677f2f4c0",
+                     "id": "182",
+                     "name": "Erotic photos search engine",
+                     "type": "url",
+                     "url": "https://nsfwalbum.com/"
+                  } ],
+                  "date_added": "13422399767255620",
+                  "date_last_used": "0",
+                  "date_modified": "0",
+                  "guid": "97d10a93-f5fd-4fee-bba7-50126d622c0b",
+                  "id": "173",
+                  "name": "NSFW References",
+                  "type": "folder"
+               } ],
+               "date_added": "13422399767255464",
+               "date_last_used": "0",
+               "date_modified": "13422399767255464",
+               "guid": "9475fa2f-be02-46db-ade6-94144823e193",
+               "id": "157",
+               "name": "Inspiration",
+               "type": "folder"
+            }, {
+               "children": [ {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "408215c3-55e8-495d-95ea-01c7b9c7b096",
+                  "id": "184",
+                  "name": "Mels Mneyan",
+                  "type": "url",
+                  "url": "https://cubebrush.co/mels_art"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "f6affc1f-17f4-47df-95a4-6e7e34e5592f",
+                  "id": "185",
+                  "name": "TheArtReferenceBlog",
+                  "type": "url",
+                  "url": "https://theartreferenceblog.blogspot.com/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "614411e3-30ad-46f3-8a83-25bd1bab52b5",
+                  "id": "186",
+                  "name": "400+ Athletic Female photo reference poses",
+                  "type": "url",
+                  "url": "https://cubebrush.co/mels_art/products/artfjw/400-athletic-female-photo-reference-poses"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "d7589ad5-fc0b-4618-a7cc-b2f7e514dcd4",
+                  "id": "187",
+                  "name": "Daily Sketching Anatomy Reference Pictures 850+",
+                  "type": "url",
+                  "url": "https://cubebrush.co/mels_art/products/zmluta/daily-sketching-anatomy-reference-pictures-850"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "923b658f-6cd5-43e3-ad36-7932edd52feb",
+                  "id": "188",
+                  "name": "Mels Mneyan",
+                  "type": "url",
+                  "url": "https://cubebrush.co/mels_art"
+               } ],
+               "date_added": "13422399767255777",
+               "date_last_used": "0",
+               "date_modified": "0",
+               "guid": "7079f493-fa0a-45a6-9956-0702b57526e7",
+               "id": "183",
+               "name": "Poses",
+               "type": "folder"
+            }, {
+               "children": [ {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "80526644-d9a6-4730-b733-88ecd496e661",
+                  "id": "190",
+                  "name": "Foreshortening cross contour exercise | Love life drawing",
+                  "type": "url",
+                  "url": "https://www.lovelifedrawing.com/foreshortening/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "471bc34a-2409-4587-9db9-a9dc5ecb9d4a",
+                  "id": "191",
+                  "name": "3 common shading mistakes that lead to flat drawings – Dorian Iten",
+                  "type": "url",
+                  "url": "https://www.dorian-iten.com/shading-mistakes/#:~:text=If%20you%20make%20your%20light,subtle%20in%20the%20light%20halftones."
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "0d747477-c3e2-4739-b725-54e892619d91",
+                  "id": "192",
+                  "name": "How to Draw Rocks • John Muir Laws",
+                  "type": "url",
+                  "url": "https://johnmuirlaws.com/how-to-draw-rocks/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "e992374e-c7f9-4c9b-b238-ae66e6a00bfe",
+                  "id": "193",
+                  "name": "バニリゾ/BANILIZO on X: \"おへそ https://t.co/Gym6XXoAhB\" / X",
+                  "type": "url",
+                  "url": "https://twitter.com/bani_lizo/status/1730236677983981801"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "34f30f8b-ddae-42a9-a318-21bcd1086fb6",
+                  "id": "194",
+                  "name": "Character Design References",
+                  "type": "url",
+                  "url": "https://characterdesignreferences.com/visual-library-1/character-anatomy-breast"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "b546dbdc-d99a-451e-873f-02773a6a8d94",
+                  "id": "195",
+                  "name": "Miniboss • Pixel art tutorials",
+                  "type": "url",
+                  "url": "https://blog.studiominiboss.com/pixelart"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "bcd22d87-b69f-4d18-8b87-5a63b4ab13da",
+                  "id": "196",
+                  "name": "타코작가 (@taco1704) • Instagram photos and videos",
+                  "type": "url",
+                  "url": "https://www.instagram.com/taco1704/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "92fd7342-20cb-4e1c-bb6d-69a2d93f2fcc",
+                  "id": "197",
+                  "name": "Settei Dreams",
+                  "type": "url",
+                  "url": "https://setteidreams.net/color-designs/"
+               } ],
+               "date_added": "13422399767255830",
+               "date_last_used": "0",
+               "date_modified": "0",
+               "guid": "29fc2597-8bc8-4f4d-a93e-db6239dc6200",
+               "id": "189",
+               "name": "Tutorials",
+               "type": "folder"
+            }, {
+               "children": [ {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "1383d8ad-9123-4363-bf1c-c51746605c33",
+                  "id": "199",
+                  "name": "How to Paint Believable Clothing - YouTube",
+                  "type": "url",
+                  "url": "https://www.youtube.com/watch?v=Xc8lQSBO-AY&t=4s"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "e6883377-d513-48b8-b0e4-a87e0a5b1546",
+                  "id": "200",
+                  "name": "How To Draw Heads: Any style, Any Angle. Women & Men - YouTube",
+                  "type": "url",
+                  "url": "https://www.youtube.com/watch?v=qW_YAZGF03E"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "7b2d5834-bb24-4978-9d82-f6dfde067bef",
+                  "id": "201",
+                  "name": "(2) How to Draw the Spine - Human Anatomy for Artists - YouTube",
+                  "type": "url",
+                  "url": "https://www.youtube.com/watch?v=H2ZerTdtudk&list=PLtG4P3lq8RHFBeVaruf2JjyQmZJH4__Zv&index=7"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "ccb3ecd6-d506-47ba-aaf5-1cc4d541778d",
+                  "id": "202",
+                  "name": "Intuitive Portrait Sketching with the Loomis Method - Part 3 - YouTube",
+                  "type": "url",
+                  "url": "https://www.youtube.com/watch?v=P9LOUHmPhS8"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "97772380-a063-41ca-ae38-39e529d96622",
+                  "id": "203",
+                  "name": "Some Figure Drawing Tips - YouTube",
+                  "type": "url",
+                  "url": "https://www.youtube.com/watch?v=5kK71t-I-2w"
+               } ],
+               "date_added": "13422399767255985",
+               "date_last_used": "0",
+               "date_modified": "0",
+               "guid": "9af02a89-6ef0-4e3e-800c-a9c8b6e18bcd",
+               "id": "198",
+               "name": "Videos",
+               "type": "folder"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "06a19d3d-0e2f-4adc-8a68-44a370908930",
+               "id": "204",
+               "name": "시나리움 아카데미",
+               "type": "url",
+               "url": "https://sinalium.net/instructors/38"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "b28c8546-4727-496e-a96b-cf5092dee9bb",
+               "id": "205",
+               "name": "Life Drawing | Arizona Artists Guild",
+               "type": "url",
+               "url": "https://arizonaartistsguild.net/life-drawing/"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "d90d0477-df41-48e8-9b23-4c3bb5396b5b",
+               "id": "206",
+               "name": "sakugabooru",
+               "type": "url",
+               "url": "https://sakugabooru.com/"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "cf445b5f-f302-4cef-bb49-279afacf70ad",
+               "id": "207",
+               "name": "From Shapes to Characters: Core Skills and Strategies for Anime Illustration | Coloso.",
+               "type": "url",
+               "url": "https://coloso.global/en/products/illustrator-nekojira-us"
+            }, {
+               "date_added": "13421126641000000",
+               "date_last_used": "0",
+               "guid": "87f0d770-78d9-4906-85f8-34733b532746",
+               "id": "208",
+               "name": "Zerochan HQ Anime Imageboard",
+               "type": "url",
+               "url": "https://www.zerochan.net/"
+            } ],
+            "date_added": "13422399767254043",
+            "date_last_used": "0",
+            "date_modified": "0",
+            "guid": "f5fe7742-d413-487a-8b9d-b773fb746e02",
+            "id": "94",
+            "name": "Art",
+            "type": "folder"
+         }, {
+            "children": [ {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "5db66e62-c0a4-4944-af28-23fe9273045e",
+               "id": "210",
+               "name": "WallpaperEngine-KDEPlugin",
+               "type": "url",
+               "url": "https://github.com/catsout/wallpaper-engine-kde-plugin"
+            }, {
+               "date_added": "13419979511000000",
+               "date_last_used": "0",
+               "guid": "fdb72f25-efff-4f2f-951b-a15fa98fda9a",
+               "id": "211",
+               "name": "I Made Kitty Terminal Even More Awesome by Using These 15 Customization Tips and Tweaks",
+               "type": "url",
+               "url": "https://itsfoss.com/kitty-customization/#installing-kitty"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "79a77d20-a3b2-42f8-912d-c058499fe8f7",
+               "id": "212",
+               "name": "Install Twintail Launcher on Linux | Flathub",
+               "type": "url",
+               "url": "https://flathub.org/apps/app.twintaillauncher.ttl"
+            }, {
+               "children": [ {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "7a3773fd-09f3-42ce-82d4-eac3dc8933b6",
+                  "id": "214",
+                  "name": "Nintendo Switch ROMs [NSP | XCI] for Emulator and Console Download",
+                  "type": "url",
+                  "url": "https://switchroms.site/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "7e4f2814-f5b2-425c-8b14-0dc6d1968342",
+                  "id": "215",
+                  "name": "SWiTCHWAY",
+                  "type": "url",
+                  "url": "https://switchway.net/homebrew-apps/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "2b5e2cd4-74ac-48cb-b7a4-9c1317c04e87",
+                  "id": "216",
+                  "name": "List of Switch homebrew emulators - GameBrew",
+                  "type": "url",
+                  "url": "https://www.gamebrew.org/wiki/List_of_Switch_homebrew_emulators"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "3468f85d-c594-49c1-80ff-58a06a87cbe5",
+                  "id": "217",
+                  "name": "edge|emulation | download Nintendo DS ROMs | P",
+                  "type": "url",
+                  "url": "https://edgeemu.net/browse-nds-P.htm"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "720432db-9734-4b0d-a621-862d0b8bdb1f",
+                  "id": "218",
+                  "name": "Nintendo - /r/Roms Megathread",
+                  "type": "url",
+                  "url": "https://r-roms.github.io/megathread/nintendo/#nintendo-ds"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "bb9d0dc9-a866-4bbb-a8a5-77c71da1019b",
+                  "id": "219",
+                  "name": "Vimm's Lair: Preserving the Classics",
+                  "type": "url",
+                  "url": "https://vimm.net/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "d40b9e83-bd31-45ae-8d02-d70e301c4d5c",
+                  "id": "220",
+                  "name": "Releases · Atmosphere-NX/Atmosphere",
+                  "type": "url",
+                  "url": "https://github.com/Atmosphere-NX/Atmosphere/releases"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "ccf3ab22-2c4d-47f1-8e11-e4ed6b341117",
+                  "id": "221",
+                  "name": "Myrient | Content Listing",
+                  "type": "url",
+                  "url": "https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%2064%20(BigEndian)/?filter=zelda"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "bf0a33cf-4c20-4c37-afe9-e930362fa823",
+                  "id": "222",
+                  "name": "List of All Switch Games (NSP, XCI, eShop) | NXBrew.net",
+                  "type": "url",
+                  "url": "https://nxbrew.net/Index/game-index/"
+               } ],
+               "date_added": "13422399767256183",
+               "date_last_used": "0",
+               "date_modified": "0",
+               "guid": "e71d2c0f-3923-4e4b-9573-eec72cb6b38b",
+               "id": "213",
+               "name": "Switch Emulation",
+               "type": "folder"
+            }, {
+               "children": [ {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "33a264db-3350-4c92-8588-d81679d1809b",
+                  "id": "224",
+                  "name": "PSA: If you can't login to qBittorrent (pass: adminadmin) check the container log . : r/unRAID",
+                  "type": "url",
+                  "url": "https://www.reddit.com/r/unRAID/comments/180ou0b/psa_if_you_cant_login_to_qbittorrent_pass/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "76bcb8e1-176a-44a3-9b24-38476d804006",
+                  "id": "225",
+                  "name": "Overview | raspberryty.com | Myraspberryty@gmail.com's Account | Cloudflare",
+                  "type": "url",
+                  "url": "https://dash.cloudflare.com/a3d3e74f01b53d02de9636ad2f2fd2ee/raspberryty.com"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "ebf8e90c-bc58-47ca-97f4-a9c32f58a5a8",
+                  "id": "226",
+                  "name": "jeroenpardon/sui: a startpage for your server and / or new tab page",
+                  "type": "url",
+                  "url": "https://github.com/jeroenpardon/sui"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "2ef54e26-1531-4428-abb7-aec51ce71640",
+                  "id": "227",
+                  "name": "GitHub - hagezi/dns-blocklists: DNS-Blocklists: For a better internet - keep the internet clean!",
+                  "type": "url",
+                  "url": "https://github.com/hagezi/dns-blocklists?tab=readme-ov-file#overview"
+               } ],
+               "date_added": "13422399767256298",
+               "date_last_used": "0",
+               "date_modified": "0",
+               "guid": "553269d5-43b6-4515-9bfa-ea12a371635f",
+               "id": "223",
+               "name": "RaspberryPi",
+               "type": "folder"
+            }, {
+               "children": [ {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "a33604e3-340e-4125-8973-6e8bc8120e1f",
+                  "id": "229",
+                  "name": "Carl-bot Dashboard",
+                  "type": "url",
+                  "url": "https://carl.gg/dashboard/582728769597603869/botsettings"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "b0a725c1-09a0-4e50-838d-4d296b1a4ce2",
+                  "id": "230",
+                  "name": "Tukki2D - Triggerfyre",
+                  "type": "url",
+                  "url": "https://overlays.thefyrewire.com/widgets/triggerfyre/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "eb97c7d1-cff9-44aa-9576-27ff71c14c16",
+                  "id": "231",
+                  "name": "📙 Emojipedia — 😃 Home of Emoji Meanings 💁👌🎍😍",
+                  "type": "url",
+                  "url": "https://emojipedia.org/"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "cdd292ea-209e-4d14-b3f3-415491e06d71",
+                  "id": "232",
+                  "name": "Green-bot is creating a way to listen music easily on discord! | Patreon",
+                  "type": "url",
+                  "url": "https://www.patreon.com/GreenBotDiscord"
+               }, {
+                  "date_added": "13413495461000000",
+                  "date_last_used": "0",
+                  "guid": "df6b0beb-0704-4528-9699-1fdb095ddaa9",
+                  "id": "233",
+                  "name": "https://reactive.fugi.tech/",
+                  "type": "url",
+                  "url": "https://reactive.fugi.tech/"
+               } ],
+               "date_added": "13422399767256386",
+               "date_last_used": "0",
+               "date_modified": "0",
+               "guid": "c4e0f14e-8029-490d-a083-be088593205f",
+               "id": "228",
+               "name": "Streaming",
+               "type": "folder"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "f21c473f-bfbb-464d-9035-e784cb30e5df",
+               "id": "234",
+               "name": "https://torrentbay.st/#",
+               "type": "url",
+               "url": "https://torrentbay.st/#"
+            }, {
+               "date_added": "13418266389000000",
+               "date_last_used": "0",
+               "guid": "c6d62fab-0f8c-4779-9777-4d3fe5da9121",
+               "id": "235",
+               "name": "GitHub - Mr-Comand/youtube-shorts-remover-tampermonkey: This Tampermonkey script removes YouTube shorts from search results, watch pages, and various feed pages. It includes a configuration menu accessible through the settings at https://www.youtube.com/account_playback, allowing users to customize where shorts should be removed. · GitHub",
+               "type": "url",
+               "url": "https://github.com/Mr-Comand/youtube-shorts-remover-tampermonkey?tab=readme-ov-file"
+            }, {
+               "date_added": "13420276601000000",
+               "date_last_used": "0",
+               "guid": "249bb51e-aaf3-4a05-b1b2-be095da582b5",
+               "id": "236",
+               "name": "AlternativeTo - Crowdsourced software recommendations | AlternativeTo",
+               "type": "url",
+               "url": "https://alternativeto.net/"
+            } ],
+            "date_added": "13422399767256114",
+            "date_last_used": "0",
+            "date_modified": "0",
+            "guid": "83a30195-bce2-4335-ae39-4e7a7466e432",
+            "id": "209",
+            "name": "Tech",
+            "type": "folder"
+         }, {
+            "children": [ {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "5898447f-4692-46ae-a89e-61552410d02d",
+               "id": "238",
+               "name": "",
+               "type": "url",
+               "url": "https://animekai.to/watch/kamisama-kiss2-1rr2#ep=5"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "2a4d4fd8-ee1e-4f54-804b-ba2db1ee84a4",
+               "id": "239",
+               "name": "",
+               "type": "url",
+               "url": "https://bknapp.bandcamp.com/track/chrono-trigger-schalas-theme"
+            }, {
+               "date_added": "13413495461000000",
+               "date_last_used": "0",
+               "guid": "fd68bbc7-70ab-43d9-a45d-6008ec6cbd04",
+               "id": "240",
+               "name": "Newgrounds",
+               "type": "url",
+               "url": "https://www.newgrounds.com/"
+            } ],
+            "date_added": "13422399767256497",
+            "date_last_used": "0",
+            "date_modified": "0",
+            "guid": "bd049bdd-019e-4ed6-8ca0-67fb0df57bcf",
+            "id": "237",
+            "name": "Media",
+            "type": "folder"
+         }, {
+            "date_added": "13413495461000000",
+            "date_last_used": "0",
+            "guid": "b0761302-32ef-4f03-97ac-279eca911217",
+            "id": "241",
+            "name": "Which nose drawing style do you prefer? - YouTube",
+            "type": "url",
+            "url": "https://www.youtube.com/watch?v=2bci58xTt4w"
+         }, {
+            "date_added": "13413495461000000",
+            "date_last_used": "0",
+            "guid": "b6966210-29c2-4b82-b899-cfd59bf2e8f4",
+            "id": "242",
+            "name": "Quantification of residual plasmid DNA and SV40 promoter-enhancer sequences in Pfizer/BioNTech and Moderna modRNA COVID-19 vaccines from Ontario, Canada - PubMed",
+            "type": "url",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40913499/"
+         }, {
+            "date_added": "13416005291000000",
+            "date_last_used": "0",
+            "guid": "7b5b7fb8-3936-4c43-93ed-e73f4cb8da39",
+            "id": "243",
+            "name": "Pinterest",
+            "type": "url",
+            "url": "https://www.pinterest.com/guatian42/%E7%85%A7%E7%89%87/"
+         }, {
+            "date_added": "13421528919000000",
+            "date_last_used": "0",
+            "guid": "3fc28774-ce74-441f-bb6d-a38b6813521c",
+            "id": "244",
+            "name": "Your Orders",
+            "type": "url",
+            "url": "https://www.amazon.com/gp/your-account/order-history?ref_=ya_d_c_yo"
+         }, {
+            "date_added": "13421630424000000",
+            "date_last_used": "0",
+            "guid": "b677a0f5-9863-40db-b812-a42c72de86fc",
+            "id": "245",
+            "name": "GitHub - mroboff/vm-curator: vm-curator is a fast and friendly TUI to build and manage QEMU/KVM virtual machines for desktop use with working 3D acceleration (para-virtualized and pass-through.) · GitHub",
+            "type": "url",
+            "url": "https://github.com/mroboff/vm-curator"
+         }, {
+            "date_added": "13422175940000000",
+            "date_last_used": "0",
+            "guid": "dc9ff943-4f80-470a-9e33-7058be1f4e70",
+            "id": "246",
+            "name": "Restoring CachyOS from working snapshot - Claude",
+            "type": "url",
+            "url": "https://claude.ai/chat/f946b8fe-5d34-404b-a683-401260fc11b5"
+         }, {
+            "date_added": "13422258077000000",
+            "date_last_used": "0",
+            "guid": "83e62854-4c6f-4da1-99f2-9981b2f98a18",
+            "id": "247",
+            "name": "DNS | Records | tukki2d.com | Tukki2d@tutamail.com's Account | Cloudflare",
+            "type": "url",
+            "url": "https://dash.cloudflare.com/9374c71fd31da35a3b316686fa159aa5/tukki2d.com/dns/records"
+         }, {
+            "date_added": "13422262365000000",
+            "date_last_used": "0",
+            "guid": "d0336d12-818e-43d9-8fca-9736f31e5ced",
+            "id": "248",
+            "name": "Tukki's Atellier",
+            "type": "url",
+            "url": "https://forum.tukki2d.com/"
+         }, {
+            "date_added": "13422269267000000",
+            "date_last_used": "0",
+            "guid": "cab3e890-40c7-4527-8bbf-ab49b0cace1f",
+            "id": "249",
+            "name": "MINI PC CPU Fan For Chuwi LarkBox X 2023 CWI556 (Version Two) | eBay Australia",
+            "type": "url",
+            "url": "https://www.ebay.com.au/itm/365984032314"
+         } ],
+         "date_added": "13422350335223217",
+         "date_last_used": "0",
+         "date_modified": "13422399853618861",
+         "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13422350335223217",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13422350335223217",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}
