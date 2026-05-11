@@ -78,6 +78,8 @@ window-rule {
 
 window-rule {
     match app-id="brave-browser"
+    match app-id="helium"
+    match app-id="helium-browser"
     open-on-workspace "secondary"
 }
 
@@ -90,6 +92,7 @@ window-rule {
     match app-id="steam"
     match app-id="twintaillauncher"
     match app-id="heroic"
+    match app-id="electron"
     open-on-workspace "gaming"
 }
 
@@ -103,7 +106,9 @@ window-rule {
     match app-id=r#"^steam_app_1245620$"#   // Elden Ring
     match app-id=r#"^steam_app_2622380$"#   // Elden Ring Nightreign
     match app-id=r#"^steam_app_3513350$"#   // Wuthering Waves 
-    match app-id=r#"^steam_app_3557620$"#   //Blue Archive
+    match app-id=r#"^steam_app_3557620$"#   // Blue Archive
+    match app-id=r#"^steam_app_881020$"#   // Granblue Fantasy Re:Link
+    // match app-id=r#"^"# // Game
 
     //Exclude Launchers
     exclude title=r#"(?i)(launcher|updater)"#
