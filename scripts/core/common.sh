@@ -104,20 +104,20 @@ install_package() {
 # Installs only if the user confirms.
 #
 # Usage:
-#   install_with_prompt "$APP_DIR" "krita"
 install_with_prompt() {
     local app_dir="$1"
-    local pkg_name="$2"
-    local desc=""
+    local name=""
+    local description=""
+    local package=""
 
-    [[ -f "$app_dir/description" ]] && desc=$(cat "$app_dir/description")
+    [[ -f "$app_dir/info.sh" ]] && source "$app_dir/info.sh"
 
     printf "\n"
-    printf "  %s\n" "$pkg_name"
-    [[ -n "$desc" ]] && printf "  %s\n" "$desc"
+    printf "  %s\n" "${name:-$app_dir}"
+    [[ -n "$description" ]] && printf "  %s\n" "$description"
     printf "\n  Install? [y/N] "
     read -r answer
-    [[ "$answer" =~ ^[Yy]$ ]] && install_package "$pkg_name"
+    [[ "$answer" =~ ^[Yy]$ ]] && install_package "${package:-$(basename "$app_dir")}"
 }
 
 # ── File hash ─────────────────────────────────────────────────────────────────
