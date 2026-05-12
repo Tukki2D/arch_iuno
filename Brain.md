@@ -64,14 +64,39 @@ Convention for dotfile repos is hidden, but this has outgrown that pattern.
 ## iuno Architecture
 
 ### Philosophy
-- Personal tool, not a product — built to learn
-- Simple is right — start dumb, make it smarter when you understand how
-- No backtracking — structure supports growth without rewrites
-- Understand everything — if it exists in iuno, it was written by hand
-- One router — iuno.sh dispatches, never contains logic
-- An app gets a directory only if it has config files worth managing
-- IUNO_ROOT never hardcoded — resolved at runtime
-- Arch is the current focus. Deb support is future work.
+- Generic core scripts do all the work. App directories hold data only.
+- Every app gets a directory. Same layout every time. No exceptions.
+- info.sh is config data. arch.sh is the install declaration. That's it.
+- iuno.sh routes only. Never contains logic.
+- IUNO_ROOT is never hardcoded.
+- Arch is the current focus.
+
+### App Directory Layout
+```
+apps/[appname]/
+├── info.sh      NAME, DESCRIPTION, CONFIG_PATHS
+├── arch.sh      PACKAGE, METHOD (pacman|aur|flatpak)
+├── deb.sh       future
+└── backups/     rollback history
+```
+
+### Core Scripts
+- backup.sh — reads info.sh, copies config files (generic)
+- restore.sh — reads info.sh, restores config files (generic)
+- install.sh — reads arch.sh, installs package (generic)
+- iuno.sh — router only
+- common.sh — shared toolset
+
+### The Flow
+```
+iuno --backup -niri
+    ↓ router
+scripts/core/backup.sh niri
+    ↓ sources
+apps/niri/info.sh → CONFIG_PATHS
+    ↓
+copies files, logs to iuno.log
+```
 
 ### Directory Structure
 ```
