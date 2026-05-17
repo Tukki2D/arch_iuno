@@ -16,7 +16,8 @@
 // https://niri-wm.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 12
+    gaps 12 
+    background-color "transparent" // <- Needed for Noctalia Shell to set Wallpaper
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -165,6 +166,141 @@ layout {
         // right 64
         // top 64
         // bottom 64
+    }
+}
+
+// ── Window Rules ──────────────────────────────────────────────────────────────
+//Rounding on Corners
+window-rule {
+        geometry-corner-radius 10 // Set every window radius to 20
+        clip-to-geometry true
+}
+
+window-rule {
+    // This regular expression is intentionally made as specific as possible,
+    // since this is the default config, and we want no false positives.
+    // You can get away with just app-id="wezterm" if you want.
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+//Noctalia Wallpaper Behind Alt Tab
+layer-rule {
+    match namespace="^noctalia-wallpaper*"
+    place-within-backdrop true
+}
+
+// Example: block out two password managers from screen capture.
+// (This example rule is commented out with a "/-" in front.)
+/-window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screen-capture"
+
+    // Use this instead if you want them visible on third-party screenshot tools.
+    // block-out-from "screencast"
+}
+
+window-rule {
+        geometry-corner-radius 10 // Set every window radius to 20
+        clip-to-geometry true
+}
+
+window-rule {
+    // This regular expression is intentionally made as specific as possible,
+    // since this is the default config, and we want no false positives.
+    // You can get away with just app-id="wezterm" if you want.
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+//Noctalia Wallpaper Behind Alt Tab
+layer-rule {
+    match namespace="^noctalia-wallpaper*"
+    place-within-backdrop true
+}
+
+// Example: block out two password managers from screen capture.
+// (This example rule is commented out with a "/-" in front.)
+/-window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screen-capture"
+
+    // Use this instead if you want them visible on third-party screenshot tools.
+    // block-out-from "screencast"
+}
+
+
+
+// ── Background Effects ──────────────────────────────────────────────────────────────
+// Window Effects
+window-rule {
+    //match app-id="^Alacritty$"
+    background-effect {
+        blur true
+	xray false
+    }
+}
+//Rounding on Corners
+window-rule {
+        geometry-corner-radius 10 // Set every window radius to 20
+        clip-to-geometry true
+}
+
+window-rule {
+    // This regular expression is intentionally made as specific as possible,
+    // since this is the default config, and we want no false positives.
+    // You can get away with just app-id="wezterm" if you want.
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+//Noctalia Wallpaper Behind Alt Tab
+layer-rule {
+    match namespace="^noctalia-wallpaper*"
+    place-within-backdrop true
+}
+
+// Example: block out two password managers from screen capture.
+// (This example rule is commented out with a "/-" in front.)
+/-window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screen-capture"
+
+    // Use this instead if you want them visible on third-party screenshot tools.
+    // block-out-from "screencast"
+}
+
+
+// Window Effects
+window-rule {
+    //match app-id="^Alacritty$"
+    background-effect {
+        blur true
+	xray false
+    }
+}
+
+// Window Effects
+window-rule {
+    //match app-id="^Alacritty$"
+    background-effect {
+        blur true
+	xray false
+    }
+}
+
+// Window Effects
+window-rule {
+    match app-id="^Alacritty$"
+    background-effect {
+        blur true
+	xray true
     }
 }
 
