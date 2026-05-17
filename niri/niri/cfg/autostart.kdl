@@ -1,0 +1,15 @@
+//─────────────────── Startup ───────────────────────────────────────────────────────────────────
+
+// Shell settings daemon — provides icon theme and GTK settings to apps
+spawn-at-startup "xsettingsd"
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+
+// Noctalia shell
+spawn-sh-at-startup "qs -c noctalia-shell -d"
+
+//─────────────────── Preferences ───────────────────────────────────────────────────────────────
+
+prefer-no-csd
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"

@@ -1,0 +1,40 @@
+// ── Games ───────────────────────────────────────────────────────────────
+//Notifications to bottom Right
+window-rule {
+   match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+   default-floating-position x=10 y=10 relative-to="bottom-right"
+   open-focused false
+}
+
+
+
+// Open specific apps fullscreen. Add/remove app-ids as you like.
+// Steam games fullscreen example — usually games fullscreen themselves,
+// but this forces it at open time if they don't.
+window-rule {
+    match app-id=r#"^steam_proton"#	    // Twintail Launcher Games
+    match app-id=r#"^steam_app_default"#    // Heroic Games - Games
+    match app-id=r#"^steam_app_1245620$"#   // Elden Ring
+    match app-id=r#"^steam_app_2622380$"#   // Elden Ring Nightreign
+    match app-id=r#"^steam_app_3513350$"#   // Wuthering Waves 
+    match app-id=r#"^steam_app_3557620$"#   // Blue Archive
+    match app-id=r#"^steam_app_881020$"#   // Granblue Fantasy Re:Link
+    // match app-id=r#"^"# // Game
+
+    //Exclude Launchers
+    exclude title=r#"(?i)(launcher|updater)"#
+
+    //Open Fullscreen
+    open-fullscreen true
+    open-on-workspace "playing"
+}
+
+// #Heroic Games Launcher
+window-rule {
+    match app-id=r#"^gamescope$"#
+    open-on-workspace "gaming"
+    exclude title=r#"(?i)(launcher|updater)"#
+
+    open-fullscreen true
+}
+
