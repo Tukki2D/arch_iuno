@@ -1,0 +1,18 @@
+{
+   "background": {
+      "service_worker": "background.js"
+   },
+   "description": "Image Search Optionless adds quick reverse image search options to your right-click menu, supporting multiple engines.",
+   "icons": {
+      "128": "iso_128.png",
+      "16": "iso_16.png",
+      "48": "iso_48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAugPqmq02wwOfsReVP5puvHjAsUr3NGoFtB7gE0K6HpEvd/ND4b3ijgUX6TfKeZ1vMFkdhjo8LrAE1F5O+QbEBcVfxBH/PqYYH5Gpr/Y6vCe0QATubciFdk26FKuw9YBscD7COufUaYZxqgp+rlEHdSo3abQFG9uPrNba9r5z78sdSOgS3b8xhlinKV1tft+mKJk7levcNrOc8BdqreeemIab4sOTUnJbe8USnohe9x2WtfYhuaxno/iGRk5ZyUuR2Z8/24HiOVIVOzf0goYvQg9PosR5/xVEcNN57xs0bMD+t08vGH2l0QzGh5WtvvBy0tE6Z0B/gVkaLdVpKrlNrwIDAQAB",
+   "manifest_version": 3,
+   "minimum_chrome_version": "88",
+   "name": "Image Search Optionless",
+   "permissions": [ "contextMenus", "activeTab" ],
+   "update_url": "http://clients2.google.com/service/update2/crx",
+   "version": "1.3"
+}

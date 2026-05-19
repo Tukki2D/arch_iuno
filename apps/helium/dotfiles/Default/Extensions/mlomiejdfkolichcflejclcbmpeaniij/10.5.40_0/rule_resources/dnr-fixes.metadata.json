@@ -1,0 +1,107 @@
+{
+  "40": {
+    "preprocessor": "ext_ubol"
+  },
+  "119": {
+    "preprocessor": "env_mobile"
+  },
+  "146": {
+    "preprocessor": "env_mobile"
+  },
+  "218": {
+    "preprocessor": "ext_ubol"
+  },
+  "426": {
+    "preprocessor": "!(env_firefox)"
+  },
+  "507": {
+    "preprocessor": "!(env_firefox)"
+  },
+  "567": {
+    "preprocessor": "(!(cap_html_filtering))&&(ext_ubol)"
+  },
+  "875": {
+    "preprocessor": "ext_ubol"
+  },
+  "904": {
+    "preprocessor": "ext_ubol"
+  },
+  "1025": {
+    "preprocessor": "ext_ubol"
+  },
+  "1050": {
+    "preprocessor": "!(cap_html_filtering)"
+  },
+  "1078": {
+    "preprocessor": "env_mobile"
+  },
+  "1136": {
+    "preprocessor": "env_firefox"
+  },
+  "1344": {
+    "preprocessor": "env_firefox"
+  },
+  "1384": {
+    "preprocessor": "env_chromium"
+  },
+  "1392": {
+    "preprocessor": "ext_ubol"
+  },
+  "1440": {
+    "preprocessor": "env_firefox"
+  },
+  "1594": {
+    "preprocessor": "!env_chromium"
+  },
+  "1666": {
+    "preprocessor": "cap_html_filtering"
+  },
+  "1675": {
+    "preprocessor": "ext_ubol"
+  },
+  "1683": {
+    "preprocessor": "ext_ubol"
+  },
+  "1693": {
+    "preprocessor": "ext_ubol"
+  },
+  "1697": {
+    "preprocessor": "ext_ubol"
+  },
+  "1699": {
+    "preprocessor": "!((!(cap_html_filtering))&&(ext_ubol))"
+  },
+  "1711": {
+    "preprocessor": "!ext_ubol"
+  },
+  "1720": {
+    "preprocessor": "ext_ubol"
+  },
+  "1756": {
+    "preprocessor": "cap_html_filtering"
+  },
+  "1760": {
+    "preprocessor": "cap_html_filtering"
+  },
+  "1763": {
+    "preprocessor": "ext_ubol"
+  },
+  "1773": {
+    "preprocessor": "!ext_ubol"
+  },
+  "1780": {
+    "preprocessor": "!(env_firefox)"
+  },
+  "1915": {
+    "preprocessor": "env_firefox"
+  },
+  "1942": {
+    "preprocessor": "!env_safari"
+  },
+  "1951": {
+    "preprocessor": "!(env_firefox)"
+  },
+  "1955": {
+    "preprocessor": "env_chromium"
+  }
+}

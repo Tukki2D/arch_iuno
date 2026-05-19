@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="color-scheme" content="light dark">
+  <title>Cookie Guardian Settings</title>
+  <link rel="icon" type="image/png" href="../icons/icon48.png">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="options-container">
+    <div class="hero-banner">
+      <svg viewBox="0 0 128 128" width="36" height="36" class="hero-icon">
+        <path d="M64 8 L20 28 V64 C20 94 38 118 64 124 C90 118 108 94 108 64 V28 Z" fill="var(--accent-primary)"/>
+        <circle cx="45" cy="58" r="6" fill="rgba(255,255,255,0.35)"/>
+        <circle cx="72" cy="48" r="5" fill="rgba(255,255,255,0.35)"/>
+        <circle cx="62" cy="78" r="7" fill="rgba(255,255,255,0.35)"/>
+        <circle cx="94" cy="26" r="20" fill="#fff"/>
+        <path d="M84 26 L92 34 L106 20" fill="none" stroke="var(--accent-primary)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="hero-text">
+        <span class="hero-title">Cookie Guardian</span>
+        <span class="hero-version">v2.0.0</span>
+      </div>
+    </div>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="general">General</button>
+      <button class="tab" data-tab="whitelist">Whitelist</button>
+      <button class="tab" data-tab="greylist">Greylist</button>
+      <button class="tab" data-tab="stats">Statistics</button>
+      <button class="tab" data-tab="advanced">Advanced</button>
+    </nav>
+
+    <!-- General Settings Tab -->
+    <section id="tab-general" class="tab-content active">
+      <div class="setting-group">
+        <h2>Appearance</h2>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Theme</span>
+            <span class="setting-desc">Choose your preferred color scheme</span>
+          </div>
+          <select id="themeSelect" class="select-input">
+            <option value="system">System Default</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="setting-group">
+        <h2>Automatic Cleanup</h2>
+
+        <label class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Delete cookies when tab closes</span>
+            <span class="setting-desc">Automatically remove cookies when you close a tab</span>
+          </div>
+          <input type="checkbox" id="deleteOnTabClose" class="toggle-input">
+        </label>
+
+        <label class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Delete cookies on browser startup</span>
+            <span class="setting-desc">Clean all non-whitelisted cookies when Chrome opens</span>
+          </div>
+          <input type="checkbox" id="deleteOnStartup" class="toggle-input">
+        </label>
+
+        <label class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Delete when navigating away</span>
+            <span class="setting-desc">Clean cookies when you leave a site in the same tab</span>
+          </div>
+          <input type="checkbox" id="deleteOnDomainChange" class="toggle-input">
+        </label>
+
+        <label class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Clean delay (seconds)</span>
+            <span class="setting-desc">Wait before deleting, in case you reopen the tab</span>
+          </div>
+          <input type="number" id="cleanDelay" min="0" max="60" value="3" class="number-input">
+        </label>
+      </div>
+
+      <div class="setting-group">
+        <h2>Cookie Types</h2>
+
+        <label class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Keep session cookies</span>
+            <span class="setting-desc">Don't delete cookies that expire when the browser closes</span>
+          </div>
+          <input type="checkbox" id="keepSessionCookies" class="toggle-input">
+        </label>
+
+        <label class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Show cookie counter on icon</span>
+            <span class="setting-desc">Display the number of cookies deleted today on the extension badge</span>
+          </div>
+          <input type="checkbox" id="showBadgeCount" class="toggle-input">
+        </label>
+      </div>
+
+      <div class="setting-group">
+        <h2>Cookie Aging</h2>
+        <p class="setting-group-desc">Automatically delete old cookies based on their age, regardless of whether tabs are open.</p>
+
+        <label class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Enable cookie aging</span>
+            <span class="setting-desc">Delete non-whitelisted cookies older than the specified age</span>
+          </div>
+          <input type="checkbox" id="enableCookieAging" class="toggle-input">
+        </label>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Maximum cookie age (hours)</span>
+            <span class="setting-desc">Cookies older than this will be deleted during cleanup</span>
+          </div>
+          <input type="number" id="cookieMaxAgeHours" min="1" max="720" value="24" class="number-input">
+        </div>
+      </div>
+
+      <div class="setting-group">
+        <h2>Scheduled Cleanup</h2>
+        <p class="setting-group-desc">Automatically run cookie cleanup at regular intervals.</p>
+
+        <label class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Enable scheduled cleanup</span>
+            <span class="setting-desc">Automatically clean cookies on a schedule</span>
+          </div>
+          <input type="checkbox" id="enableScheduledCleanup" class="toggle-input">
+        </label>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Cleanup interval</span>
+            <span class="setting-desc">How often to run automatic cleanup</span>
+          </div>
+          <select id="scheduledCleanupInterval" class="select-input">
+            <option value="15">Every 15 minutes</option>
+            <option value="30">Every 30 minutes</option>
+            <option value="60">Every hour</option>
+            <option value="120">Every 2 hours</option>
+            <option value="360">Every 6 hours</option>
+            <option value="720">Every 12 hours</option>
+            <option value="1440">Every 24 hours</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Whitelist Tab -->
+    <section id="tab-whitelist" class="tab-content">
+      <div class="setting-group">
+        <div class="whitelist-header">
+          <h2>Whitelisted Sites</h2>
+          <span id="whitelistLimit" class="whitelist-limit">0/10</span>
+        </div>
+
+        <div class="whitelist-add">
+          <input type="text" id="addDomainInput" placeholder="example.com" class="domain-input">
+          <button id="addDomainBtn" class="btn btn-primary">Add</button>
+        </div>
+
+        <div id="whitelistItems" class="whitelist-items">
+          <!-- Populated by JS -->
+        </div>
+
+        <p class="whitelist-empty hidden" id="whitelistEmpty">
+          No sites whitelisted. Add sites above to protect their cookies.
+        </p>
+
+        <div id="reviewBonusCallout" class="review-bonus-callout hidden">
+          <span class="review-bonus-icon">&#11088;</span>
+          <div class="review-bonus-text">
+            <strong>Want 5 more slots?</strong>
+            <p>Leave a quick review and get 15 whitelist slots for free!</p>
+          </div>
+          <button id="reviewBonusBtn" class="btn btn-small btn-review">Leave a Review</button>
+        </div>
+      </div>
+
+      <!-- Suggested Sites -->
+      <div class="setting-group" id="suggestedSitesGroup">
+        <h2>Quick Add Popular Sites</h2>
+        <p class="suggested-desc">Click to whitelist sites you use frequently:</p>
+        <div id="suggestedSites" class="suggested-sites">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Greylist Tab -->
+    <section id="tab-greylist" class="tab-content">
+      <div class="setting-group">
+        <div class="greylist-info">
+          <h2>Temporary Protection</h2>
+          <p class="greylist-desc">
+            Greylist sites are temporarily protected from cookie deletion. Unlike whitelisted sites,
+            greylisted cookies will be deleted after a set period of inactivity. Perfect for sites
+            you visit occasionally but don't want to permanently whitelist.
+          </p>
+        </div>
+
+        <div class="greylist-add">
+          <input type="text" id="addGreylistInput" placeholder="example.com" class="domain-input">
+          <button id="addGreylistBtn" class="btn btn-secondary">Add to Greylist</button>
+        </div>
+
+        <div id="greylistItems" class="greylist-items">
+          <!-- Populated by JS -->
+        </div>
+
+        <p class="greylist-empty hidden" id="greylistEmpty">
+          No sites in greylist. Add sites above for temporary cookie protection.
+        </p>
+      </div>
+
+      <div class="setting-group">
+        <h2>Greylist Settings</h2>
+
+        <label class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Auto-expire greylist entries</span>
+            <span class="setting-desc">Automatically remove sites from greylist after inactivity</span>
+          </div>
+          <input type="checkbox" id="greylistAutoExpire" class="toggle-input">
+        </label>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Expire after (days)</span>
+            <span class="setting-desc">Days of inactivity before removing from greylist</span>
+          </div>
+          <input type="number" id="greylistExpireDays" min="1" max="90" value="7" class="number-input">
+        </div>
+      </div>
+
+      <div class="setting-group greylist-vs-whitelist">
+        <h2>Greylist vs Whitelist</h2>
+        <div class="comparison-table">
+          <div class="comparison-row header">
+            <span class="comparison-feature">Feature</span>
+            <span class="comparison-whitelist">Whitelist</span>
+            <span class="comparison-greylist">Greylist</span>
+          </div>
+          <div class="comparison-row">
+            <span class="comparison-feature">Cookie Protection</span>
+            <span class="comparison-whitelist">Permanent</span>
+            <span class="comparison-greylist">Temporary</span>
+          </div>
+          <div class="comparison-row">
+            <span class="comparison-feature">Auto-expires</span>
+            <span class="comparison-whitelist">No</span>
+            <span class="comparison-greylist">Yes (optional)</span>
+          </div>
+          <div class="comparison-row">
+            <span class="comparison-feature">Free tier limit</span>
+            <span class="comparison-whitelist">10 sites (15 with review bonus)</span>
+            <span class="comparison-greylist">Unlimited</span>
+          </div>
+          <div class="comparison-row">
+            <span class="comparison-feature">Best for</span>
+            <span class="comparison-whitelist">Daily sites</span>
+            <span class="comparison-greylist">Occasional visits</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistics Tab -->
+    <section id="tab-stats" class="tab-content">
+      <div class="setting-group stats-overview">
+        <h2>Overview</h2>
+        <div class="stats-row">
+          <div class="stat-card">
+            <span class="stat-value" id="statTotalDeleted">0</span>
+            <span class="stat-label">Total Cookies Deleted</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="statTodayDeleted">0</span>
+            <span class="stat-label">Deleted Today</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="statAvgDaily">0</span>
+            <span class="stat-label">Daily Average</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="setting-group">
+        <h2>Last 7 Days</h2>
+        <div class="chart-container">
+          <div id="weeklyChart" class="weekly-chart">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+
+      <div class="setting-group">
+        <h2>Protection Info</h2>
+        <div class="info-row">
+          <span class="info-label">Protected Since</span>
+          <span class="info-value" id="statInstallDate">-</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Whitelisted Sites</span>
+          <span class="info-value" id="statWhitelistCount">0</span>
+        </div>
+      </div>
+
+      <div class="setting-group">
+        <div class="deletion-log-header">
+          <h2>Deletion Log</h2>
+          <button id="clearDeletionLogBtn" class="btn btn-small btn-secondary">Clear Log</button>
+        </div>
+        <p class="setting-group-desc">Recent cookies deleted by Cookie Guardian (last 100)</p>
+        <div id="deletionLogContainer" class="deletion-log-container">
+          <p class="deletion-log-empty" id="deletionLogEmpty">No cookies deleted yet. Close some tabs to see activity here.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Advanced Tab -->
+    <section id="tab-advanced" class="tab-content">
+      <div class="setting-group premium-features" id="premiumFeatures">
+        <h2>Premium Features <span class="premium-badge">PRO</span></h2>
+
+        <label class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Clean Local Storage</span>
+            <span class="setting-desc">Also delete localStorage data when cleaning</span>
+          </div>
+          <input type="checkbox" id="cleanLocalStorage" class="toggle-input" disabled>
+        </label>
+
+        <label class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Clean IndexedDB</span>
+            <span class="setting-desc">Delete IndexedDB databases when cleaning</span>
+          </div>
+          <input type="checkbox" id="cleanIndexedDB" class="toggle-input" disabled>
+        </label>
+
+        <label class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Clean Cache</span>
+            <span class="setting-desc">Clear cached files and resources</span>
+          </div>
+          <input type="checkbox" id="cleanCache" class="toggle-input" disabled>
+        </label>
+
+        <p class="premium-unlock-hint" id="premiumUnlockHint">Upgrade to Premium to unlock these features</p>
+      </div>
+
+      <div class="setting-group">
+        <h2>Data Management</h2>
+
+        <div class="button-row">
+          <button id="exportSettings" class="btn btn-secondary">Export Settings</button>
+          <button id="importSettings" class="btn btn-secondary">Import Settings</button>
+          <input type="file" id="importFile" accept=".json" hidden>
+        </div>
+
+        <div class="button-row">
+          <button id="resetSettings" class="btn btn-danger">Reset to Defaults</button>
+        </div>
+      </div>
+
+      <div class="setting-group">
+        <h2>About</h2>
+        <p class="about-text">
+          Cookie Guardian v2.0.0<br>
+          Automatically delete cookies when you close tabs to protect your privacy.
+        </p>
+        <p class="about-text">
+          <a href="https://github.com/ethancarlton-cyber/cookie-guardian/issues" target="_blank">Support &amp; Feedback</a> |
+          <a href="#" id="runOnboarding">Run Onboarding</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Premium Callout (visible on all tabs) -->
+    <div class="setting-group premium-callout" id="premiumCallout">
+      <div class="premium-icon">&#10024;</div>
+      <div class="premium-text">
+        <h3>Upgrade to Premium</h3>
+        <p>Get unlimited whitelist slots, scheduled cleanup, and deep cleaning.</p>
+      </div>
+      <button id="upgradePremiumBtn" class="btn btn-premium">$3.49 One-time</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- Confirmation Modal -->
+  <div id="confirmModal" class="confirm-modal hidden">
+    <div class="confirm-modal-backdrop"></div>
+    <div class="confirm-modal-content">
+      <div class="confirm-modal-icon" id="confirmModalIcon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+          <path d="M12 9V13M12 17H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3 class="confirm-modal-title" id="confirmModalTitle">Are you sure?</h3>
+      <p class="confirm-modal-message" id="confirmModalMessage">This action cannot be undone.</p>
+      <div class="confirm-modal-actions">
+        <button id="confirmModalCancel" class="btn btn-secondary">Cancel</button>
+        <button id="confirmModalConfirm" class="btn btn-danger">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../ExtPay.js"></script>
+  <script type="module" src="options.js"></script>
+</body>
+</html>

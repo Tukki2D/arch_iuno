@@ -73,7 +73,7 @@ binds {
     Mod+C repeat=false { close-window; } // Close window (Default Mod+Q)
     Mod+Ctrl+C { center-visible-columns; }
     //Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Mod+E hotkey-overlay-title="Run an Application: Thunar" { spawn "thunar"; }
+    Mod+E hotkey-overlay-title="Open Files" { spawn "sh" "-c" "xdg-open ~"; }
     Mod+F { maximize-column; }
     Mod+Ctrl+F { expand-column-to-available-width; }
     Mod+Shift+F { fullscreen-window; }
@@ -115,10 +115,7 @@ binds {
 
     // Launcher — shell-agnostic toggle script
     // spawn-sh used instead of spawn to allow $HOME expansion
-    //Mod+Space { spawn-sh "bash $HOME/iuno/scripts/user/launcher-toggle.sh"; }
-    Mod+Space hotkey-overlay-title="Application Launcher" {
-        spawn "dms" "ipc" "call" "spotlight" "toggle";
-    }
+    Mod+Space { spawn-sh "bash $HOME/iuno/scripts/user/launcher-toggle.sh"; }
 
     // Tabbed display — Mod+Shift+W instead of default Mod+W
     Mod+Shift+W { toggle-column-tabbed-display; }

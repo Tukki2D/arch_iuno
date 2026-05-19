@@ -1,0 +1,29 @@
+{
+  "3819": {
+    "preprocessor": "env_safari"
+  },
+  "15484": {
+    "preprocessor": "env_safari"
+  },
+  "18401": {
+    "preprocessor": "env_safari"
+  },
+  "45980": {
+    "preprocessor": "env_safari"
+  },
+  "51159": {
+    "preprocessor": "env_safari"
+  },
+  "54204": {
+    "preprocessor": "env_safari"
+  },
+  "56367": {
+    "preprocessor": "env_chromium"
+  },
+  "56379": {
+    "preprocessor": "!(cap_html_filtering)"
+  },
+  "56439": {
+    "preprocessor": "env_firefox"
+  }
+}

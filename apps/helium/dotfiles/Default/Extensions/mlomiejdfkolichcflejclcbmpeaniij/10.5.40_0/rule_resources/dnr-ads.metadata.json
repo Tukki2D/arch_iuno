@@ -1,0 +1,164 @@
+{
+  "11752": {
+    "preprocessor": "env_safari"
+  },
+  "11965": {
+    "preprocessor": "ext_ubol"
+  },
+  "13211": {
+    "preprocessor": "!env_safari"
+  },
+  "15541": {
+    "preprocessor": "!ext_ubol"
+  },
+  "16588": {
+    "preprocessor": "ext_ubol"
+  },
+  "19688": {
+    "preprocessor": "env_safari"
+  },
+  "22285": {
+    "preprocessor": "ext_ubol"
+  },
+  "25136": {
+    "preprocessor": "ext_ubol"
+  },
+  "29183": {
+    "preprocessor": "ext_ubol"
+  },
+  "30411": {
+    "preprocessor": "!env_mobile"
+  },
+  "31500": {
+    "preprocessor": "env_mobile"
+  },
+  "31516": {
+    "preprocessor": "env_mobile"
+  },
+  "31927": {
+    "preprocessor": "env_safari"
+  },
+  "33412": {
+    "preprocessor": "ext_ubol"
+  },
+  "36081": {
+    "preprocessor": "env_mobile"
+  },
+  "36893": {
+    "preprocessor": "env_safari"
+  },
+  "38716": {
+    "preprocessor": "ext_ubol"
+  },
+  "46869": {
+    "preprocessor": "env_chromium"
+  },
+  "50236": {
+    "preprocessor": "ext_ubol"
+  },
+  "55851": {
+    "preprocessor": "ext_ubol"
+  },
+  "59203": {
+    "preprocessor": "!env_safari"
+  },
+  "63809": {
+    "preprocessor": "ext_ubol"
+  },
+  "65916": {
+    "preprocessor": "ext_ubol"
+  },
+  "66133": {
+    "preprocessor": "env_safari"
+  },
+  "66659": {
+    "preprocessor": "(!env_mobile)&&(!env_chromium)"
+  },
+  "68044": {
+    "preprocessor": "env_safari"
+  },
+  "69469": {
+    "preprocessor": "ext_ubol"
+  },
+  "69839": {
+    "preprocessor": "env_safari"
+  },
+  "71236": {
+    "preprocessor": "ext_ubol"
+  },
+  "71256": {
+    "preprocessor": "env_mobile"
+  },
+  "71278": {
+    "preprocessor": "env_mobile"
+  },
+  "71449": {
+    "preprocessor": "env_firefox"
+  },
+  "71551": {
+    "preprocessor": "env_mobile"
+  },
+  "71618": {
+    "preprocessor": "!(cap_html_filtering)"
+  },
+  "71747": {
+    "preprocessor": "!(cap_html_filtering)"
+  },
+  "71784": {
+    "preprocessor": "cap_html_filtering"
+  },
+  "71933": {
+    "preprocessor": "ext_ubol"
+  },
+  "72067": {
+    "preprocessor": "env_firefox"
+  },
+  "72473": {
+    "preprocessor": "env_firefox"
+  },
+  "72519": {
+    "preprocessor": "env_mobile"
+  },
+  "72752": {
+    "preprocessor": "ext_ubol"
+  },
+  "72794": {
+    "preprocessor": "env_chromium"
+  },
+  "72848": {
+    "preprocessor": "!(env_firefox)"
+  },
+  "72851": {
+    "preprocessor": "env_chromium"
+  },
+  "72878": {
+    "preprocessor": "ext_ubol"
+  },
+  "73006": {
+    "preprocessor": "ext_ubol"
+  },
+  "73042": {
+    "preprocessor": "env_chromium"
+  },
+  "73182": {
+    "preprocessor": "env_firefox"
+  },
+  "73187": {
+    "preprocessor": "ext_ubol"
+  },
+  "73333": {
+    "preprocessor": "!(cap_html_filtering)"
+  },
+  "73377": {
+    "preprocessor": "env_chromium"
+  },
+  "73409": {
+    "preprocessor": "env_mobile"
+  },
+  "73426": {
+    "preprocessor": "(!ext_ubol)&&(env_firefox)"
+  },
+  "73432": {
+    "preprocessor": "!((!ext_ubol)&&(env_firefox))"
+  }
+}
