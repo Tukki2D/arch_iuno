@@ -42,6 +42,7 @@ cmd_help() {
     printf "    -r, --restore -appname    Restore one app\n"
     printf "    -r, --restore -all        Restore all managed apps\n"
     printf "    -d, --detect              Show managed apps and backup status\n"
+    printf "    -c, --clean		  Clean the system\n"
     printf "    -h, --help                Show this help\n"
     printf "\n"
     printf "  Managed apps:\n"
@@ -132,6 +133,7 @@ case "${1:-}" in
     --backup|-b)    cmd_backup  "${2:-}" ;;
     --restore|-r)   cmd_restore "${2:-}" ;;
     --detect|-d)    cmd_detect ;;
+    --clean|-c)     bash "$SCRIPTS/clean.sh" "${@:2}" ;;
     --help|-h|"")   cmd_help ;;
     *)              err "Unknown command: $1" ; cmd_help ; exit 1 ;;
 esac
