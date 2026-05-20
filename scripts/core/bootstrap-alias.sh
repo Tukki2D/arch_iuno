@@ -6,7 +6,7 @@
 #   bash ~/iuno/scripts/bootstrap-alias.sh
 #
 # Detects your active shell (fish, bash, zsh) and adds aliases for:
-#   iuno       → bash ~/iuno/scripts/iuno.sh
+#   iuno       → bash ~/iuno/scripts/core/iuno.sh
 #   niri-tool  → bash ~/iuno/scripts/niri/niri-tool.sh
 #
 # Safe to run multiple times — will not add duplicate aliases.
@@ -67,7 +67,7 @@ install_fish() {
     if grep -q "alias iuno" "$config" 2>/dev/null; then
         ok "iuno alias already present in $config"
     else
-        printf "\n# iuno — config management tool\nalias iuno \"bash \$HOME/iuno/scripts/iuno.sh\"\n" >> "$config"
+        printf "\n# iuno — config management tool\nalias iuno \"bash \$HOME/iuno/scripts/core/iuno.sh\"\n" >> "$config"
         ok "Added iuno alias to $config"
     fi
 
@@ -98,7 +98,7 @@ EOF
 
 install_bash() {
     local config="$HOME/.bashrc"
-    local iuno_line='alias iuno="bash $HOME/iuno/scripts/iuno.sh"'
+    local iuno_line='alias iuno="bash $HOME/iuno/scripts/core/iuno.sh"'
 
     # iuno alias
     if grep -q "alias iuno" "$config" 2>/dev/null; then
@@ -130,7 +130,7 @@ install_bash() {
 
 install_zsh() {
     local config="$HOME/.zshrc"
-    local iuno_line='alias iuno="bash $HOME/iuno/scripts/iuno.sh"'
+    local iuno_line='alias iuno="bash $HOME/iuno/scripts/core/iuno.sh"'
 
     # iuno alias
     if grep -q "alias iuno" "$config" 2>/dev/null; then

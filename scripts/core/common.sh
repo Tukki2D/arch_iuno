@@ -3,28 +3,26 @@
 # Lives at: ~/iuno/scripts/core/common.sh
 #
 # Never run directly. Sourced by other scripts:
-#   source "$(dirname "$0")/../core/common.sh"
+#   source "$(dirname "$0")/../../scripts/core/common.sh"
 #
 # Provides:
-#   Output helpers       log, ok, warn, err
-#   Distro detection     detect_distro
-#   Package install      install_package, install_with_prompt
-#   Logging              log_action
-#   File comparison      file_hash, configs_match
-#   Machine loading      load_machine
+#   IUNO_ROOT            Absolute path to the iuno repo
+#   load_machine()       Sources machine files
+#   detect_distro()      Returns arch | deb | unknown
+#   install_package()    Distro-aware package installer
+#   log_action()         Appends to iuno.log
+#   file_hash()          sha256 fingerprint of a file
+#   configs_match()      Returns 0 if two files are identical
+#   log/ok/warn/err      Output helpers
 
-# ── Resolve iuno root ─────────────────────────────────────────────────────────
-# IUNO_ROOT is the absolute path to the iuno repo.
-# Every script that sources common.sh can use $IUNO_ROOT safely.
+# ── IUNO_ROOT ─────────────────────────────────────────────────────────────────
+# Resolved from common.sh's own location — works wherever iuno lives.
 IUNO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 
-# ── Load machine file ─────────────────────────────────────────────────────────
-# Loads defaults first, then overrides for this machine.
-# Machine files live in $IUNO_ROOT/machines/
+# ── Machine files ─────────────────────────────────────────────────────────────
 load_machine() {
     local defaults="$IUNO_ROOT/machines/defaults.sh"
     local machine="$IUNO_ROOT/machines/$(hostname).sh"
-
     [[ -f "$defaults" ]] && source "$defaults"
     [[ -f "$machine" ]]  && source "$machine"
 }
@@ -38,11 +36,8 @@ warn() { echo "[iuno] ⚠  $*"; }
 err()  { echo "[iuno] ✗  $*"; }
 
 # ── Action log ────────────────────────────────────────────────────────────────
-# Appends a timestamped record to iuno.log.
-# Called by any script that does something real.
-#
-# Usage:
-#   log_action "backup" "niri" "custom.kdl outputs.kdl"
+# Appends a timestamped entry to iuno.log.
+# Usage: log_action "backup" "niri" "detail"
 log_action() {
     local action="$1"
     local app="$2"
@@ -53,36 +48,26 @@ log_action() {
 }
 
 # ── Distro detection ──────────────────────────────────────────────────────────
-# Detects the base distro family by checking which package manager is available.
-# Returns: arch, deb, or unknown
-#
-# Usage:
-#   DISTRO=$(detect_distro)
+# Checks which package manager is available.
+# Returns: arch | deb | unknown
 detect_distro() {
-    if command -v pacman &>/dev/null; then
-        echo "arch"
-    elif command -v apt &>/dev/null; then
-        echo "deb"
-    else
-        echo "unknown"
+    if command -v pacman &>/dev/null; then echo "arch"
+    elif command -v apt &>/dev/null;  then echo "deb"
+    else echo "unknown"
     fi
 }
 
 # ── Package install ───────────────────────────────────────────────────────────
-# Installs a single package using the correct method for this distro.
-# Does not prompt — prompting is handled by install_with_prompt.
-#
-# Usage:
-#   install_package "krita"
+# Low-level installer. Never prompts.
+# Usage: install_package "packagename"
 install_package() {
     local name="$1"
-    local distro
-    distro=$(detect_distro)
-
-    case "$distro" in
+    case "$(detect_distro)" in
         arch)
             if command -v paru &>/dev/null; then
                 paru -S --noconfirm "$name"
+            elif command -v yay &>/dev/null; then
+                yay -S --noconfirm "$name"
             else
                 sudo pacman -S --noconfirm "$name"
             fi
@@ -95,56 +80,21 @@ install_package() {
             return 1
             ;;
     esac
-
     log_action "install" "$name" "$(detect_distro)"
 }
 
-# ── Install with prompt ───────────────────────────────────────────────────────
-# Reads the app's description file, shows it to the user, and prompts.
-# Installs only if the user confirms.
-#
-# Usage:
-install_with_prompt() {
-    local app_dir="$1"
-    local name=""
-    local description=""
-    local package=""
-
-    [[ -f "$app_dir/info.sh" ]] && source "$app_dir/info.sh"
-
-    printf "\n"
-    printf "  %s\n" "${name:-$app_dir}"
-    [[ -n "$description" ]] && printf "  %s\n" "$description"
-    printf "\n  Install? [y/N] "
-    read -r answer
-    [[ "$answer" =~ ^[Yy]$ ]] && install_package "${package:-$(basename "$app_dir")}"
-}
-
 # ── File hash ─────────────────────────────────────────────────────────────────
-# Returns a sha256 hash of a file's content.
-# Used to detect whether a file has changed since last backup.
-#
-# Usage:
-#   hash=$(file_hash "$HOME/.config/niri/custom.kdl")
+# Returns sha256 fingerprint of a file.
+# Usage: hash=$(file_hash "/path/to/file")
 file_hash() {
     local file="$1"
-    if [[ ! -f "$file" ]]; then
-        err "file_hash: file not found: $file"
-        return 1
-    fi
+    [[ ! -f "$file" ]] && err "file_hash: not found: $file" && return 1
     sha256sum "$file" | cut -d' ' -f1
 }
 
 # ── Config comparison ─────────────────────────────────────────────────────────
-# Compares two files. Returns 0 if identical, 1 if different.
-# Used by backup and restore to check if action is needed.
-#
-# Usage:
-#   if configs_match "$repo_file" "$live_file"; then
-#       log "Already up to date."
-#   fi
+# Returns 0 if two files are identical, 1 if different.
+# Usage: configs_match "$repo_file" "$live_file"
 configs_match() {
-    local file_a="$1"
-    local file_b="$2"
-    diff -q "$file_a" "$file_b" &>/dev/null
+    diff -q "$1" "$2" &>/dev/null
 }
