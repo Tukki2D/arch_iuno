@@ -31,9 +31,23 @@ log "Restoring $NAME..."
 
 for path in "${CONFIG_PATHS[@]}"; do
     expanded="${path/\$HOME/$HOME}"
+    name="$(basename "$expanded")"
+    repo_file="$DOTFILES/$name"
+
+    if [[ ! -e "$repo_file" ]]; then
+        warn "Not found in backup: $name"
+        continue
+    fi
+
     mkdir -p "$(dirname "$expanded")"
-    rm -rf "$expanded"
-    cp -r "$DOTFILES/." "$expanded"
+
+    if [[ -d "$repo_file" ]]; then
+        rm -rf "$expanded"
+        cp -r "$repo_file" "$expanded"
+    else
+        cp "$repo_file" "$expanded"
+    fi
+
     log_action "restore" "$NAME" "$expanded"
     ok "Restored: $expanded"
 done
