@@ -8,7 +8,8 @@ include "./cfg/layout.kdl"
 include "./cfg/misc.kdl"
 include "./cfg/gamerules.kdl"
 include "./cfg/rules.kdl"
+
 //DMS OverRides
 include "dms/cursor.kdl"
-
+include "dms/colors.kdl" //Color overrides for Wallpaper
 include "dms/outputs.kdl"

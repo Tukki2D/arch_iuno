@@ -1,15 +1,17 @@
 # Iuno — Architecture Spec v2
-# Personal reinstall and staging tool for Arch/CachyOS.
+# Personal install and staging tool for Arch/CachyOS.
 # Built to learn. Not for sale.
+# Last updated: May 2026
 
 ---
 
 ## What Iuno Is
 
-A personal tool for reinstalling preferences and dotfiles on a fresh system.
-Backs up config files, restores them, installs packages, stages live changes safely.
+A personal Linux setup tool. Installs packages, backs up configs, restores them,
+and stages live changes safely. Every feature is written by hand and understood
+completely. When it breaks the author knows why.
 
-Not enterprise. Not a product. Personal.
+Not a product. Not enterprise. A learning project that solves real problems.
 
 ---
 
@@ -17,11 +19,11 @@ Not enterprise. Not a product. Personal.
 
 - Generic core scripts do all the work. App directories hold data only.
 - Every app gets a directory. Same layout every time. No exceptions.
-- info.sh is the config data. arch.sh is the install declaration. That's it.
-- Core scripts are distro-agnostic. They read the app data and act on it.
+- info.sh is the data. arch.sh is the install declaration. Core scripts do the work.
 - iuno.sh routes only. Never contains logic.
-- IUNO_ROOT is never hardcoded.
-- Arch is the current focus. Other distros add their own .sh files per app.
+- IUNO_ROOT is never hardcoded — resolved at runtime.
+- An app gets a directory only if it has config files worth managing.
+- Arch/CachyOS is the current focus. Deb is future work.
 
 ---
 
@@ -29,127 +31,87 @@ Not enterprise. Not a product. Personal.
 
 ```
 ~/iuno/
-├── Brain.md
-├── README.md
-├── iuno.log                             ← append-only action log
+├── Brain.md                         ← source of truth, session record
+├── README.md                        ← honest entry point
+├── iuno.log                         ← append-only action log
+├── iuno-v2-spec.md                  ← this file
 ├── .gitignore
-│
 ├── apps/
 │   ├── _distro/
 │   │   └── arch/
-│   │       └── install.sh               ← one-shot Arch essentials
+│   │       └── install.sh           ← one-shot Arch essentials (future)
 │   ├── _de/
 │   │   ├── niri/
-│   │   │   └── install.sh               ← one-shot Niri essentials
+│   │   │   └── install.sh           ← one-shot Niri essentials (future)
 │   │   └── hyprland/
-│   │       └── install.sh               ← one-shot Hyprland essentials
-│   └── [appname]/                       ← every app, no exceptions
-│       ├── info.sh                      ← name, description, config paths
-│       ├── arch.sh                      ← package name + method for Arch
-│       ├── deb.sh                       ← package name + method for Debian (future)
-│       └── backups/                     ← rollback history, starts empty
-│
+│   │       └── install.sh           ← one-shot Hyprland essentials (future)
+│   └── [appname]/
+│       ├── info.sh                  ← NAME, DESCRIPTION, CONFIG_PATHS
+│       ├── arch.sh                  ← PACKAGE, METHOD (future)
+│       ├── stage.sh                 ← staging pipeline (optional)
+│       ├── dotfiles/                ← current backup
+│       └── dotfiles.bak/           ← previous backup (auto-rotated)
 ├── machines/
-│   ├── defaults.sh
-│   └── Arona.sh
-│
+│   ├── defaults.sh                  ← IUNO_ROOT, EDITOR, TERMINAL
+│   └── Arona.sh                     ← machine-specific overrides
 ├── scripts/
-│   ├── core/                            ← generic, work for any app
-│   │   ├── iuno.sh                      ← router only
-│   │   ├── common.sh                    ← shared toolset
-│   │   ├── backup.sh                    ← reads info.sh, copies config files
-│   │   ├── restore.sh                   ← reads info.sh, restores config files
-│   │   ├── install.sh                   ← reads arch.sh, installs package
-│   │   ├── clean.sh                     ← staging and cache cleanup
-│   │   └── bootstrap-alias.sh           ← shell alias installer
-│   └── user/                            ← personal scripts
-│       ├── launcher-toggle.sh
-│       └── combined_audio.sh
-│
-└── home/
-    └── .zshrc
+│   ├── core/
+│   │   ├── iuno.sh                  ← router only
+│   │   ├── common.sh                ← shared toolset
+│   │   ├── backup.sh                ← generic backup
+│   │   ├── restore.sh               ← generic restore
+│   │   ├── clean.sh                 ← staging and cache cleanup
+│   │   ├── bootstrap-alias.sh       ← shell alias installer
+│   │   └── check-aur.sh             ← AUR helper verification
+│   ├── user/                        ← personal scripts, not iuno core
+│   │   ├── launcher-toggle.sh
+│   │   └── combined_audio.sh
+│   └── niri/
+│       └── niri-tool.sh             ← v1 staging reference, not deleted yet
+└── dev/                             ← sandbox for new scripts before promoting
 ```
 
 ---
 
 ## The App Directory
 
-Every app gets a directory. Same layout every time.
-Trivial bytes. Keeps everything consistent and the core scripts agnostic.
+Every app that has config files gets a directory. Same structure every time.
 
-### info.sh — app data
+### info.sh — the manifest
 
-Name, description, and where the config files live on the system.
-Sourced by backup.sh, restore.sh, detect, and anything else that needs app data.
-Never contains logic.
+Single source of truth. Sourced by backup, restore, detect. Never contains logic.
 
 ```bash
 #!/bin/bash
 # apps/niri/info.sh
-
 NAME="niri"
 DESCRIPTION="Scrollable tiling Wayland compositor."
 CONFIG_PATHS=(
-    "$HOME/.config/niri/config.kdl"
-    "$HOME/.config/niri/custom.kdl"
-    "$HOME/.config/niri/outputs.kdl"
-    "$HOME/.config/niri/input.kdl"
-    "$HOME/.config/niri/layout.kdl"
-    "$HOME/.config/niri/animations.kdl"
+    "$HOME/.config/niri"
 )
 ```
 
-For apps with config files in multiple locations (e.g. krita):
-```bash
-CONFIG_PATHS=(
-    "$HOME/.config/kritarc"
-    "$HOME/.config/kritadisplayrc"
-    "$HOME/.local/share/krita/brushes"
-)
-```
+CONFIG_PATHS entries can be directories or individual files.
+For apps with configs in multiple locations (krita), list them all.
 
-### arch.sh — Arch install declaration
+### arch.sh — install declaration (not yet built)
 
-Package name and install method. That's it.
-Optional before_install() and after_install() for the rare cases that need them.
+Declares the package name and install method. Optional before/after hooks.
 
 ```bash
 #!/bin/bash
 # apps/niri/arch.sh
-
 PACKAGE="niri"
 METHOD="pacman"    # pacman | aur | flatpak
+
+before_install() { :; }   # optional
+after_install()  { :; }   # optional
 ```
 
-For packages that need the AUR variant:
-```bash
-# apps/ckb-next/arch.sh
-PACKAGE="ckb-next-git"
-METHOD="aur"
-```
+### dotfiles/ and dotfiles.bak/
 
-Optional hooks — defined only when needed, skipped silently if absent:
-```bash
-before_install() {
-    # runs before install — check conflicts, warn user
-    :
-}
-
-after_install() {
-    # runs after install — enable services, print next steps
-    :
-}
-```
-
-### deb.sh — Debian install declaration (future)
-
-Same structure as arch.sh. Added when Debian support is needed.
-The core install script reads whichever distro file matches the current system.
-
-### backups/
-
-Exists from day one even if empty.
-Populated by backup.sh with 3-deep rotation.
+dotfiles/ — current backup, populated by backup.sh
+dotfiles.bak/ — previous backup, created automatically by rotation on each backup run
 
 ---
 
@@ -157,205 +119,147 @@ Populated by backup.sh with 3-deep rotation.
 
 ### scripts/core/backup.sh
 
-Generic. Called with an app name. Sources info.sh. Copies config files.
+Generic. Takes an app name. Sources info.sh. Rotates dotfiles. Copies live configs.
 
-```
-backup.sh niri
-    ↓
-source apps/niri/info.sh
-for each path in CONFIG_PATHS:
-    rotate backups (3-deep)
-    copy live file into apps/niri/
-    log_action()
-```
+Flow:
+1. Source apps/appname/info.sh
+2. Rotate: rm dotfiles.bak → mv dotfiles → dotfiles.bak → mkdir dotfiles
+3. For each path in CONFIG_PATHS:
+   - Directory: cp -r live/. → dotfiles/dirname/
+   - File: cp live → dotfiles/
+4. log_action()
+
+Rotation happens ONCE before the loop — safe for multi-path apps like krita.
 
 ### scripts/core/restore.sh
 
-Generic. Called with an app name. Sources info.sh. Restores config files.
+Generic. Takes an app name. Sources info.sh. Copies repo files to live locations.
 
-```
-restore.sh niri
-    ↓
-source apps/niri/info.sh
-for each path in CONFIG_PATHS:
-    back up existing live file to backups/filename.pre-restore
-    copy apps/niri/filename to live location
-    log_action()
-```
-
-### scripts/core/install.sh
-
-Generic. Called with an app name. Sources arch.sh (or deb.sh). Installs package.
-
-```
-install.sh niri
-    ↓
-detect_distro()
-source apps/niri/arch.sh   (or deb.sh)
-run before_install() if defined
-install_package PACKAGE METHOD
-run after_install() if defined
-log_action()
-```
+Flow:
+1. Source apps/appname/info.sh
+2. For each path in CONFIG_PATHS:
+   - Directory: rm -rf live && cp -r dotfiles/dirname → live
+   - File: cp dotfiles/filename → live
+3. log_action()
 
 ### scripts/core/iuno.sh
 
-Router only.
+Router only. No logic.
 
-```bash
-case "$1" in
-    --install)  bash "$IUNO_ROOT/scripts/core/install.sh" "$2" ;;
-    --backup)   bash "$IUNO_ROOT/scripts/core/backup.sh"  "$2" ;;
-    --restore)  bash "$IUNO_ROOT/scripts/core/restore.sh" "$2" ;;
-    --stage)    handle_stage "$2" ;;
-    --detect)   handle_detect ;;
-    --clean)    bash "$IUNO_ROOT/scripts/core/clean.sh" "${@:2}" ;;
-    --log)      handle_log "$2" ;;
-    --help)     show_help ;;
-esac
 ```
+iuno -b -appname     → backup.sh appname
+iuno -b -all         → backup.sh for each app with info.sh
+iuno -r -appname     → restore.sh appname
+iuno -r -all         → restore.sh for each app with info.sh
+iuno --detect        → walk apps/, report backup status and install status
+iuno -c [flags]      → clean.sh
+iuno --help          → show commands and auto-discovered app list
+```
+
+App list in help and detect is auto-discovered by walking apps/ — no hardcoded list.
 
 ### scripts/core/common.sh
 
 Shared toolset. Sourced by all scripts. Never run directly.
 
-- detect_distro() — returns arch, deb, unknown
-- install_package(package, method) — installs using the declared method
+Functions:
+- IUNO_ROOT — resolved from BASH_SOURCE[0]
+- load_machine() — sources machines/defaults.sh then machines/$(hostname).sh
+- detect_distro() — returns arch | deb | unknown
+- install_package(name) — paru → yay → pacman → apt
 - log_action(action, app, detail) — appends to iuno.log
-- file_hash(file) — sha256 fingerprint
-- configs_match(a, b) — returns 0 if identical
-- load_machine() — sources machine files on startup
+- file_hash(file) — sha256sum fingerprint
+- configs_match(a, b) — diff -q, returns 0 if identical
 - log / ok / warn / err — output helpers
 
 ---
 
-## Essentials Lists
+## Essentials Lists (future — not built yet)
 
-Simple packages with no config to manage.
-Installed once on setup. No app directories. No prompts. Just install.
+Simple packages with no config to manage. Installed once on a fresh system.
+No app directories for these. No prompts. Arrays in distro/DE install scripts.
 
 ```bash
 # apps/_distro/arch/install.sh
-source "$IUNO_ROOT/scripts/core/common.sh"
-
 ESSENTIALS=(
     git ripgrep fd fzf zoxide btop
     fastfetch wl-clipboard tree wget rsync
 )
-
 for pkg in "${ESSENTIALS[@]}"; do
-    install_package "$pkg" "pacman"
+    install_package "$pkg"
 done
 ```
 
 ---
 
-## Staging
+## Staging (future — niri-tool.sh is the reference)
 
 For apps where a bad config means losing your session.
-Not every app needs this. Only high-risk ones.
+Safe edit in /tmp → diff vs live → finalize or rollback.
 
-Currently: niri.
-Future: hyprland, pipewire.
-
-```
-iuno --stage -niri
-    ↓
-apps/niri/stage.sh
-    ↓
-copy live → /tmp/iuno/niri/
-user edits in staging
-diff staging vs live
-finalize → copy to live + log
-rollback → restore .bak + log
-```
-
-stage.sh lives in the app directory because it is app-specific.
-backup.sh and restore.sh live in core because they are generic.
-
----
-
-## Machine Files
-
-**defaults.sh:**
-```bash
-IUNO_ROOT="$HOME/iuno"
-EDITOR=nvim
-TERMINAL=kitty
-```
-
-**Arona.sh:**
-```bash
-MONITOR_PRIMARY="DP-3"
-MONITOR_SECONDARY="HDMI-A-1"
-MONITOR_TABLET="DP-2"
-```
+Currently only niri uses this pattern via niri-tool.sh.
+The plan is to migrate niri-tool.sh logic into apps/niri/stage.sh
+and wire iuno --stage -niri into the router.
 
 ---
 
 ## Roadmap
 
-### Current State
-- v1 scripts live in ~/iuno/scripts/ and are functional
-- v2 directory structure created
-- common.sh written and installed to scripts/core/
-- machine files written
-- apps/niri/info.sh written
-
 ### Phase 1 — Foundation ✓
-- [x] Create directory structure
-- [x] Install common.sh to scripts/core/
-- [x] Write machines/defaults.sh and Arona.sh
-- [x] Move core scripts to scripts/core/
-- [x] Move personal scripts to scripts/user/
+- [x] Directory structure created
+- [x] common.sh installed to scripts/core/
+- [x] machines/defaults.sh and Arona.sh written
+- [x] v1 scripts cleaned up
 
-### Phase 2 — Core Generic Scripts
-- [ ] Write scripts/core/backup.sh
-- [ ] Write scripts/core/restore.sh
-- [ ] Write scripts/core/install.sh
-- [ ] Write scripts/core/iuno.sh (v2 router)
-- [ ] Test: iuno --backup -niri
-- [ ] Test: iuno --restore -niri
-- [ ] Test: iuno --install -niri
+### Phase 2 — Core Generic Scripts ✓
+- [x] backup.sh — working, tested on all apps including krita
+- [x] restore.sh — working, tested on all apps including krita
+- [x] iuno.sh v2 router — all commands working
+- [x] bootstrap-alias.sh updated
 
-### Phase 3 — First App Complete
-- [ ] Write apps/niri/arch.sh
-- [ ] Verify end to end
+### Phase 3 — App Migration ✓
+- [x] All 12 apps have info.sh and dotfiles/
+- [x] iuno -b -all and iuno -r -all working
 
-### Phase 4 — Essentials Lists
+### Phase 4 — Immediate Cleanup
+- [ ] Add PACKAGE to all info.sh files (fixes -- unknown in --detect)
+- [ ] Add fish_variables to .gitignore
+- [ ] Fix script header comments (still say dev/)
+
+### Phase 5 — Stage Pipeline
+- [ ] Write apps/niri/stage.sh (migrate from niri-tool.sh)
+- [ ] Wire iuno --stage -appname into router
+- [ ] Test end to end
+
+### Phase 6 — Install System
 - [ ] Write apps/_distro/arch/install.sh
 - [ ] Write apps/_de/niri/install.sh
-- [ ] Wire into iuno --install interactive flow
+- [ ] Write per-app arch.sh files
+- [ ] Wire iuno --install into router
 
-### Phase 5 — Migrate Remaining Apps
-- [ ] kitty, alacritty, nvim, zsh, hypr, yazi, pipewire, ckb-next
-- [ ] Retire v1 scripts when all apps migrated
-
-### Phase 6 — Stage Pipeline
-- [ ] Write apps/niri/stage.sh
-- [ ] Wire iuno --stage into router
-
-### Phase 7 — Detect
-- [ ] Walk apps/ directories
-- [ ] Source info.sh for each
-- [ ] Report installed / backed up / in sync
+### Phase 7 — Detect Improvements
+- [ ] PACKAGE in info.sh enables install status in --detect
+- [ ] Hash comparison for drift detection
 
 ---
 
-## Not In Iuno
+## What Is Not In Iuno
 
-- Secrets — private setup on encrypted USB
-- Network config — fstab, samba, UFW
+- Secrets — private setup on encrypted USB, never in this repo
+- Network config — fstab, samba, UFW are private
 - SSH keys — never in any repo
 - Noctalia/Caelestia — install only, no config management
+- Helium browser — install only, browser data never tracked
 
 ---
 
-## Future
+## Future Considerations
 
-- Rollback command — iuno --rollback -appname
-- Hash-based skip in backup — skip if file unchanged
-- Drift detection in detect
-- Auto-update — fetch upstream config, diff, merge
-- Flatpak install method
-- Deb support — deb.sh per app when needed
+- Rollback command — iuno --rollback -appname restores from dotfiles.bak
+- Hash-based skip in backup — skip if file unchanged (file_hash already in common.sh)
+- Drift detection — alert when live differs from repo
+- Auto-update — fetch upstream config, diff, let user merge
+- Flatpak install method — add to install_package() when needed
+- Deb support — deb.sh per app, detect_distro() already handles apt
+- Encryption — gpg for in-repo secrets when needed
+- Multi-machine — machines/ directory already supports this, just add a new hostname file

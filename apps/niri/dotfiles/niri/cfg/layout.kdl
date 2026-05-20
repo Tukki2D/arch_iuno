@@ -7,6 +7,15 @@
 // On niri updates: check changelog for new layout options and add desired ones below.
 // Reference: https://niri-wm.github.io/niri/Configuration:-Layout
 
+// ── Theming ────────────────────────────────────────────────────────────────────
+
+//Rounding on Corners
+window-rule {
+        geometry-corner-radius 8// Set every window radius to 20
+        clip-to-geometry true
+}
+
+
 // ── Layout ────────────────────────────────────────────────────────────────────
 
 layout {

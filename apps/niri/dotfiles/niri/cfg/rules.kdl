@@ -1,11 +1,3 @@
-// ── Theming  ───────────────────────────────────────────────────────────────
-
-//Rounding on Corners
-window-rule {
-        geometry-corner-radius 10 // Set every window radius to 20
-        clip-to-geometry true
-}
-
 // Override to disable super+tab
 recent-windows {
     binds {

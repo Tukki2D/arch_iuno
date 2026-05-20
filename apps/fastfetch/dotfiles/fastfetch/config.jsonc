@@ -1,7 +1,21 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
   "logo": {
-  	"source": "/home/tyler/Pictures/arona/arona_wave.png"
+	//"source": "~/.config/fastfetch/wakamo.format",			//Ascii
+//	"source": "~/Pictures/Fastfetch/1635941509074.png",			//Huge Boobas
+//  	"source": "/home/tyler/Pictures/arona/arona_wave.png"			//Arona
+//	"source": "~/Pictures/WakamoPFP.png", //Wakamo PfP			//WakamoPfP
+//	"source": "~/Pictures/Fastfetch/Yor/Yor_01.jpg",			//Yor Forger
+//	"source": "~/Pictures/Fastfetch/MioKOn.jpg",				//Mio K-On
+//	"source": "~/Pictures/Fastfetch/Hinata/Hinata_01.jpg",			//Hinata BA
+	"source": "~/Pictures/Fastfetch/Rio/Rio_01.jpeg",			//Rio Images
+//	"source": "~/Pictures/Fastfetch/Wakamo/Wakamo_01.png",			//Wakamo
+//	"source": "~/Pictures/Fastfetch/WuWa/Chisa_Splash_Art_webp.png",	//Wuwa
+	"height": 33,
+        "padding": {
+            "left":1,
+	    "top": 0
+        }
   },
   "modules": [
     "title",
@@ -28,8 +42,8 @@
     "swap",
     "disk",
     "localip",
-    "battery",
-    "poweradapter",
+    //"battery",
+    //"poweradapter",
     "locale",
     "break",
     "colors"
