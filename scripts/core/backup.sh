@@ -1,5 +1,5 @@
 #!/bin/bash
-# dev/backup.sh — generic backup script
+# scripts/core/backup.sh — generic backup script
 # Usage: backup.sh <appname>
 IUNO_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 source "$IUNO_ROOT/scripts/core/common.sh"

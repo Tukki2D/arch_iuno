@@ -1,5 +1,5 @@
 #!/bin/bash
-# dev/restore.sh — generic restore script
+# scripts/core/restore.sh — generic restore script
 # Usage: restore.sh <appname>
 IUNO_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 source "$IUNO_ROOT/scripts/core/common.sh"
