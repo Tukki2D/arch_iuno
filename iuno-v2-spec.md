@@ -203,43 +203,118 @@ and wire iuno --stage -niri into the router.
 
 ---
 
+## Next Session Plan (start here)
+
+### Step 1 — Fix script headers (2 minutes)
+backup.sh and restore.sh still say `# dev/` in their comment headers.
+
+```bash
+sed -i 's|# dev/backup.sh|# scripts/core/backup.sh|' ~/iuno/scripts/core/backup.sh
+sed -i 's|# dev/restore.sh|# scripts/core/restore.sh|' ~/iuno/scripts/core/restore.sh
+```
+
+### Step 2 — Audit dotfiles nesting (check all apps)
+The niri dotfiles.bak has a nested structure from before the backup script was fixed.
+Check every app for unexpected nesting before fixing anything:
+
+```bash
+for app in ~/iuno/apps/*/; do
+    echo "=== $(basename $app) ==="
+    ls "$app/dotfiles/" 2>/dev/null
+    echo ""
+done
+```
+
+Expected: each app's dotfiles/ should contain either named subdirectories or
+flat files matching the basenames in CONFIG_PATHS. No extra nesting.
+Fix any that are wrong by manually moving contents up a level.
+
+### Step 3 — Add PACKAGE to all info.sh files
+Without PACKAGE, iuno --detect shows "— unknown" for 11 of 12 apps.
+Each info.sh needs one line added:
+
+| App | PACKAGE |
+|-----|---------|
+| alacritty | alacritty |
+| ckb-next | ckb-next-git |
+| fastfetch | fastfetch |
+| fish | fish |
+| hypr | hyprland |
+| kitty | kitty |
+| krita | krita |
+| mango | mango (verify package name) |
+| niri | niri |
+| nvim | neovim |
+| pipewire | pipewire |
+| starship | starship |
+
+After adding, verify with: `iuno --detect`
+
+### Step 4 — Fix .gitignore
+fish_variables is machine-specific and was accidentally committed.
+
+```bash
+echo "apps/fish/dotfiles/fish/fish_variables" >> ~/iuno/.gitignore
+git rm --cached apps/fish/dotfiles/fish/fish_variables
+```
+
+### Step 5 — Clean dev/ directory
+dev/ still has old versions of iuno.sh, backup.sh, restore.sh from before promotion.
+Review and remove stale files, keep dev/ as a clean sandbox.
+
+### Step 6 — Commit all cleanup
+```bash
+cd ~/iuno
+git add .
+git commit -m "cleanup: fix headers, gitignore fish_variables, clean dev/, add PACKAGE to info.sh"
+git push
+```
+
+---
+
 ## Roadmap
 
 ### Phase 1 — Foundation ✓
 - [x] Directory structure created
 - [x] common.sh installed to scripts/core/
 - [x] machines/defaults.sh and Arona.sh written
-- [x] v1 scripts cleaned up
+- [x] v1 scripts cleaned up — sync.sh, restore.sh, install.sh, per-app installs removed
+- [x] helium browser data removed from repo and git history (git filter-repo)
 
 ### Phase 2 — Core Generic Scripts ✓
-- [x] backup.sh — working, tested on all apps including krita
-- [x] restore.sh — working, tested on all apps including krita
-- [x] iuno.sh v2 router — all commands working
-- [x] bootstrap-alias.sh updated
+- [x] backup.sh — generic, tested on all apps including krita
+- [x] restore.sh — generic, tested on all apps including krita
+- [x] iuno.sh v2 router — backup, restore, detect, clean all working
+- [x] bootstrap-alias.sh updated to scripts/core/iuno.sh
+- [x] Fish alias working: iuno -b -all, iuno -r -appname, iuno --detect
 
 ### Phase 3 — App Migration ✓
 - [x] All 12 apps have info.sh and dotfiles/
 - [x] iuno -b -all and iuno -r -all working
+- [x] Krita multi-location backup and restore tested and working
 
-### Phase 4 — Immediate Cleanup
-- [ ] Add PACKAGE to all info.sh files (fixes -- unknown in --detect)
-- [ ] Add fish_variables to .gitignore
-- [ ] Fix script header comments (still say dev/)
+### Phase 4 — Cleanup (next session — see Next Session Plan above)
+- [ ] Fix script headers (dev/ → scripts/core/)
+- [ ] Audit and fix dotfiles nesting across all apps
+- [ ] Add PACKAGE variable to all info.sh files
+- [ ] Add fish_variables to .gitignore and untrack it
+- [ ] Clean dev/ directory of promoted files
 
 ### Phase 5 — Stage Pipeline
-- [ ] Write apps/niri/stage.sh (migrate from niri-tool.sh)
-- [ ] Wire iuno --stage -appname into router
-- [ ] Test end to end
+- [ ] Write apps/niri/stage.sh (migrate from scripts/niri/niri-tool.sh)
+- [ ] Wire iuno --stage -appname into iuno.sh router
+- [ ] Test end to end — stage, diff, finalize, rollback
+- [ ] niri-tool.sh is the reference — do not delete until stage.sh is proven
 
-### Phase 6 — Install System
-- [ ] Write apps/_distro/arch/install.sh
-- [ ] Write apps/_de/niri/install.sh
-- [ ] Write per-app arch.sh files
+### Phase 6 — Install System (low priority)
+- [ ] Write apps/_distro/arch/install.sh — Arch essentials array
+- [ ] Write apps/_de/niri/install.sh — Niri essentials array
+- [ ] Write per-app arch.sh files with PACKAGE and METHOD
 - [ ] Wire iuno --install into router
 
 ### Phase 7 — Detect Improvements
-- [ ] PACKAGE in info.sh enables install status in --detect
-- [ ] Hash comparison for drift detection
+- [ ] PACKAGE in info.sh enables real install status in --detect
+- [ ] Hash comparison for drift detection (file_hash already in common.sh)
 
 ---
 
