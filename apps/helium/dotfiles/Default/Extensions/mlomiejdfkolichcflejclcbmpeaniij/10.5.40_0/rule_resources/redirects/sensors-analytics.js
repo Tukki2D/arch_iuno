@@ -1,1 +1,0 @@
-(function(){"use strict";const t=function(){};window.sensorsDataAnalytic201505={init:t,quick:t,register:t,track:t}})();

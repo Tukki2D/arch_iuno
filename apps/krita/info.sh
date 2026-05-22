@@ -16,3 +16,4 @@ CONFIG_PATHS=(
     "$HOME/.local/share/krita/sessions"
     "$HOME/.local/share/krita/Dojen Krita Brushes .bundle"
 )
+PACKAGE="krita"

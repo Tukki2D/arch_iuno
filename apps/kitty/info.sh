@@ -5,3 +5,4 @@ DESCRIPTION="GPU-accelerated terminal emulator."
 CONFIG_PATHS=(
     "$HOME/.config/kitty"
 )
+PACKAGE="kitty"

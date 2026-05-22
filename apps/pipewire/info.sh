@@ -5,3 +5,4 @@ DESCRIPTION="Audio server. Contains combined sink config for Schiit Modi 3E + Ma
 CONFIG_PATHS=(
     "$HOME/.config/pipewire"
 )
+PACKAGE="pipewire"

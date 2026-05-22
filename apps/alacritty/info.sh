@@ -5,3 +5,4 @@ DESCRIPTION="Fast terminal emulator."
 CONFIG_PATHS=(
     "$HOME/.config/alacritty"
 )
+PACKAGE="alacritty"

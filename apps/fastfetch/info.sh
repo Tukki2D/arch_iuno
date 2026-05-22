@@ -5,3 +5,4 @@ DESCRIPTION="Fast system information tool."
 CONFIG_PATHS=(
     "$HOME/.config/fastfetch"
 )
+PACKAGE="fastfetch"

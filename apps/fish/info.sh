@@ -5,3 +5,4 @@ DESCRIPTION="Friendly interactive shell."
 CONFIG_PATHS=(
     "$HOME/.config/fish"
 )
+PACKAGE="fish"

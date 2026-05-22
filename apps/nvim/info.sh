@@ -5,3 +5,4 @@ DESCRIPTION="Hyperextensible Vim-based text editor."
 CONFIG_PATHS=(
     "$HOME/.config/nvim"
 )
+PACKAGE="neovim"

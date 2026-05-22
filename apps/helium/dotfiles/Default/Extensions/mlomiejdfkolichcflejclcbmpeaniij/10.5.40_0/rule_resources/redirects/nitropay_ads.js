@@ -1,1 +1,0 @@
-(function(){if(window.nitroAds)return;const n=function(){}.bind();const i={createAd:n,queue:[]};window.nitroAds=i})();

@@ -5,3 +5,4 @@ DESCRIPTION="RGB keyboard driver and lighting control."
 CONFIG_PATHS=(
     "$HOME/.config/ckb-next"
 )
+PACKAGE="ckb-next-git"

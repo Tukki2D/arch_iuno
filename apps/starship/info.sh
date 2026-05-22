@@ -5,3 +5,4 @@ DESCRIPTION="Cross-shell prompt."
 CONFIG_PATHS=(
     "$HOME/.config/starship.toml"
 )
+PACKAGE="starship"

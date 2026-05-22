@@ -5,3 +5,4 @@ DESCRIPTION="Tiling Wayland compositor. Preserved config, not currently active."
 CONFIG_PATHS=(
     "$HOME/.config/mango"
 )
+PACKAGE="mangowm"
