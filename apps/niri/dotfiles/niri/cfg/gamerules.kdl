@@ -29,6 +29,20 @@ window-rule {
     open-on-workspace "playing"
 }
 
+//Steam Friends List
+window-rule {
+    match app-id="^steam$"
+    match title="^Friends List$"
+    
+    open-fullscreen false
+    open-on-workspace "gaming"
+    open-focused false
+    open-floating false
+
+    //window-size 346x1374
+    default-column-width { fixed 346; }
+}
+
 // #Heroic Games Launcher
 window-rule {
     match app-id=r#"^gamescope$"#

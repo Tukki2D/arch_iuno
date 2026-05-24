@@ -1,15 +1,18 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
   "logo": {
-	//"source": "~/.config/fastfetch/wakamo.format",			//Ascii
+//	"source": "~/.config/fastfetch/wakamo.format",				//Ascii
+//	"source": "~/Downloads/1779255312657237.png",				//Downloads
 //	"source": "~/Pictures/Fastfetch/1635941509074.png",			//Huge Boobas
 //  	"source": "/home/tyler/Pictures/arona/arona_wave.png"			//Arona
-//	"source": "~/Pictures/WakamoPFP.png", //Wakamo PfP			//WakamoPfP
+//	"source": "~/Pictures/WakamoPFP.png", 					//WakamoPfP
 //	"source": "~/Pictures/Fastfetch/Yor/Yor_01.jpg",			//Yor Forger
 //	"source": "~/Pictures/Fastfetch/MioKOn.jpg",				//Mio K-On
-//	"source": "~/Pictures/Fastfetch/Hinata/Hinata_01.jpg",			//Hinata BA
+//	"source": "~/Pictures/Fastfetch/Hinata/Hinata_05.jpg",			//Hinata BA
 	"source": "~/Pictures/Fastfetch/Rio/Rio_01.jpeg",			//Rio Images
-//	"source": "~/Pictures/Fastfetch/Wakamo/Wakamo_01.png",			//Wakamo
+//	"source": "~/Pictures/Fastfetch/Wakamo/Wakamo_04.jpg",			//Wakamo
+//	"source": "~/Pictures/Fastfetch/BlueArchive/BA_01.jpg",			//BlueArchive
+
 //	"source": "~/Pictures/Fastfetch/WuWa/Chisa_Splash_Art_webp.png",	//Wuwa
 	"height": 33,
         "padding": {
