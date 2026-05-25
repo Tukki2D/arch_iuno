@@ -113,20 +113,20 @@ Convention for dotfile repos is hidden, but this has outgrown that pattern.
 ```
 
 ### Managed Apps (May 2026)
-| App | info.sh | dotfiles | Notes |
+| App | PACKAGE | dotfiles | Notes |
 |-----|---------|----------|-------|
-| alacritty | ✓ | ✓ | secondary terminal |
-| ckb-next | ✓ | ✓ | RGB keyboard profiles |
-| fastfetch | ✓ | ✓ | custom Arona logo at ~/Pictures/arona/ |
-| fish | ✓ | ✓ | fish_variables must be gitignored |
-| hypr | ✓ | ✗ | not installed, config preserved |
-| kitty | ✓ | ✓ | primary terminal |
-| krita | ✓ | ✓ | MOST IMPORTANT — two live locations, handle carefully |
-| mango | ✓ | ✓ | preserved DE config, not currently active |
-| niri | ✓ | ✓ | active compositor, cfg/ and dms/ subdirs |
-| nvim | ✓ | ✓ | lazy.nvim, init.lua (migrated from init.vim) |
-| pipewire | ✓ | ✓ | combined-sink.conf for Schiit Modi 3E + Matisse HD |
-| starship | ✓ | ✗ | not yet installed on this build |
+| alacritty | alacritty | ✓ | secondary terminal |
+| ckb-next | ckb-next-git | ✓ | RGB keyboard profiles |
+| fastfetch | fastfetch | ✓ | custom Arona logo at ~/Pictures/arona/ |
+| fish | fish | ✓ | fish_variables gitignored |
+| hypr | hyprland | ✗ | not installed, config preserved |
+| kitty | kitty | ✓ | primary terminal |
+| krita | krita | ✓ | MOST IMPORTANT — two live locations |
+| mango | mangowm | ✓ | preserved DE config, not active |
+| niri | niri | ✓ | active compositor |
+| nvim | neovim | ✓ | lazy.nvim, init.lua |
+| pipewire | pipewire | ✓ | combined-sink.conf |
+| starship | starship | ✗ | not yet installed |
 
 ### iuno Commands (v2 — fully working)
 ```
@@ -197,9 +197,12 @@ Detects fish/zsh/bash and writes the correct alias format automatically.
 ## What's Next
 
 ### Immediate (small, do these first)
-- [ ] Add PACKAGE variable to all info.sh files — fixes "— unknown" in iuno --detect
-- [ ] Add fish_variables to .gitignore — it is machine-specific and was accidentally committed
-- [ ] Fix script headers — backup.sh and restore.sh still say "dev/" in comments
+- [x] Add PACKAGE variable to all info.sh files
+- [x] Add fish_variables to .gitignore and untrack it
+- [x] Fix script headers — backup.sh and restore.sh
+- [x] Remove helium from apps/ on disk
+- [x] Clean dev/ of promoted scripts
+- [x] mango package name corrected to mangowm
 
 ### Stage Pipeline (medium — highest value next feature)
 - [ ] Write apps/niri/stage.sh migrating niri-tool.sh logic into v2 structure
@@ -236,8 +239,14 @@ Detects fish/zsh/bash and writes the correct alias format automatically.
 - [x] iuno.sh v2 router — all commands working
 - [x] bootstrap-alias.sh updated to point to scripts/core/iuno.sh
 - [x] All 12 apps migrated to apps/ directory structure with info.sh
+- [x] PACKAGE added to all info.sh files — iuno --detect shows install status
 - [x] v1 scripts cleaned up — sync.sh, restore.sh, install.sh, per-app install scripts removed
-- [x] helium browser data removed from repo and history (git filter-repo)
+- [x] helium browser data removed from repo, history, and disk
 - [x] fish alias updated to scripts/core/iuno.sh
+- [x] fish_variables gitignored and untracked from git
+- [x] Script headers fixed — backup.sh and restore.sh no longer say dev/
+- [x] dev/ cleaned — only clean.sh remains as personal utility
+- [x] Dotfiles nesting pattern confirmed — consistent, restore works correctly
+- [x] mango PACKAGE corrected to mangowm
 
 ---

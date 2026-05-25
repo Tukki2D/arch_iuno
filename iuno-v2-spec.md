@@ -203,72 +203,38 @@ and wire iuno --stage -niri into the router.
 
 ---
 
-## Next Session Plan (start here)
+## Cleanup — Completed (May 2026)
 
-### Step 1 — Fix script headers (2 minutes)
-backup.sh and restore.sh still say `# dev/` in their comment headers.
+All Phase 4 cleanup tasks done:
 
-```bash
-sed -i 's|# dev/backup.sh|# scripts/core/backup.sh|' ~/iuno/scripts/core/backup.sh
-sed -i 's|# dev/restore.sh|# scripts/core/restore.sh|' ~/iuno/scripts/core/restore.sh
+- [x] Script headers fixed — backup.sh and restore.sh no longer say dev/
+- [x] Dotfiles nesting audited — consistent pattern confirmed, restore works correctly
+- [x] PACKAGE added to all info.sh files
+- [x] fish_variables added to .gitignore and untracked
+- [x] helium/ removed from apps/
+- [x] dev/ cleaned — stale promoted scripts removed, only clean.sh remains
+
+### Current iuno --detect output
+```
+alacritty    ✓ backed up   ✓ installed
+ckb-next     ✓ backed up   ✓ installed
+fastfetch    ✓ backed up   ✓ installed
+fish         ✓ backed up   ✓ installed
+hypr         ✗ not backed up  — unknown   (not installed on this build)
+kitty        ✓ backed up   ✓ installed
+krita        ✓ backed up   ✓ installed
+mango        ✓ backed up   — unknown      (mangowm not installed on this build)
+niri         ✓ backed up   ✓ installed
+nvim         ✓ backed up   ✓ installed
+pipewire     ✓ backed up   ✓ installed
+starship     ✗ not backed up  — unknown   (not yet installed)
 ```
 
-### Step 2 — Audit dotfiles nesting (check all apps)
-The niri dotfiles.bak has a nested structure from before the backup script was fixed.
-Check every app for unexpected nesting before fixing anything:
-
-```bash
-for app in ~/iuno/apps/*/; do
-    echo "=== $(basename $app) ==="
-    ls "$app/dotfiles/" 2>/dev/null
-    echo ""
-done
-```
-
-Expected: each app's dotfiles/ should contain either named subdirectories or
-flat files matching the basenames in CONFIG_PATHS. No extra nesting.
-Fix any that are wrong by manually moving contents up a level.
-
-### Step 3 — Add PACKAGE to all info.sh files
-Without PACKAGE, iuno --detect shows "— unknown" for 11 of 12 apps.
-Each info.sh needs one line added:
-
-| App | PACKAGE |
-|-----|---------|
-| alacritty | alacritty |
-| ckb-next | ckb-next-git |
-| fastfetch | fastfetch |
-| fish | fish |
-| hypr | hyprland |
-| kitty | kitty |
-| krita | krita |
-| mango | mango (verify package name) |
-| niri | niri |
-| nvim | neovim |
-| pipewire | pipewire |
-| starship | starship |
-
-After adding, verify with: `iuno --detect`
-
-### Step 4 — Fix .gitignore
-fish_variables is machine-specific and was accidentally committed.
-
-```bash
-echo "apps/fish/dotfiles/fish/fish_variables" >> ~/iuno/.gitignore
-git rm --cached apps/fish/dotfiles/fish/fish_variables
-```
-
-### Step 5 — Clean dev/ directory
-dev/ still has old versions of iuno.sh, backup.sh, restore.sh from before promotion.
-Review and remove stale files, keep dev/ as a clean sandbox.
-
-### Step 6 — Commit all cleanup
-```bash
-cd ~/iuno
-git add .
-git commit -m "cleanup: fix headers, gitignore fish_variables, clean dev/, add PACKAGE to info.sh"
-git push
-```
+### Dotfiles nesting — documented pattern
+All apps store configs as `dotfiles/appname/contents` not `dotfiles/contents`.
+This is consistent and intentional — backup copies the directory by name,
+restore puts it back by name. Krita is the exception — multi-path app stores
+files flat in dotfiles/ by basename. Both patterns work correctly.
 
 ---
 
@@ -293,12 +259,13 @@ git push
 - [x] iuno -b -all and iuno -r -all working
 - [x] Krita multi-location backup and restore tested and working
 
-### Phase 4 — Cleanup (next session — see Next Session Plan above)
-- [ ] Fix script headers (dev/ → scripts/core/)
-- [ ] Audit and fix dotfiles nesting across all apps
-- [ ] Add PACKAGE variable to all info.sh files
-- [ ] Add fish_variables to .gitignore and untrack it
-- [ ] Clean dev/ directory of promoted files
+### Phase 4 — Cleanup ✓
+- [x] Fix script headers (dev/ → scripts/core/)
+- [x] Audit dotfiles nesting — consistent pattern confirmed
+- [x] Add PACKAGE variable to all info.sh files
+- [x] Add fish_variables to .gitignore and untrack it
+- [x] Remove helium/ from apps/
+- [x] Clean dev/ of promoted scripts
 
 ### Phase 5 — Stage Pipeline
 - [ ] Write apps/niri/stage.sh (migrate from scripts/niri/niri-tool.sh)
