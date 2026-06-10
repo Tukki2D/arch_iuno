@@ -36,10 +36,9 @@ window-rule {
     
     open-fullscreen false
     open-on-workspace "gaming"
-    open-focused false
+   //open-focused false
+   
     open-floating false
-
-    //window-size 346x1374
     default-column-width { fixed 346; }
 }
 
