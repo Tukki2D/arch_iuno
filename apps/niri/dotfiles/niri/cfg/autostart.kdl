@@ -7,6 +7,7 @@ spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 // Noctalia shell
 //spawn-sh-at-startup "qs -c noctalia-shell -d"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
+spawn-at-startup "wl-paste" "--type" "image/png" "--watch" "cliphist" "store"
 
 //─────────────────── Preferences ───────────────────────────────────────────────────────────────
 config-notification {

@@ -3,15 +3,14 @@ include "./cfg/animation.kdl"
 include "./cfg/autostart.kdl"
 include "./cfg/keybinds.kdl"
 include "./cfg/input.kdl"
-//include "./cfg/display.kdl"
+include "./cfg/outputs.kdl"
 include "./cfg/layout.kdl"
 include "./cfg/misc.kdl"
-include "./cfg/rules.kdl"
 
 //DMS OverRides
 include "dms/cursor.kdl"
 include "dms/colors.kdl" //Color overrides for Wallpaper
 include "dms/outputs.kdl"
 
-//Game Rules
-include "./cfg/gamerules.kdl"
+//WorkSpaces
+include "./cfg/workspaces.kdl"

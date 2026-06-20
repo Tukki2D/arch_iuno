@@ -1,41 +1,3 @@
-// ────────────── Output Configuration ──────────────
-// You can run `niri msg outputs` to get the correct name for your displays.
-// You will have to remove "/-" and edit it before it takes effect.
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
-
-// outputs.kdl — monitor configuration
-// Included from config.kdl via: include "outputs.kdl"
-//
-// This file owns all output{} blocks.
-// config.kdl must not contain any output{} blocks.
-//
-// On niri updates: output configuration rarely changes upstream.
-// Check changelog if monitor behavior changes unexpectedly.
-//
-// On fresh install: verify connector names match your hardware.
-// Run `niri msg outputs` to see available outputs and their names.
-
-// ── Monitor Outputs ───────────────────────────────────────────────────────────
-
-output "DP-3" {
-    mode "2560x1440@143.999"
-    scale 1.0
-    position x=0 y=0
-    focus-at-startup
-}
-
-output "HDMI-A-1" {
-    mode "1920x1080@60.000"
-    position x=-1920 y=0
-}
-
-output "DP-2" {
-    mode "3840x2160@59.997"
-    position x=-1280 y=1440
-    scale 1.0
-}
-
-
 // ── Workspaces ───────────────────────────────────────────────────────────
 
 workspace "primary" {
@@ -53,6 +15,7 @@ workspace "playing" {
 workspace "secondary" {
     open-on-output "HDMI-A-1"
 }
+
 
 
 // ── Workspace window rules ────────────────────────────────────────────────────
@@ -80,7 +43,9 @@ window-rule {
     match app-id="org.telegram.desktop"
     match app-id=r#"^signal-desktop$"#
     match app-id="Signal"
+    match app-id="signal"
     match app-id="discord"
+    match app-id="vesktop"
     open-on-workspace "chat"
 }
 
@@ -113,5 +78,60 @@ window-rule {
     exclude title=r#"^[Ss]team$"#
 
     open-floating true
+}
+
+
+// ── Games ───────────────────────────────────────────────────────────────
+//Notifications to bottom Right
+window-rule {
+   match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+   default-floating-position x=10 y=10 relative-to="bottom-right"
+   open-focused false
+}
+
+
+
+// Open specific apps fullscreen. Add/remove app-ids as you like.
+// Steam games fullscreen example — usually games fullscreen themselves,
+// but this forces it at open time if they don't.
+window-rule {
+    match app-id=r#"^steam_proton"#	    // Twintail Launcher Games
+    match app-id=r#"^steam_app_default"#    // Heroic Games - Games
+    match app-id=r#"^steam_app_1245620$"#   // Elden Ring
+    match app-id=r#"^steam_app_2622380$"#   // Elden Ring Nightreign
+    match app-id=r#"^steam_app_3513350$"#   // Wuthering Waves 
+    match app-id=r#"^steam_app_3557620$"#   // Blue Archive
+    match app-id=r#"^steam_app_881020$"#   // Granblue Fantasy Re:Link
+    match app-id=r#"^blender$"#
+    // match app-id=r#"^"# // Game
+
+    //Exclude Launchers
+    exclude title=r#"(?i)(launcher|updater)"#
+
+    //Open Fullscreen
+    open-fullscreen true
+    open-on-workspace "playing"
+}
+
+//Steam Friends List
+window-rule {
+    match app-id="^steam$"
+    match title="^Friends List$"
+    
+    open-fullscreen false
+    open-on-workspace "gaming"
+   //open-focused false
+   
+    open-floating false
+    default-column-width { fixed 346; }
+}
+
+// #Heroic Games Launcher
+window-rule {
+    match app-id=r#"^gamescope$"#
+    open-on-workspace "gaming"
+    exclude title=r#"(?i)(launcher|updater)"#
+
+    open-fullscreen true
 }
 
