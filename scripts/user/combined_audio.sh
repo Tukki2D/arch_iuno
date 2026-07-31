@@ -1,7 +1,8 @@
-
-
+#The combined audio script:
 nano ~/.config/pipewire/pipewire.conf.d/combined-sink.conf
 
+#Get lists of audio sinks:
+pactl list sinks short
 
 -=-=-=-==-=-=-=
 
