@@ -6,11 +6,12 @@ include "./cfg/input.kdl"
 include "./cfg/outputs.kdl"
 include "./cfg/layout.kdl"
 include "./cfg/misc.kdl"
+include "./cfg/colors.kdl"
 
 //DMS OverRides
 include "dms/cursor.kdl"
 include "dms/colors.kdl" //Color overrides for Wallpaper
-include "dms/outputs.kdl"
+//include "dms/outputs.kdl"
 
 //WorkSpaces
 include "./cfg/workspaces.kdl"

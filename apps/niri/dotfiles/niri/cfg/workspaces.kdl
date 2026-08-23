@@ -60,6 +60,8 @@ window-rule {
     match app-id="heroic"
     match app-id="electron"
     match app-id="mpv"
+    match app-id="RSI Launcher"
+    match app-id="rsi launcher.exe"
 
     open-on-workspace "gaming" //Opens to Gaming Workspace
 }
@@ -101,8 +103,10 @@ window-rule {
     match app-id=r#"^steam_app_2622380$"#   // Elden Ring Nightreign
     match app-id=r#"^steam_app_3513350$"#   // Wuthering Waves 
     match app-id=r#"^steam_app_3557620$"#   // Blue Archive
-    match app-id=r#"^steam_app_881020$"#   // Granblue Fantasy Re:Link
-    match app-id=r#"^blender$"#
+    match app-id=r#"^steam_app_881020$"#    // Granblue Fantasy Re:Link
+    match app-id=r#"^steam_app_376210$"#    // The Isle
+
+    match app-id="Godot"
     // match app-id=r#"^"# // Game
 
     //Exclude Launchers
@@ -112,6 +116,18 @@ window-rule {
     open-fullscreen true
     open-on-workspace "playing"
 }
+
+window-rule {
+    match app-id="Godot"
+    match app-id="blender"
+
+    //open-maximized true
+    //open-floating true    
+
+    open-on-workspace "playing"
+}
+
+
 
 //Steam Friends List
 window-rule {

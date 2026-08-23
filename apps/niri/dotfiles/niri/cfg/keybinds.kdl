@@ -151,9 +151,9 @@ binds {
     // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
+   
 
-    
-	////////////////////////
+    	////////////////////////
 	//////WORKSPACES////////
 	////////////////////////
 
